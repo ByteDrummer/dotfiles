@@ -1,0 +1,54 @@
+{
+  "diagnostic.hintSign": "",
+  "diagnostic.errorSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "suggest.completionItemKindLabels": {
+    "method": "  ",
+    "function": "  ",
+    "variable": "[]",
+    "field": "  ",
+    "typeParameter": "<>",
+    "constant": "  ",
+    "class": " פּ ",
+    "interface": " 蘒",
+    "struct": "  ",
+    "event": "  ",
+    "operator": "  ",
+    "module": "  ",
+    "property": "  ",
+    "enum": " 練",
+    "reference": "  ",
+    "keyword": "  ",
+    "file": "  ",
+    "folder": " ﱮ ",
+    "color": "  ",
+    "unit": " 塞 ",
+    "snippet": "  ",
+    "text": "  ",
+    "constructor": "  ",
+    "value": "  ",
+    "enumMember": "  "
+  },
+  "eslint.format.enable": true,
+  "explorer.width": 35,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings.global": {
+    "s": "open:vsplit",
+    "S": "open:split"
+  },
+  "java.project.referencedLibraries": [
+    "./*"
+  ],
+  "python.linting.flake8Enabled": true,
+  "html.format.wrapLineLength": 80,
+  "html.autoClosingTags": true,
+  "sql.database": "postgresql",
+  "sql.formatOptions": {
+    "language": "postgresql"
+  },
+  "diagnostic.checkCurrentLine": true,
+  "clangd.path": "/home/eric/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
+}
