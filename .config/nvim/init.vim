@@ -137,10 +137,21 @@ require'lualine'.setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', {'diagnostics',
-            sections = {'error', 'warn', 'info', 'hint'},
-            symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
+    lualine_b = {'branch',
+      {
+        "diff",
+        diff_color = {
+            added = { fg = "#98c379" },
+            modified = { fg = "#e5c07b" },
+            removed = { fg = "#e06c75" },
         }
+      },
+
+      {
+        'diagnostics',
+        sections = {'error', 'warn', 'info', 'hint'},
+        symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
+      }
     },
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
