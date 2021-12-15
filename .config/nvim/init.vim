@@ -41,11 +41,6 @@ nnoremap <silent>    <A-c> :BufferClose<CR>
 nnoremap <silent> <C-s>    :BufferPick<CR>
 autocmd User CocExplorerOpenPre lua require'bufferline.state'.set_offset(35, '')
 autocmd User CocExplorerQuitPre lua require'bufferline.state'.set_offset(0)
-let bufferline.icon_separator_active = '▎'
-let bufferline.icon_separator_inactive = '▎'
-let bufferline.icon_close_tab = ''
-let bufferline.icon_close_tab_modified = '●'
-let bufferline.icon_pinned = '車'
 let bufferline.exclude_ft = ['dap-repl']
 
 " DAP settings ------------------------------------
@@ -142,7 +137,11 @@ require'lualine'.setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_b = {'branch', 'diff', {'diagnostics',
+            sections = {'error', 'warn', 'info', 'hint'},
+            symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
+        }
+    },
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
