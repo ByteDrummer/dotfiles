@@ -33,6 +33,7 @@ call plug#end()
 " barbar settings ------------------------------------
 let bufferline = get(g:, 'bufferline', {})
 let bufferline.tabpages = v:false
+let bufferline.icon_close_tab_modified = ''
 nnoremap <silent>    <A-,> :BufferPrevious<CR>
 nnoremap <silent>    <A-.> :BufferNext<CR>
 nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
@@ -131,7 +132,7 @@ require'lualine'.setup {
   options = {
     icons_enabled = true,
     theme = 'auto',
-    component_separators = ' ▏',
+    component_separators = '|',
     section_separators = '',
     disabled_filetypes = {},
     always_divide_middle = true,
