@@ -41,8 +41,8 @@ nnoremap <silent>    <A-c> :BufferClose<CR>
 nnoremap <silent> <C-s>    :BufferPick<CR>
 autocmd User CocExplorerOpenPre lua require'bufferline.state'.set_offset(35, '')
 autocmd User CocExplorerQuitPre lua require'bufferline.state'.set_offset(0)
-let bufferline.icon_separator_active = '|'
-let bufferline.icon_separator_inactive = '|'
+let bufferline.icon_separator_active = '▎'
+let bufferline.icon_separator_inactive = '▎'
 let bufferline.icon_close_tab = ''
 let bufferline.icon_close_tab_modified = '●'
 let bufferline.icon_pinned = '車'
@@ -295,4 +295,5 @@ set timeoutlen=500 " by default timeoutlen is 1000 ms
 set clipboard=unnamedplus " copy paste between vim and everything else
 set signcolumn=yes " always show gutter/signcolumn
 set noshowmode " disable -- INSERT -- messages
+set fillchars+=vert:\▏
 colorscheme onedark
