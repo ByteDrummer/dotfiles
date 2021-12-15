@@ -1,13 +1,13 @@
 call plug#begin('~/.vim/plugged')
 
 " theme plugins ------------------------------------
-Plug 'ryanoasis/vim-devicons' " file type icons
 Plug 'joshdick/onedark.vim' "colorscheme
 Plug 'Yggdroot/indentLine' " vertical indentation lines
-Plug 'vim-airline/vim-airline' " better status line
-Plug 'vim-airline/vim-airline-themes' " themes for airline
 Plug 'psliwka/vim-smoothie' " smooth scrolling
 Plug 'sheerun/vim-polyglot' " syntax packs for highlighting
+Plug 'nvim-lualine/lualine.nvim' " lua statusline
+Plug 'romgrk/barbar.nvim' " lua tabline
+Plug 'kyazdani42/nvim-web-devicons' " icon glyphs
 
 " workflow plugins ------------------------------------
 Plug 'jiangmiao/auto-pairs' " auto close brackets
@@ -29,6 +29,24 @@ Plug 'lervag/vimtex' " extra features for LaTeX
 Plug 'instant-markdown/vim-instant-markdown', {'rtp': 'after'} " Markdown viewer
 
 call plug#end()
+
+" barbar settings ------------------------------------
+let bufferline = get(g:, 'bufferline', {})
+let bufferline.tabpages = v:false
+nnoremap <silent>    <A-,> :BufferPrevious<CR>
+nnoremap <silent>    <A-.> :BufferNext<CR>
+nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
+nnoremap <silent>    <A->> :BufferMoveNext<CR>
+nnoremap <silent>    <A-c> :BufferClose<CR>
+nnoremap <silent> <C-s>    :BufferPick<CR>
+autocmd User CocExplorerOpenPre lua require'bufferline.state'.set_offset(35, '')
+autocmd User CocExplorerQuitPre lua require'bufferline.state'.set_offset(0)
+let bufferline.icon_separator_active = '|'
+let bufferline.icon_separator_inactive = '|'
+let bufferline.icon_close_tab = ''
+let bufferline.icon_close_tab_modified = '●'
+let bufferline.icon_pinned = '車'
+let bufferline.exclude_ft = ['dap-repl']
 
 " DAP settings ------------------------------------
 autocmd ColorScheme *
@@ -111,36 +129,37 @@ let g:vim_markdown_conceal_code_blocks = 0
 nmap <silent> ]h <Plug>(GitGutterNextHunk)
 nmap <silent> [h <Plug>(GitGutterPrevHunk)
 
-" airline settings ------------------------------------
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-let g:airline_exclude_filenames = ['coc-explorer', 'vista', 'dap', 'DAP']
-
-let g:airline_symbols.linenr = '  '
-let g:airline_symbols.maxlinenr = ' '
-let g:airline_symbols.colnr = ' '
-
-
-let g:airline_theme='onedark'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-
-" use round separators
-let g:airline_left_sep = "\uE0B4"
-let g:airline_left_alt_sep = "\uE0B5"
-let g:airline_right_sep = "\uE0B6"
-let g:airline_right_alt_sep = "\uE0B7"
-
-" make tabline minimal
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#show_tab_count = 0
+" lualine settings ------------------------------------
+lua << EOF
+require'lualine'.setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}
+EOF
 
 " coc settings ------------------------------------
 " highlight the symbol and its references when holding the cursor.
@@ -233,11 +252,6 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 " Vim settings ------------------------------------
-" close tab if no file is open
-autocmd BufEnter *
-    \ if winnr("$") == 1 && (&filetype == 'coc-explorer' || &filetype == 'vista') | q | endif |
-    \ if winnr("$") == 2 && &filetype == 'coc-explorer' && vista#sidebar#IsOpen() | q | q | endif
-
 syntax on " enable syntax highlighting
 filetype plugin on " enable filetype plugins
 set hidden " required to keep multiple buffers open multiple buffers

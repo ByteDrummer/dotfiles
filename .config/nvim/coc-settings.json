@@ -31,6 +31,7 @@
     "enumMember": "  "
   },
   "eslint.format.enable": true,
+  "explorer.file.reveal.auto": true,
   "explorer.width": 35,
   "explorer.file.showHiddenFiles": true,
   "explorer.icon.enableNerdfont": true,
