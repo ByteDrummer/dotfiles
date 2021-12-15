@@ -4,13 +4,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'joshdick/onedark.vim' "colorscheme
 Plug 'Yggdroot/indentLine' " vertical indentation lines
 Plug 'psliwka/vim-smoothie' " smooth scrolling
+let g:polyglot_disabled = ['autoindent'] " disable indentation detection
 Plug 'sheerun/vim-polyglot' " syntax packs for highlighting
 Plug 'nvim-lualine/lualine.nvim' " lua statusline
 Plug 'romgrk/barbar.nvim' " lua tabline
 Plug 'kyazdani42/nvim-web-devicons' " icon glyphs
 
 " workflow plugins ------------------------------------
-Plug 'jiangmiao/auto-pairs' " auto close brackets
 Plug 'airblade/vim-gitgutter' " git diff in gutter
 Plug 'tpope/vim-fugitive' " git integration
 Plug 'liuchengxu/vista.vim' " file outline for faster navigation
@@ -114,6 +114,7 @@ let g:onedark_hide_endofbuffer = 1
 let g:onedark_terminal_italics = 1
 
 " vim-polyglot settings ------------------------------------
+autocmd BufEnter * set indentexpr= "disable reindenting in insert mode
 let g:sql_type_default = 'pgsql'
 
 " disable concealing for Markdown
