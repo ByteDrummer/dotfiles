@@ -6,7 +6,20 @@ set -x
 sudo pacman -Syu
 
 # Install git
-sudo pacman -S git
+sudo pacman -S git base-devel
+
+# Install yay
+cd /opt
+sudo git clone https://aur.archlinux.org/yay.git
+sudo chown -R eric:eric ./yay
+cd yay
+makepkg -si
+
+# Switch shell
+chsh -s $(which zsh)
+
+# Install p10k
+yay -S zsh-theme-powerlevel10k-git
 
 # Install nodejs and npm for Coc
 sudo pacman -S nodejs npm
@@ -19,6 +32,7 @@ sudo pacman -S jre-openjdk
 sudo pacman -S jdk-openjdk
 
 # Install Ubuntu Mono nerd font for airline and dev icons
+sudo pacman -S wget
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/UbuntuMono.zip -P ~/Downloads/
 unzip ~/Downloads/UbuntuMono.zip -d ~/Downloads/UbuntuMono
 mkdir ~/.fonts
@@ -28,6 +42,7 @@ cp ~/Downloads/UbuntuMono/Ubuntu\ Mono*.ttf ~/.fonts
 # sudo pacman -S texlive-most
 
 # Install neovim
+sudo pacman -S xclip # for copy paste support
 sudo pacman -S neovim
 sudo pacman -S python-pip
 python3 -m pip install --user --upgrade pynvim
