@@ -31,12 +31,12 @@ sudo npm -g install instant-markdown-d
 sudo pacman -S jre-openjdk
 sudo pacman -S jdk-openjdk
 
-# Install Ubuntu Mono nerd font for airline and dev icons
-sudo pacman -S wget
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/UbuntuMono.zip -P ~/Downloads/
-unzip ~/Downloads/UbuntuMono.zip -d ~/Downloads/UbuntuMono
-mkdir ~/.fonts
-cp ~/Downloads/UbuntuMono/Ubuntu\ Mono*.ttf ~/.fonts
+# Install recommended font for p10k
+mkdir ~.fonts
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf -P ~/.fonts
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf -P ~/.fonts
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf -P ~/.fonts
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf -P ~/.fonts
 
 # Install LaTeX
 # sudo pacman -S texlive-most
