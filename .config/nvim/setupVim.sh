@@ -11,8 +11,9 @@ sudo pacman -S git base-devel
 # Switch shell
 chsh -s $(which zsh)
 
-# Install p10k
+# Install zsh plugins
 paru -S zsh-theme-powerlevel10k-git
+sudo pacman -S zsh-syntax-highlighting zsh-autosuggestions
 
 # Install nodejs and npm for Coc
 sudo pacman -S nodejs npm
