@@ -44,7 +44,7 @@ python3 -m pip install --user --upgrade pynvim
 # Install vim-plug and plugins
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-nvim --clean '+source ~/.config/nvim/init.vim' +PlugInstall +qall
+nvim +PlugInstall +qall
 
 # Install coc extensions
 nvim +'CocInstall -sync coc-explorer coc-snippets coc-marketplace coc-tsserver coc-eslint coc-sql coc-html coc-json coc-java coc-clangd coc-pyright coc-sh coc-vimtex' +qall
