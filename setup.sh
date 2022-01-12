@@ -39,7 +39,12 @@ wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20B
 sudo pacman -S xclip # for copy paste support
 sudo pacman -S neovim
 sudo pacman -S python-pip
-python3 -m pip install --user --upgrade pynvim
+
+# Install python modules for coc-pyright
+pip install pynvim
+pip install rope
+pip install autopep8
+pip install flake8
 
 # Install vim-plug and plugins
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -48,11 +53,6 @@ nvim +PlugInstall +qall
 
 # Install coc extensions
 nvim +'CocInstall -sync coc-explorer coc-snippets coc-marketplace coc-tsserver coc-eslint coc-sql coc-html coc-json coc-java coc-clangd coc-pyright coc-sh coc-vimtex' +qall
-
-# Install python modules for coc-pyright
-pip install rope
-pip install autopep8
-pip install flake8
 
 # Install terminal one-dark theme
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
