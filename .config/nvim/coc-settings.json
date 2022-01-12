@@ -45,7 +45,7 @@
   ],
   "python.linting.flake8Enabled": true,
   "html.format.wrapLineLength": 80,
-  "html.autoClosingTags": true,
+  "html.autoClosingTags": false,
   "sql.database": "postgresql",
   "sql.formatOptions": {
     "language": "postgresql"

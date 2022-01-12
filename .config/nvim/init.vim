@@ -42,7 +42,7 @@ nnoremap <silent>    <A-c> :BufferClose<CR>
 nnoremap <silent> <C-s>    :BufferPick<CR>
 autocmd User CocExplorerOpenPre lua require'bufferline.state'.set_offset(35, '')
 autocmd User CocExplorerQuitPre lua require'bufferline.state'.set_offset(0)
-let bufferline.exclude_ft = ['dap-repl']
+let bufferline.exclude_ft = ['dap-repl', 'qf']
 
 " DAP settings ------------------------------------
 autocmd ColorScheme *
@@ -74,7 +74,7 @@ nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
 
 " coc-explorer settings ------------------------------------
-nmap <F1> :CocCommand explorer<CR>
+nmap <silent> <F1> :CocCommand explorer<CR>
 
 " floaterm settings ------------------------------------
 let g:floaterm_keymap_toggle = '<Leader>t'
@@ -99,7 +99,7 @@ autocmd ColorScheme *
       \ highlight QuickScopeSecondary guifg=#56b6c2 gui=underline ctermfg=81 cterm=underline
 
 " vista.vim settings ------------------------------------
-nmap <F2> :Vista!!<CR>
+nmap <silent> <F2> :Vista!!<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'coc'
 let g:vista#renderer#enable_icon = 1
