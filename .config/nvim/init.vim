@@ -260,7 +260,7 @@ let g:vista_sidebar_width = 35
 " indentLine setting ------------------------------------s
 let g:indentLine_char = '▏'
 let g:indentLine_fileTypeExclude = ['NvimTree', 'vista']
-let g:indentLine_concealcursor = "n" " change concealcursor overwrite
+let g:indentLine_concealcursor = "" " change concealcursor overwrite
 
 " onedark settings ------------------------------------
 let g:onedark_sidebars = ['coc-explorer']
