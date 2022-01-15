@@ -32,6 +32,7 @@ autocmd ColorScheme *
 
 let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_git_hl = 1
+let g:nvim_tree_highlight_opened_files = 1
 
 let g:nvim_tree_icons = {
     \ 'default': '',

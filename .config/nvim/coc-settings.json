@@ -31,15 +31,6 @@
     "enumMember": "  "
   },
   "eslint.format.enable": true,
-  "explorer.file.reveal.auto": true,
-  "explorer.width": 35,
-  "explorer.file.showHiddenFiles": true,
-  "explorer.icon.enableNerdfont": true,
-  "explorer.previewAction.onHover": false,
-  "explorer.keyMappings.global": {
-    "s": "open:vsplit",
-    "S": "open:split"
-  },
   "java.project.referencedLibraries": [
     "./*"
   ],
