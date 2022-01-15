@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 " theme plugins ------------------------------------
-Plug 'joshdick/onedark.vim' "colorscheme
+Plug 'ful1e5/onedark.nvim' "colorscheme
 Plug 'Yggdroot/indentLine' " vertical indentation lines
 Plug 'psliwka/vim-smoothie' " smooth scrolling
 let g:polyglot_disabled = ['autoindent'] " disable indentation detection
@@ -132,8 +132,7 @@ let g:indentLine_fileTypeExclude = ['coc-explorer', 'vista']
 let g:indentLine_concealcursor = "n" " change concealcursor overwrite
 
 " onedark settings ------------------------------------
-let g:onedark_hide_endofbuffer = 1
-let g:onedark_terminal_italics = 1
+let g:onedark_sidebars = ['coc-explorer']
 
 " vim-polyglot settings ------------------------------------
 autocmd BufEnter * set indentexpr= "disable reindenting in insert mode
