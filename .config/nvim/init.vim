@@ -4,8 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ful1e5/onedark.nvim' "colorscheme
 Plug 'Yggdroot/indentLine' " vertical indentation lines
 Plug 'psliwka/vim-smoothie' " smooth scrolling
-let g:polyglot_disabled = ['autoindent'] " disable indentation detection
-Plug 'sheerun/vim-polyglot' " syntax packs for highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lualine/lualine.nvim' " lua statusline
 Plug 'romgrk/barbar.nvim' " lua tabline
 Plug 'kyazdani42/nvim-web-devicons' " icon glyphs
@@ -29,6 +28,26 @@ Plug 'lervag/vimtex' " extra features for LaTeX
 Plug 'instant-markdown/vim-instant-markdown', {'rtp': 'after'} " Markdown viewer
 
 call plug#end()
+
+" treesitter settings ------------------------------------
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = {},
+  },
+  indent = {
+    enable = false,
+    disable = {},
+  },
+  ensure_installed = {
+    'javascript',
+    'html',
+    'python',
+    'bash'
+  },
+}
+EOF
 
 " barbar settings ------------------------------------
 let bufferline = get(g:, 'bufferline', {})
@@ -133,10 +152,6 @@ let g:indentLine_concealcursor = "n" " change concealcursor overwrite
 
 " onedark settings ------------------------------------
 let g:onedark_sidebars = ['coc-explorer']
-
-" vim-polyglot settings ------------------------------------
-autocmd BufEnter * set indentexpr= "disable reindenting in insert mode
-let g:sql_type_default = 'pgsql'
 
 " disable concealing for Markdown
 let g:vim_markdown_conceal = 0
