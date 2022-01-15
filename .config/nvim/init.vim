@@ -12,7 +12,6 @@ Plug 'kyazdani42/nvim-tree.lua' " file tree
 
 " workflow plugins ------------------------------------
 Plug 'airblade/vim-gitgutter' " git diff in gutter
-Plug 'tpope/vim-fugitive' " git integration
 Plug 'liuchengxu/vista.vim' " file outline for faster navigation
 Plug 'voldikss/vim-floaterm' " floating terminal window
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
@@ -35,6 +34,7 @@ autocmd ColorScheme *
   \ highlight NvimTreeFolderIcon guifg=#61afef
 
 let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_git_hl = 1
 
 let g:nvim_tree_icons = {
     \ 'default': '',
@@ -105,7 +105,7 @@ require'nvim-tree'.setup {
   },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
     timeout = 500,
   },
   view = {
@@ -251,7 +251,7 @@ nmap <silent> <F2> :Vista!!<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'coc'
 let g:vista#renderer#enable_icon = 1
-let g:vista_sidebar_width = 35
+let g:vista_sidebar_width = 34
 
 " indentLine setting ------------------------------------s
 let g:indentLine_char = '▏'
