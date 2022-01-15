@@ -234,8 +234,8 @@ let g:floaterm_width=0.6
 let g:floaterm_height=0.6
 let g:floaterm_title= ''
 autocmd ColorScheme *
-      \ hi Floaterm guibg=NONE |
-      \ hi FloatermBorder guibg=NONE guifg=#646e82
+      \ hi Floaterm guibg=#282c34 |
+      \ hi FloatermBorder guibg=#282c34 guifg=#646e82
 
 " Markdown viewer settings ------------------------------------
 let g:instant_markdown_autostart = 0
