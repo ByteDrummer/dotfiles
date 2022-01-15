@@ -8,6 +8,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lualine/lualine.nvim' " lua statusline
 Plug 'romgrk/barbar.nvim' " lua tabline
 Plug 'kyazdani42/nvim-web-devicons' " icon glyphs
+Plug 'kyazdani42/nvim-tree.lua' " file tree
 
 " workflow plugins ------------------------------------
 Plug 'airblade/vim-gitgutter' " git diff in gutter
@@ -28,6 +29,122 @@ Plug 'lervag/vimtex' " extra features for LaTeX
 Plug 'instant-markdown/vim-instant-markdown', {'rtp': 'after'} " Markdown viewer
 
 call plug#end()
+
+" nvim-tree settings ------------------------------------
+autocmd ColorScheme * 
+  \ highlight NvimTreeFolderIcon guifg=#c678dd
+
+let g:nvim_tree_indent_markers = 1
+
+let g:nvim_tree_icons = {
+    \ 'default': '',
+    \ 'symlink': '',
+    \ 'git': {
+    \   'unstaged': "✗",
+    \   'staged': "✓",
+    \   'unmerged': "",
+    \   'renamed': "➜",
+    \   'untracked': "★",
+    \   'deleted': "",
+    \   'ignored': "◌"
+    \   },
+    \ 'folder': {
+    \   'arrow_open': "",
+    \   'arrow_closed': "",
+    \   'default': "",
+    \   'open': "",
+    \   'empty': "",
+    \   'empty_open': "",
+    \   'symlink': "",
+    \   'symlink_open': "",
+    \   }
+    \ }
+
+let g:nvim_tree_show_icons = {
+    \ 'git': 1,
+    \ 'folders': 1,
+    \ 'files': 1,
+    \ 'folder_arrows': 0,
+    \ }
+
+lua << EOF
+require'nvim-tree'.setup {
+  disable_netrw       = true,
+  hijack_netrw        = true,
+  open_on_setup       = false,
+  ignore_ft_on_setup  = {},
+  auto_close          = false,
+  open_on_tab         = false,
+  hijack_cursor       = false,
+  update_cwd          = false,
+  update_to_buf_dir   = {
+    enable = true,
+    auto_open = true,
+  },
+  diagnostics = {
+    enable = true,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    }
+  },
+  update_focused_file = {
+    enable      = false,
+    update_cwd  = false,
+    ignore_list = {}
+  },
+  system_open = {
+    cmd  = nil,
+    args = {}
+  },
+  filters = {
+    dotfiles = false,
+    custom = {}
+  },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 500,
+  },
+  view = {
+    width = 35,
+    height = 30,
+    hide_root_folder = false,
+    side = 'left',
+    auto_resize = false,
+    mappings = {
+      custom_only = false,
+      list = {}
+    },
+    number = false,
+    relativenumber = false,
+    signcolumn = "yes"
+  },
+  trash = {
+    cmd = "trash",
+    require_confirm = true
+  }
+}
+
+tree = {}
+tree.toggle = function()
+  require'nvim-tree'.toggle()
+  if require'nvim-tree.view'.win_open() then
+    require'bufferline.state'.set_offset(35, '')
+  else
+    require'bufferline.state'.set_offset(0)
+  end
+end
+
+return tree
+EOF
+
+nmap <silent> <F1> :lua tree.toggle()<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+
 
 " treesitter settings ------------------------------------
 lua << EOF
@@ -59,8 +176,6 @@ nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
 nnoremap <silent>    <A->> :BufferMoveNext<CR>
 nnoremap <silent>    <A-c> :BufferClose<CR>
 nnoremap <silent> <C-s>    :BufferPick<CR>
-autocmd User CocExplorerOpenPre lua require'bufferline.state'.set_offset(35, '')
-autocmd User CocExplorerQuitPre lua require'bufferline.state'.set_offset(0)
 let bufferline.exclude_ft = ['dap-repl', 'qf']
 
 " DAP settings ------------------------------------
@@ -113,9 +228,6 @@ nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.i
 nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
 
-" coc-explorer settings ------------------------------------
-nmap <silent> <F1> :CocCommand explorer<CR>
-
 " floaterm settings ------------------------------------
 let g:floaterm_keymap_toggle = '<Leader>t'
 let g:floaterm_width=0.6
@@ -147,7 +259,7 @@ let g:vista_sidebar_width = 35
 
 " indentLine setting ------------------------------------s
 let g:indentLine_char = '▏'
-let g:indentLine_fileTypeExclude = ['coc-explorer', 'vista']
+let g:indentLine_fileTypeExclude = ['NvimTree', 'vista']
 let g:indentLine_concealcursor = "n" " change concealcursor overwrite
 
 " onedark settings ------------------------------------
