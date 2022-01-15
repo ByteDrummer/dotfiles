@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-" theme plugins ------------------------------------
+" plugins ------------------------------------
 Plug 'ful1e5/onedark.nvim' "colorscheme
 Plug 'Yggdroot/indentLine' " vertical indentation lines
 Plug 'psliwka/vim-smoothie' " smooth scrolling
@@ -9,8 +9,6 @@ Plug 'nvim-lualine/lualine.nvim' " lua statusline
 Plug 'romgrk/barbar.nvim' " lua tabline
 Plug 'kyazdani42/nvim-web-devicons' " icon glyphs
 Plug 'kyazdani42/nvim-tree.lua' " file tree
-
-" workflow plugins ------------------------------------
 Plug 'airblade/vim-gitgutter' " git diff in gutter
 Plug 'liuchengxu/vista.vim' " file outline for faster navigation
 Plug 'voldikss/vim-floaterm' " floating terminal window
@@ -24,7 +22,6 @@ Plug 'tpope/vim-surround' " quickly surround selection with brackets
 Plug 'adelarsq/vim-matchit' " extension of % matching, helpful for html tags
 Plug 'unblevable/quick-scope' " show unique word characters in a line
 Plug 'lervag/vimtex' " extra features for LaTeX
-
 Plug 'instant-markdown/vim-instant-markdown', {'rtp': 'after'} " Markdown viewer
 
 call plug#end()
