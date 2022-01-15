@@ -118,8 +118,8 @@ nmap <silent> <F1> :CocCommand explorer<CR>
 
 " floaterm settings ------------------------------------
 let g:floaterm_keymap_toggle = '<Leader>t'
-let g:floaterm_width=0.7
-let g:floaterm_height=0.7
+let g:floaterm_width=0.6
+let g:floaterm_height=0.6
 let g:floaterm_title= '$1/$2'
 let g:floaterm_keymap_prev = '<F3>'
 let g:floaterm_keymap_next = '<F4>'
@@ -152,6 +152,7 @@ let g:indentLine_concealcursor = "n" " change concealcursor overwrite
 
 " onedark settings ------------------------------------
 let g:onedark_sidebars = ['coc-explorer']
+let g:onedark_dark_float = 0
 
 " disable concealing for Markdown
 let g:vim_markdown_conceal = 0
