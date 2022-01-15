@@ -217,7 +217,7 @@ vim.fn.sign_define('DapBreakpoint', {text='', texthl='DapBreakpoint', linehl=
 vim.fn.sign_define('DapStopped', {text='', texthl='DapStopped', linehl='', numhl=''})
 EOF
 
-nnoremap <silent> <F7> :lua require'dapui'.toggle()<CR>
+nnoremap <silent> <F3> :lua require'dapui'.toggle()<CR>
 nnoremap <silent> <leader>c :lua require'dap'.continue()<CR>
 nnoremap <silent> <leader>s :lua require'dap'.step_over()<CR>
 nnoremap <silent> <leader>si :lua require'dap'.step_into()<CR>
@@ -232,14 +232,10 @@ nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
 let g:floaterm_keymap_toggle = '<Leader>t'
 let g:floaterm_width=0.6
 let g:floaterm_height=0.6
-let g:floaterm_title= '$1/$2'
-let g:floaterm_keymap_prev = '<F3>'
-let g:floaterm_keymap_next = '<F4>'
-let g:floaterm_keymap_new = '<F5>'
-let g:floaterm_keymap_kill = '<F6>'
+let g:floaterm_title= ''
 autocmd ColorScheme *
       \ hi Floaterm guibg=NONE |
-      \ hi FloatermBorder guibg=NONE guifg=#abb2bf
+      \ hi FloatermBorder guibg=NONE guifg=#646e82
 
 " Markdown viewer settings ------------------------------------
 let g:instant_markdown_autostart = 0
