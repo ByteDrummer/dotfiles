@@ -109,7 +109,7 @@ require'nvim-tree'.setup {
     timeout = 500,
   },
   view = {
-    width = 35,
+    width = 34,
     height = 30,
     hide_root_folder = false,
     side = 'left',
@@ -259,7 +259,7 @@ let g:indentLine_fileTypeExclude = ['NvimTree', 'vista']
 let g:indentLine_concealcursor = "" " change concealcursor overwrite
 
 " onedark settings ------------------------------------
-let g:onedark_sidebars = ['coc-explorer']
+let g:onedark_sidebars = ['coc-explorer', 'vista', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks', 'dapui_watches']
 let g:onedark_dark_float = 0
 
 " disable concealing for Markdown
@@ -278,7 +278,7 @@ require'lualine'.setup {
     theme = 'auto',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
-    disabled_filetypes = {},
+    disabled_filetypes = {'NvimTree', 'vista'},
     always_divide_middle = true,
   },
   sections = {
@@ -451,5 +451,8 @@ set timeoutlen=500 " by default timeoutlen is 1000 ms
 set clipboard=unnamedplus " copy paste between vim and everything else
 set signcolumn=yes " always show gutter/signcolumn
 set noshowmode " disable -- INSERT -- messages
-set fillchars+=vert:\▏
+autocmd ColorScheme * 
+  \ hi VertSplit guibg=#21252b guifg=#21252b|
+  \ hi StatusLineNC guibg=#21252b guifg=#21252b|
+  \ hi StatusLine guibg=#21252b guifg=#21252b|
 colorscheme onedark
