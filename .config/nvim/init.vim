@@ -32,7 +32,7 @@ call plug#end()
 
 " nvim-tree settings ------------------------------------
 autocmd ColorScheme * 
-  \ highlight NvimTreeFolderIcon guifg=#c678dd
+  \ highlight NvimTreeFolderIcon guifg=#61afef
 
 let g:nvim_tree_indent_markers = 1
 
