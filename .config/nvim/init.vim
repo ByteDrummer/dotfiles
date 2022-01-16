@@ -9,7 +9,8 @@ Plug 'nvim-lualine/lualine.nvim' " lua statusline
 Plug 'romgrk/barbar.nvim' " lua tabline
 Plug 'kyazdani42/nvim-web-devicons' " icon glyphs
 Plug 'kyazdani42/nvim-tree.lua' " file tree
-Plug 'airblade/vim-gitgutter' " git diff in gutter
+Plug 'nvim-lua/plenary.nvim' " gitsigns dependancy
+Plug 'lewis6991/gitsigns.nvim' " diff symbols
 Plug 'liuchengxu/vista.vim' " file outline for faster navigation
 Plug 'akinsho/toggleterm.nvim' " terminal
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
@@ -30,6 +31,32 @@ autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
+
+" gitsigns settings ------------------------------------
+lua << EOF
+require('gitsigns').setup({
+  keymaps = {
+    noremap = true,
+
+    ['n ]h'] = { expr = true, "&diff ? ']h' : '<cmd>Gitsigns next_hunk<CR>'"},
+    ['n [h'] = { expr = true, "&diff ? '[h' : '<cmd>Gitsigns prev_hunk<CR>'"},
+
+    ['n <leader>hs'] = '<cmd>Gitsigns stage_hunk<CR>',
+    ['v <leader>hs'] = ':Gitsigns stage_hunk<CR>',
+    ['n <leader>hu'] = '<cmd>Gitsigns undo_stage_hunk<CR>',
+    ['n <leader>hr'] = '<cmd>Gitsigns reset_hunk<CR>',
+    ['v <leader>hr'] = ':Gitsigns reset_hunk<CR>',
+    ['n <leader>hR'] = '<cmd>Gitsigns reset_buffer<CR>',
+    ['n <leader>hp'] = '<cmd>Gitsigns preview_hunk<CR>',
+    ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
+    ['n <leader>hS'] = '<cmd>Gitsigns stage_buffer<CR>',
+    ['n <leader>hU'] = '<cmd>Gitsigns reset_buffer_index<CR>',
+
+    ['o ih'] = ':<C-U>Gitsigns select_hunk<CR>',
+    ['x ih'] = ':<C-U>Gitsigns select_hunk<CR>'
+  }
+})
+EOF
 
 " toggleterm settings ------------------------------------
 lua << EOF
@@ -266,10 +293,6 @@ let g:onedark_dark_float = 0
 " disable concealing for Markdown
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
-
-" gitgutter settings ------------------------------------
-nmap <silent> ]h <Plug>(GitGutterNextHunk)
-nmap <silent> [h <Plug>(GitGutterPrevHunk)
 
 " lualine settings ------------------------------------
 lua << EOF
