@@ -52,9 +52,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim +PlugInstall +qall
 
-# Install coc extensions
-nvim +'CocInstall -sync coc-snippets coc-marketplace coc-tsserver coc-eslint coc-sql coc-html coc-json coc-java coc-clangd coc-pyright coc-sh coc-vimtex' +qall
-
 # Install terminal one-dark theme
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
 
