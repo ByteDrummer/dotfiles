@@ -11,7 +11,7 @@ Plug 'kyazdani42/nvim-web-devicons' " icon glyphs
 Plug 'kyazdani42/nvim-tree.lua' " file tree
 Plug 'airblade/vim-gitgutter' " git diff in gutter
 Plug 'liuchengxu/vista.vim' " file outline for faster navigation
-Plug 'voldikss/vim-floaterm' " floating terminal window
+Plug 'akinsho/toggleterm.nvim' " terminal
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
 Plug 'mfussenegger/nvim-dap' "DAP
 Plug 'Pocco81/DAPInstall.nvim' "Manager for DAP adapters
@@ -25,6 +25,14 @@ Plug 'lervag/vimtex' " extra features for LaTeX
 Plug 'instant-markdown/vim-instant-markdown', {'rtp': 'after'} " Markdown viewer
 
 call plug#end()
+
+" toggleterm settings ------------------------------------
+lua << EOF
+require("toggleterm").setup{
+  shade_terminals = false,
+  open_mapping = [[<c-\>]]
+}
+EOF
 
 " nvim-tree settings ------------------------------------
 autocmd ColorScheme * 
@@ -225,15 +233,6 @@ nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Break
 nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
-
-" floaterm settings ------------------------------------
-let g:floaterm_keymap_toggle = '<Leader>t'
-let g:floaterm_width=0.6
-let g:floaterm_height=0.6
-let g:floaterm_title= ''
-autocmd ColorScheme *
-      \ hi Floaterm guibg=#282c34 |
-      \ hi FloatermBorder guibg=#282c34 guifg=#646e82
 
 " Markdown viewer settings ------------------------------------
 let g:instant_markdown_autostart = 0
