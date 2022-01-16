@@ -449,6 +449,6 @@ set signcolumn=yes " always show gutter/signcolumn
 set noshowmode " disable -- INSERT -- messages
 autocmd ColorScheme * 
   \ hi VertSplit guibg=#21252b guifg=#21252b|
-  \ hi StatusLineNC guibg=#21252b guifg=#21252b|
-  \ hi StatusLine guibg=#21252b guifg=#21252b|
+  \ hi StatusLineNC gui=bold guibg=#21252b guifg=#21252b|
+  \ hi StatusLine gui=bold guibg=#21252b guifg=#21252b|
 colorscheme onedark
