@@ -26,7 +26,7 @@ sudo pacman -S jre-openjdk
 sudo pacman -S jdk-openjdk
 
 # Install recommended font for p10k
-mkdir ~.fonts
+mkdir ~/.fonts
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf -P ~/.fonts
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf -P ~/.fonts
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf -P ~/.fonts
