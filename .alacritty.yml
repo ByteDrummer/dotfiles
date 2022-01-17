@@ -60,3 +60,6 @@ window:
     x: 10
     y: 10
   decorations: none
+
+env:
+  TERM: xterm-256color
