@@ -51,8 +51,10 @@ pip install flake8
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-# Install terminal one-dark theme
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
+# Install Alacritty
+sudo pacman -S alacritty
+paru -S nautilus-open-any-terminal
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacritty
 
 echo 'PY NOTE: YOU WILL NEED TO INSTALL pynvim AND OTHER NECESSARY PACKAGES IN YOUR VENV'
 echo 'JS NOTE: MAKE SURE TO SET UP ESLINT FOR YOUR PROJECT WITH "npx eslint --init" AFTER APPROVING IT INSIDE OF VIM'
