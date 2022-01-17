@@ -55,6 +55,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 sudo pacman -S alacritty
 paru -S nautilus-open-any-terminal
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacritty
+gsettings set org.gnome.desktop.default-applications.terminal exec
 
 # Install tmux
 sudo pacman -S tmux
