@@ -253,7 +253,7 @@ dap_install.config("python", {})
 
 dap.adapters.python = {
   type = 'executable';
-  command = 'python';
+  command = '/usr/bin/python';
   args = { '-m', 'debugpy.adapter' };
 }
 
