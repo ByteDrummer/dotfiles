@@ -239,6 +239,12 @@ dap_install.setup({
 
 dap_install.config("python", {})
 
+dap.adapters.python = {
+  type = 'executable';
+  command = 'python';
+  args = { '-m', 'debugpy.adapter' };
+}
+
 dap.configurations.python = {
   {
     type = 'python'; -- the type here established the link to the adapter definition: `dap.adapters.python`
