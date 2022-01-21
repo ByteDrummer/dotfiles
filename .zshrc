@@ -12,4 +12,5 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH="$HOME/.local/bin:$PATH"
+# append to end to avoid taking precedence of pip under python venv
+export PATH="$PATH:$HOME/.local/bin"
