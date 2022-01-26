@@ -47,6 +47,8 @@ pip install rope
 pip install autopep8
 pip install flake8
 
+# pip install pynvim rope autopep8 flake8
+
 # Install vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
