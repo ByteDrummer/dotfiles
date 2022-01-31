@@ -251,6 +251,13 @@ dap_install.setup({
       installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
 })
 
+promptArgs = function()
+  out = {}
+  str = vim.fn.input('Provide args: ');
+  str:gsub("%S+", function(c) table.insert(out,c) end)
+  return out
+end;
+ 
 dap_install.config("python", {})
 
 dap.adapters.python = {
@@ -275,6 +282,7 @@ dap.configurations.python = {
         return '/usr/bin/python'
       end
     end;
+    args = promptArgs;
   },
 }
 
