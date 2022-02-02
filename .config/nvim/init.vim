@@ -186,8 +186,8 @@ require'nvim-tree'.setup {
   }
 }
 
-tree = {}
-tree.toggle = function()
+tree_toggle = function()
+  require"dapui".close()
   require'nvim-tree'.toggle()
   if require'nvim-tree.view'.win_open() then
     require'bufferline.state'.set_offset(35, '')
@@ -195,11 +195,9 @@ tree.toggle = function()
     require'bufferline.state'.set_offset(0)
   end
 end
-
-return tree
 EOF
 
-nmap <silent> <F1> :lua tree.toggle()<CR>
+nmap <silent> <F1> :lua tree_toggle()<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
@@ -288,9 +286,16 @@ dap.configurations.python = {
 
 vim.fn.sign_define('DapBreakpoint', {text='', texthl='DapBreakpoint', linehl='', numhl=''})
 vim.fn.sign_define('DapStopped', {text='', texthl='DapStopped', linehl='', numhl=''})
+
+debug_mode_toggle = function()
+  vim.cmd('Vista!')
+  require'nvim-tree'.close()
+  require'bufferline.state'.set_offset(0)
+  require'dapui'.toggle()
+end
 EOF
 
-nnoremap <silent> <F3> :lua require'dapui'.toggle()<CR>
+nnoremap <silent> <F3> :lua debug_mode_toggle()<CR>
 nnoremap <silent> <leader>c :lua require'dap'.continue()<CR>
 nnoremap <silent> <leader>s :lua require'dap'.step_over()<CR>
 nnoremap <silent> <leader>si :lua require'dap'.step_into()<CR>
@@ -311,7 +316,14 @@ autocmd ColorScheme *
       \ highlight QuickScopeSecondary guifg=#56b6c2 gui=underline ctermfg=81 cterm=underline
 
 " vista.vim settings ------------------------------------
-nmap <silent> <F2> :Vista!!<CR>
+lua << EOF
+vista_toggle = function()
+  require'dapui'.close()
+  vim.cmd('Vista!!')
+end
+EOF
+
+nnoremap <silent> <F2> :lua vista_toggle()<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'coc'
 let g:vista#renderer#enable_icon = 1
