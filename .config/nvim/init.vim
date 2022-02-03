@@ -256,8 +256,6 @@ promptArgs = function()
   return out
 end;
  
-dap_install.config("python", {})
-
 dap.adapters.python = {
   type = 'executable';
   command = '/usr/bin/python';
