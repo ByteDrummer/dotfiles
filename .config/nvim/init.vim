@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 " plugins ------------------------------------
 Plug 'ful1e5/onedark.nvim' "colorscheme
-Plug 'Yggdroot/indentLine' " vertical indentation lines
+Plug 'lukas-reineke/indent-blankline.nvim' " vertical indentation lines
 Plug 'psliwka/vim-smoothie' " smooth scrolling
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lualine/lualine.nvim' " lua statusline
@@ -326,11 +326,6 @@ let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'coc'
 let g:vista#renderer#enable_icon = 1
 let g:vista_sidebar_width = 34
-
-" indentLine setting ------------------------------------s
-let g:indentLine_char = '▏'
-let g:indentLine_fileTypeExclude = ['NvimTree', 'vista']
-let g:indentLine_concealcursor = "" " change concealcursor overwrite
 
 " onedark settings ------------------------------------
 let g:onedark_sidebars = ['coc-explorer', 'vista', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks', 'dapui_watches']
