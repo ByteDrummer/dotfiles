@@ -331,10 +331,6 @@ let g:vista_sidebar_width = 34
 let g:onedark_sidebars = ['coc-explorer', 'vista', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks', 'dapui_watches']
 let g:onedark_dark_float = 0
 
-" disable concealing for Markdown
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_conceal_code_blocks = 0
-
 " lualine settings ------------------------------------
 lua << EOF
 require'lualine'.setup {
