@@ -472,51 +472,40 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 " Vim settings ------------------------------------
-syntax on " enable syntax highlighting
-filetype plugin on " enable filetype plugins
-set hidden " required to keep multiple buffers open multiple buffers
-set encoding=utf-8 " set utf-8 as the encoding
-set fileencoding=utf-8 " the encoding written to file
-set pumheight=10 " makes popup menu smaller
-set cmdheight=2  " more space for displaying messages
+syntax enable " Enables syntax highlighing
+set hidden " Required to keep multiple buffers open multiple buffers
+set encoding=utf-8 " The encoding displayed
+set pumheight=10 " Makes popup menu smaller
+set fileencoding=utf-8 " The encoding written to file
+set ruler " Show the cursor position all the time
+set cmdheight=2 " More space for displaying messages
 set iskeyword+=- " treat dash separated words as a word text object"
-set termguicolors " enable true colors
-set splitbelow " horizontal splits will automatically be below
-set splitright " vertical splits will automatically be to the right
-set foldmethod=indent " enable folding based on indentation
-set foldlevelstart=99 " start unfolded
-set ignorecase " case insensitive search
-set smartcase " case sensetive search when there are uppercase characters
-set showbreak=↳ " linewarp marker symbol
-set hlsearch " highlight search matches
-set tabstop=2 " show existing tab with 2 spaces width
-set shiftwidth=2 " when indenting with >, <, and = use 2 spaces width
-set softtabstop=2 " when indenting with tab and backspace use 2 spaces width
-set expandtab " use softtabstop number of spaces when indenting
-set smarttab " makes tabbing smarter will realize you have 2 vs 4
-set autoindent " apply indentation of current line to next line
-set smartindent " apply indentation after { symbols
-set ruler " show line and character poistion
-set undolevels=1000	" number of undo levels
-set backspace=indent,eol,start " no limit to backspace
-set cursorline " highlight the line the cursor is on
-set number  " show line numbers
-set relativenumber  "show number away from current line relatively
-set showtabline=2 " always show tabs
-set mouse=a " enable mouse mode
-set incsearch " show highling while searching
-set background=dark  " set the scheme to have dark background
-set colorcolumn=81 " indicator of the textwidth
-set nobackup " this is recommended by coc
-set nowritebackup " this is recommended by coc
-set updatetime=300 " faster completion
-set shortmess+=c " Don't pass messages to ins-completion-menu.
-set timeoutlen=500 " by default timeoutlen is 1000 ms
-set clipboard=unnamedplus " copy paste between vim and everything else
-set signcolumn=yes " always show gutter/signcolumn
-set noshowmode " disable -- INSERT -- messages
-autocmd ColorScheme * 
-  \ hi VertSplit guibg=#21252b guifg=#21252b|
-  \ hi StatusLineNC gui=bold guibg=#21252b guifg=#21252b|
-  \ hi StatusLine gui=bold guibg=#21252b guifg=#21252b|
+set mouse=a " Enable your mouse
+set splitbelow " Horizontal splits will automatically be below
+set splitright " Vertical splits will automatically be to the right
+set t_Co=256 " Support 256 colors
+set conceallevel=0 " So that I can see `` in markdown files
+set tabstop=2 " Insert 2 spaces for a tab
+set shiftwidth=2 " Change the number of space characters inserted for indentation
+set smarttab " Makes tabbing smarter will realize you have 2 vs 4
+set expandtab " Converts tabs to spaces
+set smartindent " Makes indenting smart
+set autoindent " Good auto indent
+set number " Line numbers
+set cursorline " Enable highlighting of the current line
+set background=dark " tell vim what the background color looks like
+set showtabline=2 " Always show tabs
+set noshowmode " We don't need to see things like -- INSERT -- anymore
+set nobackup " This is recommended by coc
+set nowritebackup " This is recommended by coc
+set updatetime=300 " Faster completion
+set timeoutlen=500 " By default timeoutlen is 1000 ms
+set formatoptions-=cro " Stop newline continution of comments
+set clipboard=unnamedplus " Copy paste between vim and everything else
+set colorcolumn=81 " Column indicating max text width
+set relativenumber " Line numbers counted relative to cursor
 colorscheme onedark
+" Darken split separator and statusline placeholder
+hi VertSplit guibg=#21252b guifg=#21252b
+hi StatusLineNC gui=bold guibg=#21252b guifg=#21252b
+hi StatusLine gui=bold guibg=#21252b guifg=#21252b
