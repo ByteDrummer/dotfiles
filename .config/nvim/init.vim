@@ -500,7 +500,7 @@ set nobackup " This is recommended by coc
 set nowritebackup " This is recommended by coc
 set updatetime=300 " Faster completion
 set timeoutlen=500 " By default timeoutlen is 1000 ms
-set formatoptions-=cro " Stop newline continution of comments
+autocmd FileType * set formatoptions-=cro " Stop newline continution of comments
 set clipboard=unnamedplus " Copy paste between vim and everything else
 set colorcolumn=81 " Column indicating max text width
 set relativenumber " Line numbers counted relative to cursor
