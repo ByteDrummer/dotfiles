@@ -504,6 +504,7 @@ autocmd FileType * set formatoptions-=cro " Stop newline continution of comments
 set clipboard=unnamedplus " Copy paste between vim and everything else
 set colorcolumn=81 " Column indicating max text width
 set relativenumber " Line numbers counted relative to cursor
+set signcolumn=yes " Always show the signcolumn
 colorscheme onedark
 " Darken split separator and statusline placeholder
 hi VertSplit guibg=#21252b guifg=#21252b
