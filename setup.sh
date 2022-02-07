@@ -33,7 +33,8 @@ wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20I
 wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf -P ~/.fonts
 
 # Install LaTeX
-# sudo pacman -S texlive-most
+sudo pacman -S texlive-most
+paru -S texlive-latexindent-meta # install dependencies for latexindent
 
 # Install neovim
 sudo pacman -S xclip # for copy paste support
