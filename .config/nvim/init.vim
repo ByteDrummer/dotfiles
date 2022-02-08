@@ -382,21 +382,6 @@ EOF
 " List of extensions to install
 let g:coc_global_extensions = ['coc-snippets', 'coc-marketplace', 'coc-tsserver', 'coc-eslint', 'coc-sql', 'coc-html', 'coc-json', 'coc-java', 'coc-clangd', 'coc-pyright', 'coc-sh', 'coc-vimtex', 'coc-texlab', 'coc-ltex']
 
-" highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
 " use tab to trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -421,6 +406,45 @@ endif
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+" use `[d` and `]d` to navigate diagnostics
+nmap <silent> [d <Plug>(coc-diagnostic-prev)
+nmap <silent> ]d <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" format file
+map <leader>f :call CocAction('format') <CR>
+
+augroup mygroup
+  autocmd!
+  "" Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  "" Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
 " remap keys for applying codeAction on the current cursor position
 nmap <leader>ac  <Plug>(coc-codeaction-cursor)
 " remap keys for applying codeAction to the current line
@@ -434,32 +458,19 @@ nmap <leader>ab  <Plug>(coc-codeaction)
 " apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" use `[d` and `]d` to navigate diagnostics
-nmap <silent> [d <Plug>(coc-diagnostic-prev)
-nmap <silent> ]d <Plug>(coc-diagnostic-next)
+" Run the Code Lens action on the current line.
+nmap <leader>Cl  <Plug>(coc-codelens-action)
 
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-" format file
-map <leader>f :call CocAction('format') <CR>
-
-augroup mygroup
-  autocmd!
-  "" Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  "" Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
 " remap <C-f> and <C-b> to scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
@@ -470,6 +481,11 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Vim settings ------------------------------------
 syntax enable " Enables syntax highlighing
@@ -500,11 +516,12 @@ set nobackup " This is recommended by coc
 set nowritebackup " This is recommended by coc
 set updatetime=300 " Faster completion
 set timeoutlen=500 " By default timeoutlen is 1000 ms
-autocmd FileType * set formatoptions-=cro " Stop newline continution of comments
+set shortmess+=c " Don't pass messages to |ins-completion-menu|
 set clipboard=unnamedplus " Copy paste between vim and everything else
 set colorcolumn=81 " Column indicating max text width
 set relativenumber " Line numbers counted relative to cursor
 set signcolumn=yes " Always show the signcolumn
+autocmd FileType * set formatoptions-=cro " Stop newline continution of comments
 colorscheme onedark
 " Darken split separator and statusline placeholder
 hi VertSplit guibg=#21252b guifg=#21252b
