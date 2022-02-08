@@ -17,7 +17,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
 Plug 'mfussenegger/nvim-dap' "DAP
 Plug 'Pocco81/DAPInstall.nvim' "Manager for DAP adapters
 Plug 'rcarriga/nvim-dap-ui' "UI for DAP
-Plug 'theHamsta/nvim-dap-virtual-text' " inline variable info while debugging
 Plug 'honza/vim-snippets' " code snippets
 Plug 'scrooloose/nerdcommenter' " quickly comment blocks of code
 Plug 'tpope/vim-surround' " quickly surround selection with brackets
@@ -244,7 +243,6 @@ lua << EOF
 local dap = require('dap')
 local dap_install = require("dap-install")
 require("dapui").setup()
-require("nvim-dap-virtual-text").setup()
 
 dap_install.setup({
       installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
