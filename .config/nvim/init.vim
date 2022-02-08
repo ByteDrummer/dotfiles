@@ -522,6 +522,8 @@ set clipboard=unnamedplus " Copy paste between vim and everything else
 set colorcolumn=81 " Column indicating max text width
 set relativenumber " Line numbers counted relative to cursor
 set signcolumn=yes " Always show the signcolumn
+set ignorecase " case insensitive search
+set smartcase " case sensitive search if capital letter is used
 autocmd FileType * set formatoptions-=cro " Stop newline continution of comments
 colorscheme onedark
 " Darken split separator and statusline placeholder
