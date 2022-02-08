@@ -217,6 +217,7 @@ require'nvim-treesitter.configs'.setup {
     'javascript',
     'html',
     'python',
+    'latex',
     'bash'
   },
 }
