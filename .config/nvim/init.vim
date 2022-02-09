@@ -286,7 +286,7 @@ vim.fn.sign_define('DapStopped', {text='', texthl='DapStopped', linehl='', nu
 
 debug_mode_toggle = function()
   vim.cmd('Vista!')
-  require'nvim-tree'.close()
+  vim.cmd('NvimTreeClose')
   require'bufferline.state'.set_offset(0)
   require'dapui'.toggle()
 end
