@@ -234,6 +234,7 @@ nnoremap <silent>    <A->> :BufferMoveNext<CR>
 nnoremap <silent>    <A-c> :BufferClose<CR>
 nnoremap <silent> <C-s>    :BufferPick<CR>
 let bufferline.exclude_ft = ['dap-repl', 'qf']
+let bufferline.exclude_name = ['python']
 
 " DAP settings ------------------------------------
 autocmd ColorScheme *
