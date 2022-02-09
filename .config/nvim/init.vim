@@ -279,6 +279,7 @@ dap.configurations.python = {
       end
     end;
     args = promptArgs;
+    console = "integratedTerminal";
   },
 }
 
