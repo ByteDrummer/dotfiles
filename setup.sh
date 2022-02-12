@@ -15,8 +15,7 @@ sudo pacman -S git base-devel
 chsh -s $(which zsh)
 
 # Install zsh plugins
-yay -S zsh-theme-powerlevel10k-git
-sudo pacman -S zsh-syntax-highlighting zsh-autosuggestions
+sudo pacman -S zsh-theme-powerlevel10k zsh-syntax-highlighting zsh-autosuggestions
 
 # Install nodejs and npm for Coc
 sudo pacman -S nodejs npm
