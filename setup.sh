@@ -5,6 +5,9 @@ set -x
 # update system
 sudo pacman -Syu
 
+# Install AUR helper
+sudo pacman -S yay
+
 # Install git
 sudo pacman -S git base-devel
 
@@ -12,7 +15,7 @@ sudo pacman -S git base-devel
 chsh -s $(which zsh)
 
 # Install zsh plugins
-paru -S zsh-theme-powerlevel10k-git
+yay -S zsh-theme-powerlevel10k-git
 sudo pacman -S zsh-syntax-highlighting zsh-autosuggestions
 
 # Install nodejs and npm for Coc
@@ -34,11 +37,11 @@ wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20B
 
 # Install LaTeX
 sudo pacman -S texlive-most
-paru -S texlive-latexindent-meta # install dependencies for latexindent
+yay -S texlive-latexindent-meta # install dependencies for latexindent
 
 # Install neovim
 sudo pacman -S xclip # for copy paste support
-paru -S neovim-nightly-bin
+yay -S neovim-nightly-bin
 sudo pacman -S python-pip
 
 # Install python modules for coc-pyright
@@ -55,7 +58,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # Install Alacritty
 sudo pacman -S alacritty
-paru -S nautilus-open-any-terminal
+yay -S nautilus-open-any-terminal
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacritty
 gsettings set org.gnome.desktop.default-applications.terminal exec
 
