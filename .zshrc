@@ -20,9 +20,10 @@ bindkey '^[[3~' delete-char
 
 setopt inc_append_history
 setopt share_history
+setopt histignoredups
 
-SAVEHIST=1000  # Save most-recent 1000 lines
-HISTFILE=~/.zsh_history
+export SAVEHIST=1000  # Save most-recent 1000 lines
+export HISTFILE=~/.zsh_history
 
 # append to end to avoid taking precedence of pip under python venv
 export PATH="$PATH:$HOME/.local/bin"
