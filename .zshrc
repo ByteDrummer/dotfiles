@@ -23,6 +23,7 @@ setopt share_history
 setopt histignoredups
 
 export SAVEHIST=1000  # Save most-recent 1000 lines
+export HISTSIZE=1000
 export HISTFILE=~/.zsh_history
 
 # append to end to avoid taking precedence of pip under python venv
