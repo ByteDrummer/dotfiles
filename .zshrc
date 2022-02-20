@@ -22,6 +22,7 @@ setopt inc_append_history
 setopt share_history
 setopt histignoredups
 
+export WORDCHARS='-'
 export SAVEHIST=1000  # Save most-recent 1000 lines
 export HISTSIZE=1000
 export HISTFILE=~/.zsh_history
