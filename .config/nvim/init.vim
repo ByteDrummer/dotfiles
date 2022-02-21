@@ -31,6 +31,13 @@ autocmd VimEnter *
   \|   PlugInstall --sync | q
   \| endif
 
+" indent-blankline setting
+lua << EOF
+require("indent_blankline").setup {
+  char = "▏"
+}
+EOF
+
 " gitsigns settings ------------------------------------
 lua << EOF
 require('gitsigns').setup({
