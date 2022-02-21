@@ -15,7 +15,6 @@ Plug 'liuchengxu/vista.vim' " file outline for faster navigation
 Plug 'akinsho/toggleterm.nvim' " terminal
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
 Plug 'mfussenegger/nvim-dap' "DAP
-Plug 'Pocco81/DAPInstall.nvim' "Manager for DAP adapters
 Plug 'rcarriga/nvim-dap-ui' "UI for DAP
 Plug 'honza/vim-snippets' " code snippets
 Plug 'scrooloose/nerdcommenter' " quickly comment blocks of code
@@ -243,12 +242,7 @@ autocmd ColorScheme *
 
 lua << EOF
 local dap = require('dap')
-local dap_install = require("dap-install")
 require("dapui").setup()
-
-dap_install.setup({
-      installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
-})
 
 promptArgs = function()
   out = {}
