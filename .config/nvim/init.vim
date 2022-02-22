@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 " plugins ------------------------------------
+Plug 'mlr-msft/vim-loves-dafny', {'for': 'dafny'} " TEMPORARY
 Plug 'ful1e5/onedark.nvim' "colorscheme
 Plug 'lukas-reineke/indent-blankline.nvim' " vertical indentation lines
 Plug 'psliwka/vim-smoothie' " smooth scrolling
