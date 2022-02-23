@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 " plugins ------------------------------------
 Plug 'mlr-msft/vim-loves-dafny', {'for': 'dafny'} " TEMPORARY
+Plug 'windwp/nvim-autopairs' " auto bracket matching
 Plug 'ful1e5/onedark.nvim' "colorscheme
 Plug 'lukas-reineke/indent-blankline.nvim' " vertical indentation lines
 Plug 'psliwka/vim-smoothie' " smooth scrolling
@@ -31,6 +32,10 @@ autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
+
+lua << EOF
+require('nvim-autopairs').setup{}
+EOF
 
 " indent-blankline setting
 lua << EOF
