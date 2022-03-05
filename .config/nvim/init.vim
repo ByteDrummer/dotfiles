@@ -208,7 +208,7 @@ require'nvim-tree'.setup {
 tree_toggle = function()
   require"dapui".close()
   require'nvim-tree'.toggle()
-  if require'nvim-tree.view'.win_open() then
+  if require'nvim-tree.view'.is_visible() then
     require'bufferline.state'.set_offset(35, '')
   else
     require'bufferline.state'.set_offset(0)
