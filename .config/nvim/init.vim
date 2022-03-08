@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
 " plugins ------------------------------------
-Plug 'mlr-msft/vim-loves-dafny', {'for': 'dafny'} " TEMPORARY
 Plug 'windwp/nvim-autopairs' " auto bracket matching
 Plug 'ful1e5/onedark.nvim' "colorscheme
 Plug 'lukas-reineke/indent-blankline.nvim' " vertical indentation lines
