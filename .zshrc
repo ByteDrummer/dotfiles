@@ -29,3 +29,6 @@ export HISTFILE=~/.zsh_history
 
 # append to end to avoid taking precedence of pip under python venv
 export PATH="$PATH:$HOME/.local/bin"
+
+# Java path for vim plugins
+export JAVA_HOME=/usr/lib/jvm/default
