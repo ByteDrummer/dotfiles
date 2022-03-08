@@ -237,7 +237,8 @@ require'nvim-treesitter.configs'.setup {
     'html',
     'python',
     'latex',
-    'bash'
+    'bash',
+    'java'
   },
 }
 EOF
