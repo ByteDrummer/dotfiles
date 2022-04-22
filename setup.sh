@@ -20,9 +20,6 @@ sudo pacman -S zsh-theme-powerlevel10k zsh-syntax-highlighting zsh-autosuggestio
 # Install nodejs and npm for Coc
 sudo pacman -S nodejs npm
 
-# Install Markdown viewer dependencies
-sudo npm -g install instant-markdown-d
-
 # Install Java
 sudo pacman -S jre-openjdk
 sudo pacman -S jdk-openjdk
