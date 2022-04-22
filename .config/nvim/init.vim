@@ -22,7 +22,6 @@ Plug 'scrooloose/nerdcommenter' " quickly comment blocks of code
 Plug 'tpope/vim-surround' " quickly surround selection with brackets
 Plug 'adelarsq/vim-matchit' " extension of % matching, helpful for html tags
 Plug 'unblevable/quick-scope' " show unique word characters in a line
-Plug 'lervag/vimtex' " extra features for LaTeX
 Plug 'instant-markdown/vim-instant-markdown', {'rtp': 'after'} " Markdown viewer
 
 call plug#end()
@@ -235,7 +234,6 @@ require'nvim-treesitter.configs'.setup {
     'javascript',
     'html',
     'python',
-    'latex',
     'bash',
     'java'
   },
@@ -387,7 +385,7 @@ EOF
 
 " coc settings ------------------------------------
 " List of extensions to install
-let g:coc_global_extensions = ['coc-snippets', 'coc-marketplace', 'coc-tsserver', 'coc-eslint', 'coc-sql', 'coc-html', 'coc-json', 'coc-java', 'coc-clangd', 'coc-pyright', 'coc-sh', 'coc-vimtex', 'coc-texlab', 'coc-ltex']
+let g:coc_global_extensions = ['coc-snippets', 'coc-marketplace', 'coc-tsserver', 'coc-eslint', 'coc-sql', 'coc-html', 'coc-json', 'coc-java', 'coc-clangd', 'coc-pyright', 'coc-sh']
 
 " use tab to trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
