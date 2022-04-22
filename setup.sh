@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set -x # show commands
 
 # update system
 sudo pacman -Syu
@@ -17,7 +17,7 @@ chsh -s $(which zsh)
 # Install zsh plugins
 sudo pacman -S zsh-theme-powerlevel10k zsh-syntax-highlighting zsh-autosuggestions zsh-completions zsh-history-substring-search
 
-# Install nodejs and npm for Coc
+# Install nodejs and npm for CoC
 sudo pacman -S nodejs npm
 
 # Install Java
@@ -34,15 +34,14 @@ wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20B
 # Install neovim
 sudo pacman -S xclip # for copy paste support
 yay -S neovim-nightly-bin
-sudo pacman -S python-pip
 
 # Install python modules for coc-pyright
+sudo pacman -S python-pip
 pip install pynvim
 pip install rope
 pip install autopep8
 pip install flake8
-
-# pip install pynvim rope autopep8 flake8
+# IN VENV: pip install pynvim rope autopep8 flake8
 
 # Install vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -52,6 +51,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 sudo pacman -S alacritty
 yay -S nautilus-open-any-terminal
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacritty
+
 # Remove gnome-terminal from nautilus menu
 sudo mv -vi /usr/lib/nautilus/extensions-3.0/libterminal-nautilus.so{,.bak}
 nautilus -q
