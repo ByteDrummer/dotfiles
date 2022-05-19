@@ -85,9 +85,17 @@ EOF
 
 " toggleterm settings ------------------------------------
 lua << EOF
+term_open = false
+
 require("toggleterm").setup{
   shade_terminals = false,
-  open_mapping = [[<c-\>]]
+  open_mapping = [[<c-\>]],
+  on_close = function()
+    term_open = false
+  end,
+  on_open = function()
+    term_open = true
+  end
 }
 
 function _G.set_terminal_keymaps()
@@ -100,8 +108,14 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+term_toggle = function()
+  require'dapui'.close()
+  vim.cmd('ToggleTerm')
+end
 EOF
 
+map <silent> <C-\> :lua term_toggle()<CR>
 
 " nvim-tree settings ------------------------------------
 autocmd ColorScheme * 
@@ -303,6 +317,10 @@ debug_mode_toggle = function()
   vim.cmd('NvimTreeClose')
   require'bufferline.state'.set_offset(0)
   require'dapui'.toggle()
+
+  if term_open then
+    vim.cmd('ToggleTerm')
+  end
 end
 EOF
 
