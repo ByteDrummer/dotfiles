@@ -110,7 +110,9 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 term_toggle = function()
-  require'dapui'.close()
+  if debug_open then
+    debug_mode_close()
+  end
   vim.cmd('ToggleTerm')
 end
 EOF
@@ -217,7 +219,9 @@ require'nvim-tree'.setup {
 }
 
 tree_toggle = function()
-  require"dapui".close()
+  if debug_open then
+    debug_mode_close()
+  end
   require'nvim-tree'.toggle()
   if require'nvim-tree.view'.is_visible() then
     require'bufferline.state'.set_offset(35, '')
@@ -312,15 +316,27 @@ dap.configurations.python = {
 vim.fn.sign_define('DapBreakpoint', {text='', texthl='DapBreakpoint', linehl='', numhl=''})
 vim.fn.sign_define('DapStopped', {text='', texthl='DapStopped', linehl='', numhl=''})
 
+debug_open = false
 debug_mode_toggle = function()
   vim.cmd('Vista!')
   vim.cmd('NvimTreeClose')
-  require'bufferline.state'.set_offset(0)
-  require'dapui'.toggle()
-
   if term_open then
     vim.cmd('ToggleTerm')
   end
+  require'dapui'.toggle()
+  debug_open = not debug_open
+
+  if debug_open then
+    require'bufferline.state'.set_offset(41, '')
+  else
+    require'bufferline.state'.set_offset(0)
+  end
+end
+
+debug_mode_close = function()
+  require'dapui'.close()
+  debug_open = false
+  require'bufferline.state'.set_offset(0)
 end
 EOF
 
@@ -344,7 +360,9 @@ autocmd ColorScheme *
 " vista.vim settings ------------------------------------
 lua << EOF
 vista_toggle = function()
-  require'dapui'.close()
+  if debug_open then
+    debug_mode_close()
+  end
   vim.cmd('Vista!!')
 end
 EOF
