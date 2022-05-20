@@ -123,7 +123,6 @@ map <silent> <C-\> :lua term_toggle()<CR>
 autocmd ColorScheme * 
   \ highlight NvimTreeFolderIcon guifg=#61afef
 
-let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_git_hl = 1
 
 let g:nvim_tree_icons = {
@@ -163,7 +162,6 @@ require'nvim-tree'.setup {
   hijack_netrw        = true,
   open_on_setup       = false,
   ignore_ft_on_setup  = {},
-  auto_close          = false,
   open_on_tab         = false,
   hijack_cursor       = false,
   update_cwd          = false,
@@ -215,7 +213,21 @@ require'nvim-tree'.setup {
   trash = {
     cmd = "trash",
     require_confirm = true
-  }
+  },
+  renderer = {
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
+    },
+    icons = {
+      webdev_colors = true,
+      git_placement = "before",
+    },
+  },
 }
 
 tree_toggle = function()
