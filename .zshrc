@@ -15,3 +15,5 @@ source ~/.p10k.zsh
 export PATH="$PATH:$HOME/.local/bin"
 # Java path for vim plugin
 export JAVA_HOME=/usr/lib/jvm/default
+# set 
+export SUDO_EDITOR=/usr/bin/nvim
