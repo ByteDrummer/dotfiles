@@ -11,11 +11,12 @@ sudo pacman -S yay
 # Install git
 sudo pacman -S git base-devel
 
-# Switch shell
+# Install zsh and switch shell
+sudo pacman -S zsh
 chsh -s $(which zsh)
 
-# Install zsh plugins
-sudo pacman -S zsh-theme-powerlevel10k zsh-syntax-highlighting zsh-autosuggestions zsh-completions zsh-history-substring-search
+# Install zsh plugin manager
+yay -S antigen-git
 
 # Install nodejs and npm for CoC
 sudo pacman -S nodejs npm
