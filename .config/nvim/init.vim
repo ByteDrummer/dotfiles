@@ -120,42 +120,6 @@ EOF
 map <silent> <C-\> :lua term_toggle()<CR>
 
 " nvim-tree settings ------------------------------------
-autocmd ColorScheme * 
-  \ highlight NvimTreeFolderIcon guifg=#61afef
-
-let g:nvim_tree_git_hl = 1
-
-let g:nvim_tree_icons = {
-    \ 'default': '',
-    \ 'symlink': '',
-    \ 'git': {
-    \   'unstaged': "✗",
-    \   'staged': "✓",
-    \   'unmerged': "",
-    \   'renamed': "➜",
-    \   'untracked': "★",
-    \   'deleted': "",
-    \   'ignored': "◌"
-    \   },
-    \ 'folder': {
-    \   'arrow_open': "",
-    \   'arrow_closed': "",
-    \   'default': "",
-    \   'open': "",
-    \   'empty': "",
-    \   'empty_open': "",
-    \   'symlink': "",
-    \   'symlink_open': "",
-    \   }
-    \ }
-
-let g:nvim_tree_show_icons = {
-    \ 'git': 1,
-    \ 'folders': 1,
-    \ 'files': 1,
-    \ 'folder_arrows': 0,
-    \ }
-
 lua << EOF
 require'nvim-tree'.setup {
   disable_netrw       = true,
@@ -242,6 +206,9 @@ tree_toggle = function()
   end
 end
 EOF
+
+autocmd ColorScheme * 
+  \ highlight NvimTreeFolderIcon guifg=#61afef
 
 nmap <silent> <F1> :lua tree_toggle()<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
