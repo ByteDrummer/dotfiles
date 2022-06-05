@@ -357,6 +357,23 @@ let g:onedark_sidebars = ['coc-explorer', 'vista', 'dapui_scopes', 'dapui_breakp
 let g:onedark_dark_float = 0
 
 " lualine settings ------------------------------------
+  "options = {
+    "theme = bubbles_theme,
+    "component_separators = '|',
+    "section_separators = { left = '', right = '' },
+  "},
+  "sections = {
+    "lualine_a = {
+      "{ 'mode', separator = { left = '' }, right_padding = 2 },
+    "},
+    "lualine_b = { 'filename', 'branch' },
+    "lualine_c = { 'fileformat' },
+    "lualine_x = {},
+    "lualine_y = { 'filetype', 'progress' },
+    "lualine_z = {
+      "{ 'location', separator = { right = '' }, left_padding = 2 },
+    "},
+  "},
 lua << EOF
 require'lualine'.setup {
   options = {
@@ -368,7 +385,9 @@ require'lualine'.setup {
     always_divide_middle = true,
   },
   sections = {
-    lualine_a = {'mode'},
+    lualine_a = {
+      { 'mode', separator ={ right = '', left = ''}, right_padding = 2 },
+    },
     lualine_b = {'branch', "diff",
       {
         'diagnostics',
@@ -379,7 +398,9 @@ require'lualine'.setup {
     lualine_c = {'filename', 'g:coc_status'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_z = {
+      { 'location', separator = { right = '',  left = ''}, left_padding = 2 },
+    },
   },
   inactive_sections = {
     lualine_a = {},
