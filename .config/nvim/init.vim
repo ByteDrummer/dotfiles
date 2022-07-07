@@ -395,6 +395,9 @@ require'lualine'.setup {
 EOF
 
 " coc settings ------------------------------------
+" Resolve workspace folder for coc-pyright
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env', '.venv']
+
 " List of extensions to install
 let g:coc_global_extensions = ['coc-snippets', 'coc-marketplace', 'coc-tsserver', 'coc-eslint', 'coc-sql', 'coc-html', 'coc-json', 'coc-java', 'coc-clangd', 'coc-pyright', 'coc-sh']
 

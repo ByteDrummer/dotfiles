@@ -36,6 +36,8 @@
     "./*"
   ],
   "python.linting.flake8Enabled": true,
+  "python.formatting.autopep8Path": "~/.local/bin/autopep8",
+  "python.linting.flake8Path": "~/.local/bin/flake8",
   "html.format.wrapLineLength": 80,
   "html.autoClosingTags": false,
   "sql.database": "postgresql",
