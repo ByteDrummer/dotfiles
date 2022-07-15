@@ -34,7 +34,7 @@ wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20B
 
 # Install neovim
 sudo pacman -S xclip # for copy paste support
-yay -S neovim-nightly-bin
+sudo pacman -S neovim
 
 # Install python modules for coc-pyright
 sudo pacman -S python-pip
