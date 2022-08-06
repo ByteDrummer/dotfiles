@@ -209,8 +209,9 @@ nmap <silent> <F1> :lua tree_toggle()<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
-
 " treesitter settings ------------------------------------
+set foldexpr=nvim_treesitter#foldexpr()
+
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -542,6 +543,8 @@ set relativenumber " Line numbers counted relative to cursor
 set signcolumn=yes " Always show the signcolumn
 set ignorecase " case insensitive search
 set smartcase " case sensitive search if capital letter is used
+set foldmethod=expr " folding by expression defined using treesitter
+set foldlevel=99 " have all folds open when opening a file
 autocmd FileType * set formatoptions-=cro " Stop newline continution of comments
 colorscheme onedark
 " Darken split separator and statusline placeholder
