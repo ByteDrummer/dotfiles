@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 " plugins ------------------------------------
 Plug 'windwp/nvim-autopairs' " auto bracket matching
-Plug 'ful1e5/onedark.nvim' "colorscheme
+Plug 'ful1e5/monsonjeremy/onedark.nvim' "colorscheme
 Plug 'lukas-reineke/indent-blankline.nvim' " vertical indentation lines
 Plug 'psliwka/vim-smoothie' " smooth scrolling
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
