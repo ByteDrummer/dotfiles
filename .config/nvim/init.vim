@@ -185,6 +185,9 @@ require'nvim-tree'.setup {
     icons = {
       webdev_colors = true,
       git_placement = "before",
+      show = {
+        folder_arrow = false,
+      }
     },
   },
 }
