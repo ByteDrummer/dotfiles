@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 " plugins ------------------------------------
 Plug 'windwp/nvim-autopairs' " auto bracket matching
-Plug 'ful1e5/monsonjeremy/onedark.nvim' "colorscheme
+Plug 'ful1e5/onedark.nvim' " colorscheme
 Plug 'lukas-reineke/indent-blankline.nvim' " vertical indentation lines
 Plug 'psliwka/vim-smoothie' " smooth scrolling
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -403,14 +403,19 @@ autocmd FileType python let b:coc_root_patterns = ['.git', '.env', '.venv']
 " List of extensions to install
 let g:coc_global_extensions = ['coc-snippets', 'coc-marketplace', 'coc-tsserver', 'coc-eslint', 'coc-sql', 'coc-html', 'coc-json', 'coc-java', 'coc-clangd', 'coc-pyright', 'coc-sh']
 
-" use tab to trigger completion with characters ahead and navigate.
+" Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-function! s:check_back_space() abort
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
@@ -422,11 +427,6 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 " use `[d` and `]d` to navigate diagnostics
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
@@ -437,15 +437,14 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
+    call feedkeys('K', 'in')
   endif
 endfunction
 
