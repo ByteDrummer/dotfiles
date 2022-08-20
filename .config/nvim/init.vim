@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 " plugins ------------------------------------
 Plug 'windwp/nvim-autopairs' " auto bracket matching
-Plug 'ful1e5/onedark.nvim' " colorscheme
+Plug 'navarasu/onedark.nvim' " colorscheme
 Plug 'lukas-reineke/indent-blankline.nvim' " vertical indentation lines
 Plug 'psliwka/vim-smoothie' " smooth scrolling
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -353,10 +353,6 @@ let g:vista_default_executive = 'coc'
 let g:vista#renderer#enable_icon = 1
 let g:vista_sidebar_width = 34
 
-" onedark settings ------------------------------------
-let g:onedark_sidebars = ['coc-explorer', 'vista', 'dapui_scopes', 'dapui_breakpoints', 'dapui_stacks', 'dapui_watches']
-let g:onedark_dark_float = 0
-
 " lualine settings ------------------------------------
 lua << EOF
 require'lualine'.setup {
@@ -551,7 +547,3 @@ set foldlevel=99 " have all folds open when opening a file
 set laststatus=3 " global statusline
 autocmd FileType * set formatoptions-=cro " Stop newline continution of comments
 colorscheme onedark
-" Darken split separator and statusline placeholder
-hi VertSplit guibg=#21252b guifg=#21252b
-hi StatusLineNC gui=bold guibg=#21252b guifg=#21252b
-hi StatusLine gui=bold guibg=#21252b guifg=#21252b
