@@ -365,8 +365,8 @@ require'lualine'.setup {
     theme = 'auto',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
-    disabled_filetypes = {'NvimTree', 'vista'},
     always_divide_middle = true,
+    globalstatus=true
   },
   sections = {
     lualine_a = {
@@ -548,6 +548,7 @@ set ignorecase " case insensitive search
 set smartcase " case sensitive search if capital letter is used
 set foldmethod=expr " folding by expression defined using treesitter
 set foldlevel=99 " have all folds open when opening a file
+set laststatus=3 " global statusline
 autocmd FileType * set formatoptions-=cro " Stop newline continution of comments
 colorscheme onedark
 " Darken split separator and statusline placeholder
