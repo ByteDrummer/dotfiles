@@ -4,24 +4,39 @@ call plug#begin('~/.vim/plugged')
 Plug 'windwp/nvim-autopairs' " auto bracket matching
 Plug 'navarasu/onedark.nvim' " colorscheme
 Plug 'lukas-reineke/indent-blankline.nvim' " vertical indentation lines
-Plug 'karb94/neoscroll.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-lualine/lualine.nvim' " lua statusline
-Plug 'romgrk/barbar.nvim' " lua tabline
+Plug 'karb94/neoscroll.nvim' " smooth scrolling
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " for syntax highlighting
+Plug 'nvim-lualine/lualine.nvim' " custom statusline
+Plug 'romgrk/barbar.nvim' " custom tabline
 Plug 'kyazdani42/nvim-web-devicons' " icon glyphs
 Plug 'kyazdani42/nvim-tree.lua' " file tree
-Plug 'nvim-lua/plenary.nvim' " gitsigns dependancy
 Plug 'lewis6991/gitsigns.nvim' " diff symbols
-Plug 'liuchengxu/vista.vim' " file outline for faster navigation
+Plug 'nvim-lua/plenary.nvim' " gitsigns dependancy
 Plug 'akinsho/toggleterm.nvim' " terminal
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
-Plug 'mfussenegger/nvim-dap' "DAP
-Plug 'rcarriga/nvim-dap-ui' "UI for DAP
-Plug 'honza/vim-snippets' " code snippets
+Plug 'mfussenegger/nvim-dap' " debugger
+Plug 'rcarriga/nvim-dap-ui' "UI for debugger
 Plug 'scrooloose/nerdcommenter' " quickly comment blocks of code
 Plug 'tpope/vim-surround' " quickly surround selection with brackets
-Plug 'adelarsq/vim-matchit' " extension of % matching, helpful for html tags
 Plug 'unblevable/quick-scope' " show unique word characters in a line
+
+" LSP plgins ------------------------------------
+Plug 'onsails/lspkind.nvim' " kind symbols
+" LSP Support
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+" Autocompletion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
+" Snippets
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
+" Quickstart boilerplate
+Plug 'VonHeikemen/lsp-zero.nvim'
 
 call plug#end()
 
@@ -30,10 +45,56 @@ autocmd VimEnter *
   \|   PlugInstall --sync | q
   \| endif
 
+" oneline setups ------------------------------------
 lua require('nvim-autopairs').setup()
 lua require('neoscroll').setup()
 
-" indent-blankline setting
+" LSP settings ------------------------------------
+lua <<EOF
+local lsp = require('lsp-zero')
+local lspkind = require('lspkind')
+
+lsp.set_preferences({
+  suggest_lsp_servers = true,
+  setup_servers_on_start = true,
+  set_lsp_keymaps = true,
+  configure_diagnostics = true,
+  cmp_capabilities = true,
+  manage_nvim_cmp = true,
+  call_servers = 'local',
+  sign_icons = {
+    error = '',
+    warn = '',
+    hint = '',
+    info = ''
+  }
+})
+
+lsp.nvim_workspace()
+
+lsp.ensure_installed({
+  'pyright',
+})
+
+lsp.setup_nvim_cmp {
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol', -- show only symbol annotations
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+
+      -- The function below will be called before any actual modifications from lspkind
+      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+      before = function (entry, vim_item)
+        return vim_item
+      end
+    })
+  }
+}
+
+lsp.setup()
+EOF
+
+" indent-blankline setting ------------------------------------
 lua << EOF
 require("indent_blankline").setup {
   char = "▏"
@@ -330,12 +391,6 @@ nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
 nnoremap <silent> <leader>t :lua require'dap'.terminate()<CR>
 
-" quick-scope settings ------------------------------------
-let g:qs_buftype_blacklist = ['terminal', 'nofile']
-autocmd ColorScheme *
-      \ highlight QuickScopePrimary guifg=#c678dd gui=underline ctermfg=155 cterm=underline |
-      \ highlight QuickScopeSecondary guifg=#56b6c2 gui=underline ctermfg=81 cterm=underline
-
 " vista.vim settings ------------------------------------
 lua << EOF
 vista_toggle = function()
@@ -346,7 +401,7 @@ vista_toggle = function()
 end
 EOF
 
-nnoremap <silent> <F2> :lua vista_toggle()<CR>
+"nnoremap <silent> <F2> :lua vista_toggle()<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'coc'
 let g:vista#renderer#enable_icon = 1
@@ -373,7 +428,7 @@ require'lualine'.setup {
         symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
       }
     },
-    lualine_c = {'filename', 'g:coc_status'},
+    lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {
@@ -393,117 +448,6 @@ require'lualine'.setup {
 }
 EOF
 
-" coc settings ------------------------------------
-" Resolve workspace folder for coc-pyright
-autocmd FileType python let b:coc_root_patterns = ['.git', '.env', '.venv']
-
-" List of extensions to install
-let g:coc_global_extensions = ['coc-snippets', 'coc-marketplace', 'coc-tsserver', 'coc-eslint', 'coc-sql', 'coc-html', 'coc-json', 'coc-java', 'coc-clangd', 'coc-pyright', 'coc-sh']
-
-" Use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1):
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" use `[d` and `]d` to navigate diagnostics
-nmap <silent> [d <Plug>(coc-diagnostic-prev)
-nmap <silent> ]d <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call ShowDocumentation()<CR>
-
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
-
-" highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" format file
-map <leader>f :call CocAction('format') <CR>
-
-augroup mygroup
-  autocmd!
-  "" Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  "" Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" remap keys for applying codeAction on the current cursor position
-nmap <leader>ac  <Plug>(coc-codeaction-cursor)
-" remap keys for applying codeAction to the current line
-nmap <leader>al  <Plug>(coc-codeaction-line)
-" remap keys for applying codeAction to the current selection
-xmap <leader>as  <Plug>(coc-codeaction-selected)
-nmap <leader>as  <Plug>(coc-codeaction-selected)
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>ab  <Plug>(coc-codeaction)
-
-" apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Run the Code Lens action on the current line.
-nmap <leader>Cl  <Plug>(coc-codelens-action)
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
-" remap <C-f> and <C-b> to scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
-
 " Vim settings ------------------------------------
 syntax enable " Enables syntax highlighing
 set hidden " Required to keep multiple buffers open multiple buffers
@@ -516,9 +460,9 @@ set iskeyword+=- " treat dash separated words as a word text object"
 set mouse=a " Enable your mouse
 set splitbelow " Horizontal splits will automatically be below
 set splitright " Vertical splits will automatically be to the right
-set t_Co=256 " Support 256 colors
 set conceallevel=0 " So that I can see `` in markdown files
 set tabstop=2 " Insert 2 spaces for a tab
+set softtabstop=2 " Insert 2 spaces for a tab
 set shiftwidth=2 " Change the number of space characters inserted for indentation
 set smarttab " Makes tabbing smarter will realize you have 2 vs 4
 set expandtab " Converts tabs to spaces
@@ -529,8 +473,6 @@ set cursorline " Enable highlighting of the current line
 set background=dark " tell vim what the background color looks like
 set showtabline=2 " Always show tabs
 set noshowmode " We don't need to see things like -- INSERT -- anymore
-set nobackup " This is recommended by coc
-set nowritebackup " This is recommended by coc
 set updatetime=300 " Faster completion
 set timeoutlen=500 " By default timeoutlen is 1000 ms
 set shortmess+=c " Don't pass messages to |ins-completion-menu|
