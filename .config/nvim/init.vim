@@ -276,9 +276,6 @@ tree_toggle = function()
 end
 EOF
 
-autocmd ColorScheme * 
-  \ highlight NvimTreeFolderIcon guifg=#61afef
-
 nmap <silent> <F1> :lua tree_toggle()<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
