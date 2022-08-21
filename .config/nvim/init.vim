@@ -53,7 +53,7 @@ lua require('nvim-autopairs').setup()
 lua require('neoscroll').setup()
 
 " LSP settings ------------------------------------
-lua <<EOF
+lua << EOF
 local lsp = require('lsp-zero')
 local lspkind = require('lspkind')
 
@@ -490,6 +490,5 @@ set ignorecase " case insensitive search
 set smartcase " case sensitive search if capital letter is used
 set foldmethod=expr " folding by expression defined using treesitter
 set foldlevel=99 " have all folds open when opening a file
-set laststatus=3 " global statusline
 autocmd FileType * set formatoptions-=cro " Stop newline continution of comments
 colorscheme onedark
