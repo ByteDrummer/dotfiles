@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'windwp/nvim-autopairs' " auto bracket matching
 Plug 'navarasu/onedark.nvim' " colorscheme
 Plug 'lukas-reineke/indent-blankline.nvim' " vertical indentation lines
-Plug 'psliwka/vim-smoothie' " smooth scrolling
+Plug 'karb94/neoscroll.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lualine/lualine.nvim' " lua statusline
 Plug 'romgrk/barbar.nvim' " lua tabline
@@ -30,9 +30,8 @@ autocmd VimEnter *
   \|   PlugInstall --sync | q
   \| endif
 
-lua << EOF
-require('nvim-autopairs').setup{}
-EOF
+lua require('nvim-autopairs').setup()
+lua require('neoscroll').setup()
 
 " indent-blankline setting
 lua << EOF
