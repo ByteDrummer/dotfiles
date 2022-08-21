@@ -22,6 +22,8 @@ Plug 'simrat39/symbols-outline.nvim' " code outline
 
 " LSP plgins ------------------------------------
 Plug 'onsails/lspkind.nvim' " kind symbols
+Plug 'WhoIsSethDaniel/mason-tool-installer.nvim' " auto install packages
+Plug 'jose-elias-alvarez/null-ls.nvim' " integrate formatters and linters
 " LSP Support
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
@@ -73,10 +75,6 @@ lsp.set_preferences({
 
 lsp.nvim_workspace()
 
-lsp.ensure_installed({
-  'pyright',
-})
-
 lsp.setup_nvim_cmp {
   formatting = {
     format = lspkind.cmp_format({
@@ -93,7 +91,19 @@ lsp.setup_nvim_cmp {
 }
 
 lsp.setup()
+
+require'mason-tool-installer'.setup {
+  ensure_installed = {'pyright', 'autopep8'}
+}
+
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.formatting.autopep8
+    }
+})
 EOF
+
+nnoremap <leader>f :LspZeroFormat<CR>
 
 " indent-blankline setting ------------------------------------
 lua << EOF
