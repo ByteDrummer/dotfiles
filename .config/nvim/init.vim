@@ -18,6 +18,7 @@ Plug 'rcarriga/nvim-dap-ui' "UI for debugger
 Plug 'scrooloose/nerdcommenter' " quickly comment blocks of code
 Plug 'tpope/vim-surround' " quickly surround selection with brackets
 Plug 'unblevable/quick-scope' " show unique word characters in a line
+Plug 'simrat39/symbols-outline.nvim' " code outline
 
 " LSP plgins ------------------------------------
 Plug 'onsails/lspkind.nvim' " kind symbols
@@ -357,7 +358,7 @@ vim.fn.sign_define('DapStopped', {text='', texthl='DapStopped', linehl='', nu
 
 debug_open = false
 debug_mode_toggle = function()
-  vim.cmd('Vista!')
+  pcall(vim.cmd, 'SymbolsOutlineClose')
   vim.cmd('NvimTreeClose')
   if term_open then
     vim.cmd('ToggleTerm')
@@ -391,21 +392,19 @@ nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
 nnoremap <silent> <leader>t :lua require'dap'.terminate()<CR>
 
-" vista.vim settings ------------------------------------
+" symbols-outline settings ------------------------------------
 lua << EOF
-vista_toggle = function()
+require("symbols-outline").setup()
+
+outline_toggle = function()
   if debug_open then
     debug_mode_close()
   end
-  vim.cmd('Vista!!')
+  vim.cmd('SymbolsOutline')
 end
 EOF
 
-"nnoremap <silent> <F2> :lua vista_toggle()<CR>
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-let g:vista_default_executive = 'coc'
-let g:vista#renderer#enable_icon = 1
-let g:vista_sidebar_width = 34
+nnoremap <F5> :lua outline_toggle()<CR>
 
 " lualine settings ------------------------------------
 lua << EOF
