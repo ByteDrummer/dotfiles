@@ -283,7 +283,30 @@ autocmd ColorScheme *
 
 lua << EOF
 local dap = require('dap')
-require("dapui").setup()
+
+require("dapui").setup{
+  layouts = {
+    {
+      elements = {
+      -- Elements can be strings or table with id and size keys.
+        { id = "scopes", size = 0.25 },
+        "breakpoints",
+        "stacks",
+        "watches",
+      },
+      size = 40, -- 40 columns
+      position = "left",
+    },
+    {
+      elements = {
+        "repl",
+        "console",
+      },
+      size = 0.25, -- 25% of total lines
+      position = "bottom",
+    },
+  },
+}
 
 promptArgs = function()
   out = {}
@@ -326,10 +349,12 @@ debug_open = false
 debug_mode_toggle = function()
   pcall(vim.cmd, 'SymbolsOutlineClose')
   vim.cmd('NvimTreeClose')
+
   if term_open then
     vim.cmd('ToggleTerm')
   end
-  require'dapui'.toggle()
+
+  require'dapui'.toggle{ reset = true }
   debug_open = not debug_open
 
   if debug_open then
