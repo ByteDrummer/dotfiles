@@ -440,6 +440,7 @@ EOF
 
 " Vim settings ------------------------------------
 syntax enable " Enables syntax highlighing
+set nowrap " disable line wrapping since it interferes with colorcolumn
 set hidden " Required to keep multiple buffers open
 set encoding=utf-8 " The encoding displayed
 set fileencoding=utf-8 " The encoding written to file
