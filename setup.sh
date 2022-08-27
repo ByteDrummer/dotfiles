@@ -33,9 +33,6 @@ sudo pacman -S xclip neovim # xclip is for copy paste support
 # Install recommended font for p10k
 yay -S ttf-meslo-nerd-font-powerlevel10k
 
-# Install vim-plug
-yay -S neovim-plug
-
 # Install Alacritty
 sudo pacman -S alacritty
 yay -S nautilus-open-any-terminal
