@@ -24,7 +24,7 @@ export JAVA_HOME=/usr/lib/jvm/default
 export SUDO_EDITOR=/usr/bin/nvim
 
 # aliases -------------------------------------------------------
-alias update-all='yay -Syu --noconfirm && printf "\nFlatpak: " && flatpak update'
+alias update-all='yay && printf "\nFlatpak: " && flatpak update'
 
 # plugins -------------------------------------------------------
 source /usr/share/zsh/share/antigen.zsh
