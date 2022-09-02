@@ -23,6 +23,9 @@ export JAVA_HOME=/usr/lib/jvm/default
 # set neovim as sudoeditor
 export SUDO_EDITOR=/usr/bin/nvim
 
+# aliases -------------------------------------------------------
+alias update-all='yay -Syu --noconfirm && printf "\nFlatpak: " && flatpak update'
+
 # plugins -------------------------------------------------------
 source /usr/share/zsh/share/antigen.zsh
 
