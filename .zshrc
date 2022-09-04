@@ -22,9 +22,12 @@ export PATH="$PATH:$HOME/.local/bin"
 export JAVA_HOME=/usr/lib/jvm/default
 # set neovim as sudoeditor
 export SUDO_EDITOR=/usr/bin/nvim
+# set ls command output colors using vivid
+export LS_COLORS="$(vivid generate one-dark)"
 
 # aliases -------------------------------------------------------
 alias update-all='yay && printf "\nFlatpak: " && flatpak update'
+alias ls='ls --color=auto'
 
 # plugins -------------------------------------------------------
 source /usr/share/zsh/share/antigen.zsh

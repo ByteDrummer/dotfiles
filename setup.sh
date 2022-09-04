@@ -44,3 +44,6 @@ nautilus -q
 
 # Install tmux
 sudo pacman -S tmux
+
+# Install vivid to generate LS_COLORS
+sudo pacman -S vivid
