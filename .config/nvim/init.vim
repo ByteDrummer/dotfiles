@@ -109,7 +109,7 @@ require("null-ls").setup({
 })
 EOF
 
-nnoremap <leader>f :LspZeroFormat<CR>
+nnoremap <silent> <leader>f :lua vim.lsp.buf.formatting()<CR>
 
 " indent-blankline setting ------------------------------------
 lua << EOF
