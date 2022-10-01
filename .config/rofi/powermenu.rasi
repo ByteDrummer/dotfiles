@@ -15,7 +15,7 @@ configuration {
 @import "~/.config/rofi/arc_dark_transparent_colors.rasi"
 
 window {
-    background-color:               @background;
+    background-color:               #31353F;
     border:                         0;
     padding:                        10;
     transparency:                   "real";
