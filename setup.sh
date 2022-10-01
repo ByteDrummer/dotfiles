@@ -47,3 +47,6 @@ sudo pacman -S tmux
 
 # Install vivid to generate LS_COLORS
 sudo pacman -S vivid
+
+# Install bspwm with rounded corners patch
+yay -S bspwm-rounded-corners
