@@ -50,3 +50,6 @@ sudo pacman -S vivid
 
 # Install bspwm with rounded corners patch
 yay -S bspwm-rounded-corners
+
+# Install bluetooth gui
+yay -S blueman
