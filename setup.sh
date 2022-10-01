@@ -50,3 +50,6 @@ sudo pacman -S vivid
 
 # Install bluetooth gui
 yay -S blueman
+
+# Disable minimize, maximize, and close buttons
+gsettings set org.gnome.desktop.wm.preferences button-layout :
