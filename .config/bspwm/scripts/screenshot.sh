@@ -13,7 +13,7 @@ case $selected in
     $option0)
         cd $(xdg-user-dir PICTURES)/ && sleep 1 && scrot;;
     $option1)
-        cd $(xdg-user-dir PICTURES)/ && scrot -s;;
+        cd $(xdg-user-dir PICTURES)/ && scrot --select --line mode=edge;;
     $option2)
         cd $(xdg-user-dir PICTURES)/ && sleep 1 && scrot -u;;
 esac
