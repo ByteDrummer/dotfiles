@@ -54,7 +54,7 @@ font:
     family: MesloLGS NF
     style: Bold Italic
 
-  size: 10
+  size: 10.5
 
 window:
   padding:
