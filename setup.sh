@@ -49,7 +49,7 @@ sudo pacman -S tmux
 sudo pacman -S vivid
 
 # Install additional desktop software
-yay -S blueman gthumb xfce4-power-manager arandr
+yay -S blueman gthumb xfce4-power-manager arandr playerctl
 
 # Disable minimize, maximize, and close buttons
 gsettings set org.gnome.desktop.wm.preferences button-layout :
