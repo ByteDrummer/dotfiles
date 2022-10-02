@@ -48,8 +48,8 @@ sudo pacman -S tmux
 # Install vivid to generate LS_COLORS
 sudo pacman -S vivid
 
-# Install bluetooth gui
-yay -S blueman
+# Install additional desktop software
+yay -S blueman gthumb xfce4-power-manager
 
 # Disable minimize, maximize, and close buttons
 gsettings set org.gnome.desktop.wm.preferences button-layout :
