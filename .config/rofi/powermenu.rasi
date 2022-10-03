@@ -21,8 +21,8 @@ window {
     transparency:                   "real";
     width:                          180px;
     location:                       northwest;
-y-offset:                       30;
-/*x-offset:	                    850;*/
+    y-offset:                       53;
+    x-offset:	                      12;
     transparency:                   "real";
 }
 listview {
