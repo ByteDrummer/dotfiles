@@ -18,8 +18,8 @@
     follow = none
 
     # The geometry of the window:
-    width = 300
-    height = 60
+    #height = 400
+    #width = 350
     origin = top-right
     offset = 12x53
 
