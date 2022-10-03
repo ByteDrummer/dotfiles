@@ -158,13 +158,13 @@ XF86AudioMute
 
 #play/pause
 XF86AudioPlay
-  playerctl play-pause
+  playerctl play-pause --player=spotify,%any
 
 XF86AudioPrev
-  playerctl previous
+  playerctl previous --player=spotify,%any
 
 XF86AudioNext
-  playerctl next
+  playerctl next --player=spotify,%any
 
 # Brightness up
 XF86MonBrightnessUp
