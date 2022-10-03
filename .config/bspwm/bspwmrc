@@ -62,7 +62,7 @@ xfce4-power-manager &
 xsetroot -cursor_name left_ptr &
 
 # Low battery notifier
-~/.config/bspwm/scripts/low_bat_notifier.sh
+~/.config/bspwm/scripts/low_bat_notifier.sh &
 
 # Apply border to marked window
-~/.config/bspwm/scripts/marked_window.sh
+~/.config/bspwm/scripts/marked_window.sh &
