@@ -35,9 +35,9 @@ bspc config active_border_color         "#282c34"
 bspc config presel_feedback_color       "#282c34"
 
 # Disable borders when there is only one window in the workspace
-bspc config borderless_monocle true
-bspc config single_monocle true
-bspc config gapless_monocle false
+#bspc config borderless_monocle true
+#bspc config single_monocle true
+#bspc config gapless_monocle false
 
 #
 # Autostart
@@ -69,4 +69,6 @@ xsetroot -cursor_name left_ptr &
 # Apply border to marked window
 #~/.config/bspwm/scripts/marked_window.sh &
 # Automatic screen locking on suspend or screen timeout
+# Disable borders when there is only one window in the workspace
+~/.config/bspwm/scripts/no_border_single_window.sh
 xss-lock ~/.config/bspwm/scripts/i3lock-fancy/i3lock-fancy.sh &
