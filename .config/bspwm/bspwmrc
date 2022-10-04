@@ -34,6 +34,11 @@ bspc config normal_border_color         "#282c34"
 bspc config active_border_color         "#282c34"
 bspc config presel_feedback_color       "#282c34"
 
+# Disable borders when there is only one window in the workspace
+bspc config borderless_monocle true
+bspc config single_monocle true
+bspc config gapless_monocle false
+
 #
 # Autostart
 #
