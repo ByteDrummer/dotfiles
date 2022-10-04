@@ -57,12 +57,11 @@ nm-applet --indicator &
 imwheel -b "45" &
 # Power management
 xfce4-power-manager &
-
 # Cursor
 xsetroot -cursor_name left_ptr &
-
 # Low battery notifier
 ~/.config/bspwm/scripts/low_bat_notifier.sh &
-
 # Apply border to marked window
 ~/.config/bspwm/scripts/marked_window.sh &
+# Automatic screen locking on suspend or screen timeout
+xss-lock ~/.config/bspwm/scripts/i3lock-fancy/i3lock-fancy.sh &
