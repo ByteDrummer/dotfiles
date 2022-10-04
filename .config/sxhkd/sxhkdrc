@@ -183,7 +183,7 @@ super + Print
 
 # Shortcuts
 super + w 
-  firefox
+  google-chrome-stable
 
 super + n 
   thunar  
