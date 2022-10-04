@@ -4,7 +4,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
-bspc config border_width         0
+bspc config border_width         2
 bspc config window_gap          12
 
 bspc config pointer_motion_interval 7 # 144 hz window movement
@@ -29,10 +29,10 @@ bspc rule -a discord desktop='^2'
 
 
 # Border
-bspc config focused_border_color        "#aab2bf"
-bspc config normal_border_color         "#aab2bf"
-bspc config active_border_color         "#aab2bf"
-bspc config presel_feedback_color       "#aab2bf"
+bspc config focused_border_color        "#61afef"
+bspc config normal_border_color         "#282c34"
+bspc config active_border_color         "#282c34"
+bspc config presel_feedback_color       "#282c34"
 
 #
 # Autostart
@@ -62,6 +62,6 @@ xsetroot -cursor_name left_ptr &
 # Low battery notifier
 ~/.config/bspwm/scripts/low_bat_notifier.sh &
 # Apply border to marked window
-~/.config/bspwm/scripts/marked_window.sh &
+#~/.config/bspwm/scripts/marked_window.sh &
 # Automatic screen locking on suspend or screen timeout
 xss-lock ~/.config/bspwm/scripts/i3lock-fancy/i3lock-fancy.sh &
