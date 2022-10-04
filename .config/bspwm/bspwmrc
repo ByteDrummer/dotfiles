@@ -58,9 +58,10 @@ imwheel -b "45" &
 xfce4-power-manager &
 # Cursor
 xsetroot -cursor_name left_ptr &
+# Automatic screen locking on suspend or screen timeout
+betterlockscreen -u ~/Pictures/Wallpapers/main.jpg &
+xss-lock -- betterlockscreen -l dimblur &
 # Low battery notifier
 ~/.config/bspwm/scripts/low_bat_notifier.sh &
 # Set single window in a workspace to have normal_border_color
-~/.config/bspwm/scripts/single_window_color.sh
-# Automatic screen locking on suspend or screen timeout
-xss-lock ~/.config/bspwm/scripts/i3lock-fancy/i3lock-fancy.sh &
+~/.config/bspwm/scripts/single_window_color.sh &
