@@ -8,21 +8,15 @@ super + Return
 
 # program launcher
 super + d
-	rofi -modi drun -show drun -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal xfce4-terminal \
-                -show-icons -drun-icon-theme "Qogir-dark" -font "Droid Sans Regular 10"
+	rofi -show drun
 
 # show open window
 super + ctrl + d
-	rofi -modi drun -show window -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal xfce4-terminal \
-                -show-icons -drun-icon-theme "Qogir-dark" -font "Droid Sans Regular 10"
+	rofi -show window
 
 # show ssh sesssions
 super + shift + d
-	rofi -modi drun -show ssh -line-padding 4 \
-                -columns 2 -padding 50 -hide-scrollbar -terminal xfce4-terminal \
-                -show-icons -drun-icon-theme "Qogir-dark" -font "Droid Sans Regular 10"
+	rofi -show ssh
 
 # power-menu 
 super + shift + e
