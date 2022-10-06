@@ -1,11 +1,11 @@
 #!/bin/env bash
 
 # Options for powermenu
-lock="      Lock"
-logout="      Logout"
-shutdown="      Shutdown"
-reboot="      Reboot"
-sleep="      Sleep"
+lock="Lock"
+logout="Logout"
+shutdown="Shutdown"
+reboot="Reboot"
+sleep="Sleep"
 
 # Get answer from user via rofi
 selected_option=$(echo "$lock
@@ -15,13 +15,11 @@ $reboot
 $shutdown" | rofi -dmenu\
                   -i\
                   -p "Power"\
-                  -config "~/.config/rofi/powermenu.rasi"\
-                  -font "Symbols Nerd Font 12"\
-                  -width "15"\
                   -lines 5\
-                  -line-margin 3\
-                  -line-padding 10\
-                  -scrollbar-width "0" )
+                  -theme-str 'window {width: 180px;
+                                      location:northwest;
+                                      y-offset: 53;
+                                      x-offset: 12;}')
 
 # Do something based on selected option
 if [ "$selected_option" == "$lock" ]

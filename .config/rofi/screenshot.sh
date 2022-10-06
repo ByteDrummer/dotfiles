@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # options to be displayed
-option0="screen"
-option1="area"
-option2="window"
+option0="Screen"
+option1="Area"
+option2="Window"
 
 # options to be displyed
 options="$option0\n$option1\n$option2"
 
-selected="$(echo -e "$options" | rofi -lines 3 -dmenu -p "scrot" -theme-str 'window {width: 10%;}')"
+selected="$(echo -e "$options" | rofi -i -lines 3 -dmenu -p "Scrot" -theme-str 'window {width: 250px;}')"
 case $selected in
     $option0)
         cd $(xdg-user-dir PICTURES)/ && sleep 1 && scrot ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png;;

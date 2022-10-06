@@ -173,7 +173,7 @@ Print
   scrot ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png
 
 super + Print
-  ~/.config/bspwm/scripts/screenshot.sh
+  ~/.config/rofi/screenshot.sh
 
 # Shortcuts
 super + w 
