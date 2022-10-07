@@ -16,8 +16,9 @@ $shutdown" | rofi -dmenu\
                   -i\
                   -p "Power"\
                   -lines 5\
-                  -theme-str 'window {width: 180px;
-                                      location:northwest;
+                  -theme-str 'configuration{show-icons: false;}
+                              window {width: 180px;
+                                      location: northwest;
                                       y-offset: 53;
                                       x-offset: 12;}')
 
