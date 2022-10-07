@@ -24,7 +24,7 @@ window {
     border:           0;
     padding:          20;
     width: 40%;
-    y-offset: 50;
+    y-offset: 53;
 }
 listview {
     lines:                          10;
