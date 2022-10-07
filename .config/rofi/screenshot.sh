@@ -9,7 +9,7 @@ option2="Window"
 options="$option0\n$option1\n$option2"
 
 selected="$(echo -e "$options" | rofi -i -lines 3 -dmenu -p "Scrot" -theme-str 'configuration{show-icons: false;}
-                                                                                window {width: 250px;}')"
+                                                                                window {width: 180px;}')"
 case $selected in
     $option0)
         cd $(xdg-user-dir PICTURES)/ && sleep 1 && scrot ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png;;
