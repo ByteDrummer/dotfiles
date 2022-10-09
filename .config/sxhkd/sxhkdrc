@@ -180,7 +180,7 @@ super + w
   google-chrome-stable
 
 super + n 
-  thunar  
+  nautilus
 
 super + F1
   ~/.config/bspwm/scripts/keybindings_rofi.sh
