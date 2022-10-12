@@ -19,7 +19,7 @@ $shutdown" | rofi -dmenu\
                   -theme-str 'configuration{show-icons: false;}
                               window {width: 180px;
                                       location: southwest;
-                                      x-offset: 12;}')
+                                      x-offset: 20%;}')
 
 # Do something based on selected option
 if [ "$selected_option" == "$lock" ]
