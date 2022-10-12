@@ -18,7 +18,7 @@ $shutdown" | rofi -dmenu\
                   -lines 5\
                   -theme-str 'configuration{show-icons: false;}
                               window {width: 180px;
-                                      location: northwest;
+                                      location: southwest;
                                       x-offset: 12;}')
 
 # Do something based on selected option
