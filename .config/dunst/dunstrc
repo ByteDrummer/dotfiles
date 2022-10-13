@@ -20,8 +20,8 @@
     # The geometry of the window:
     #height = 400
     width = (0, 400)
-    origin = bottom-right
-    offset = 12x53
+    origin = bottom-center
+    offset = 0x53
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
