@@ -14,7 +14,7 @@ configuration {
     sidebar-mode:			false;
     terminal: "alacritty";
     fixed-num-lines: false;
-    location: 6;
+    location: 2;
 }
 
 @import "~/.config/rofi/arc_dark_transparent_colors.rasi"
@@ -24,7 +24,7 @@ window {
     border:           0;
     padding:          20;
     width: 40%;
-    y-offset: -53;
+    y-offset: 53;
 }
 listview {
     lines:                          10;
