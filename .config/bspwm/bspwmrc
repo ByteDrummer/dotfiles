@@ -62,7 +62,6 @@ xsetroot -cursor_name left_ptr &
 # Automatic screen locking on suspend or screen timeout
 betterlockscreen -u ~/Pictures/Wallpapers/main.jpg &
 xss-lock -- betterlockscreen -l dimblur -- --composite &
-xssproxy &
 # Low battery notifier
 ~/.config/bspwm/scripts/low_bat_notifier.sh &
 # Set single window in a workspace to have normal_border_color
