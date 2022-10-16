@@ -65,9 +65,9 @@ xsetroot -cursor_name left_ptr &
 ~/.config/bspwm/scripts/single_window_color.sh &
 # Workaround for electron and chrome window focusing bug
 ~/.config/bspwm/scripts/electron_fix.sh &
-# Automatic screen locking on suspend or screen timeout
+# Lock and suspend on idle. IdleActionSec in logind.conf doesn't work correctly
+# without a display manager so it is handled here
 betterlockscreen -u ~/Pictures/Wallpapers/main.jpg &
-xss-lock -- betterlockscreen -l dimblur -- --composite &
-# Automatic suspend hook since IdleActionSec in logind.conf doesn't work
-# corectly without a display manager
-xidlehook --timer 1200 'systemctl suspend' '' &
+xidlehook \
+  --timer 480 'betterlockscreen -l dimblur' '' \
+  --timer 1200 'systemctl suspend' '' &
