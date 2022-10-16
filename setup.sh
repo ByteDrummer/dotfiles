@@ -49,7 +49,7 @@ sudo pacman -S tmux
 sudo pacman -S vivid
 
 # Install additional desktop software
-yay -S blueman gthumb arandr playerctl xss-lock betterlockscreen caffeine-ng
+yay -S blueman gthumb arandr playerctl xss-lock betterlockscreen caffeine-ng xidlehook
 
 # Disable the display manager
 sudo rm /etc/systemd/system/display-manager.service

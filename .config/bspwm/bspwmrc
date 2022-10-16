@@ -59,12 +59,15 @@ nm-applet --indicator &
 imwheel -b "45" &
 # Cursor
 xsetroot -cursor_name left_ptr &
-# Automatic screen locking on suspend or screen timeout
-betterlockscreen -u ~/Pictures/Wallpapers/main.jpg &
-xss-lock -- betterlockscreen -l dimblur -- --composite &
 # Low battery notifier
 ~/.config/bspwm/scripts/low_bat_notifier.sh &
 # Set single window in a workspace to have normal_border_color
 ~/.config/bspwm/scripts/single_window_color.sh &
 # Workaround for electron and chrome window focusing bug
 ~/.config/bspwm/scripts/electron_fix.sh &
+# Automatic screen locking on suspend or screen timeout
+betterlockscreen -u ~/Pictures/Wallpapers/main.jpg &
+xss-lock -- betterlockscreen -l dimblur -- --composite &
+# Automatic suspend hook since IdleActionSec in logind.conf doesn't work
+# corectly without a display manager
+xidlehook --timer 1200 'systemctl suspend' '' &
