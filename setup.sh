@@ -51,7 +51,7 @@ sudo pacman -S vivid
 # Install additional desktop software
 yay -S blueman gthumb arandr playerctl betterlockscreen caffeine-ng xidlehook
 
-sudo cp systemd_unit_files/lock-on-suspend.service /etc/systemd/system/lock-on-suspend@$(whoami).service
+sudo cp systemd_unit_files/lock-on-suspend@.service /etc/systemd/system/
 sudo systemctl enable lock-on-suspend@$(whoami).service
 
 # Disable the display manager
