@@ -69,5 +69,6 @@ xsetroot -cursor_name left_ptr &
 # without a display manager so it is handled here
 betterlockscreen -u ~/Pictures/Wallpapers/main.jpg &
 xidlehook \
+  --timer 30 'light -O;light -S 5' 'light -I' \
   --timer 480 'betterlockscreen -l dimblur' '' \
   --timer 1200 'systemctl suspend' '' &
