@@ -49,7 +49,10 @@ sudo pacman -S tmux
 sudo pacman -S vivid
 
 # Install additional desktop software
-yay -S blueman gthumb arandr playerctl betterlockscreen caffeine-ng xidlehook
+yay -S blueman gthumb arandr playerctl betterlockscreen caffeine-ng xidlehook light
+
+# Needed for light
+sudo usermod -aG video $USER
 
 sudo cp ~/.config/systemd_unit_files/lock-on-suspend@.service /etc/systemd/system/
 sudo systemctl enable lock-on-suspend@$(whoami).service
