@@ -30,8 +30,8 @@ sudo pacman -S jre-openjdk jdk-openjdk
 # Install neovim
 sudo pacman -S xclip neovim # xclip is for copy paste support
 
-# Install recommended font for p10k
-yay -S ttf-meslo-nerd-font-powerlevel10k
+# Install terminal font
+yay -S ttf-hack-nerd
 
 # Install Alacritty
 sudo pacman -S alacritty
