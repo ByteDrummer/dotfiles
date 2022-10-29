@@ -62,3 +62,6 @@ sudo rm /etc/systemd/system/display-manager.service
 
 # Disable minimize, maximize, and close buttons
 gsettings set org.gnome.desktop.wm.preferences button-layout :
+
+# Disable loud system beep
+sudo sh -c 'rmmod pcspkr ; echo "blacklist pcspkr" >>/etc/modprobe.d/blacklist.conf'
