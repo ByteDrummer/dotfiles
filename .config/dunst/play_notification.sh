@@ -5,6 +5,7 @@
 
 if [[ "$1" != "Spotify" &&
       "$1" != "discord" &&
+      "$1" != "Slack" &&
       "$3" != *"calendar.google.com"* &&
       "$1" != "Thunderbird" ]]; then
   paplay ~/.config/dunst/notification.ogg
