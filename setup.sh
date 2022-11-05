@@ -38,10 +38,6 @@ sudo pacman -S alacritty
 yay -S nautilus-open-any-terminal
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacritty
 
-# Remove gnome-terminal from nautilus menu
-sudo mv -vi /usr/lib/nautilus/extensions-3.0/libterminal-nautilus.so{,.bak}
-nautilus -q
-
 # Install tmux
 sudo pacman -S tmux
 
