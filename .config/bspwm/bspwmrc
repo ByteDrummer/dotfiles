@@ -26,7 +26,7 @@ bspc rule -a thunderbird desktop='^1'
 bspc rule -a "*:crx_kjbdgfilnfhdoflbpgamdcdgpehopbep" desktop='^1'
 bspc rule -a "*:crx_mgamiaabcidhdjkgbmmalofnegcnbbpi" desktop='^2'
 bspc rule -a discord desktop='^2'
-#bspc rule -a zoom state=floating
+bspc rule -a zoom state=floating
 bspc rule -a Lutris desktop='^5'
 bspc rule -a Steam desktop='^5'
 
