@@ -63,7 +63,11 @@ window:
   decorations: none
 
 env:
-  #WINIT_X11_SCALE_FACTOR: '1.0'
+{% if yadm.hostname == "eric-laptop" %}
+  WINIT_X11_SCALE_FACTOR: '1.1'
+{% else %}
+  WINIT_X11_SCALE_FACTOR: '1.0'
+{% endif %}
   TERM: xterm-256color
 
 shell:
