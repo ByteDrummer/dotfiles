@@ -1,0 +1,7 @@
+Xcursor.theme: Qogir
+Xcursor.size: 16
+{% if yadm.hostname == "eric-laptop" %}
+Xft.dpi: 106
+{% else %}
+Xft.dpi: 96
+{% endif %}
