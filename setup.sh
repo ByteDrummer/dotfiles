@@ -45,7 +45,7 @@ sudo pacman -S tmux
 sudo pacman -S vivid
 
 # Install additional desktop software
-yay -S blueman gthumb arandr playerctl betterlockscreen caffeine-ng xidlehook light
+yay -S blueman gthumb arandr playerctl betterlockscreen caffeine-ng xidlehook light autorandr
 
 # Needed for light
 sudo usermod -aG video $USER
