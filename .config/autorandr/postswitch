@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Rerender lockscreen image
-betterlockscreen -u ~/Pictures/Wallpapers/main.jpg &
+betterlockscreen -u ~/Pictures/Wallpapers/main.jpg --fx dimblur &
 
 # Set desktops for all monitor outputs
 for monitor in $(xrandr --listmonitors | sed 1d | awk '{print $NF}'); do

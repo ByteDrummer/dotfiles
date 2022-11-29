@@ -63,7 +63,7 @@ xsetroot -cursor_name left_ptr &
 ~/.config/bspwm/scripts/electron_fix.sh &
 # Lock and suspend on idle. IdleActionSec in logind.conf doesn't work correctly
 # without a display manager so it is handled here
-betterlockscreen -u ~/Pictures/Wallpapers/main.jpg &
+betterlockscreen -u ~/Pictures/Wallpapers/main.jpg --fx dimblur &
 xidlehook \
   --detect-sleep \
   --timer 120 'light -O;light -S 5' 'light -I' \
