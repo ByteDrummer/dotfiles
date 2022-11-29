@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Restart polybar
+~/.config/polybar/launch_one.sh
+
+# Set wallpaper
+feh --bg-scale /home/eric/Pictures/Wallpapers/main.jpg &
