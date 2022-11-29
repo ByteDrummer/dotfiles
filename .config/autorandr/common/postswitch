@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Rerender lockscreen image
+betterlockscreen -u ~/Pictures/Wallpapers/main.jpg &
+
 # Restart polybar
 ~/.config/polybar/launch_one.sh
 
