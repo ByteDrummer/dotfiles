@@ -1,15 +1,35 @@
 #!/bin/bash
 
-# Move all desktops except the default to the primary monitor
-for desktop in $(bspc query -D --names | sed '/Desktop/d'); do
-  bspc desktop "$desktop" --to-monitor $(xrandr | grep primary | sed 's/ .*//')
+# Wait for monitors to be fully loaded
+sleep 1
+
+previous_primary=$(cat ~/.config/autorandr/previous_primary)
+primary=$(xrandr | grep primary | sed 's/ .*//')
+
+# Set desktops for all monitor outputs
+for monitor in $(xrandr --listmonitors | sed 1d | awk '{print $NF}'); do
+  bspc monitor "$monitor" -d 1 2 3 4 5 6 7 8 9 10 Desktop
 done
 
+# Move all desktops from the previous primary monitor to the primary monitor
+for desktop in $(bspc query -D -m "$previous_primary" | sed 10q); do
+  bspc desktop "$desktop" --to-monitor "$primary"
+done
+
+# Move all the old desktops in the primary monitor to the previous primary monitor
+for desktop in $(bspc query -D -m "$primary" | sed 10q); do
+  bspc desktop "$desktop" --to-monitor $previous_primary
+done
+
+# Remove default desktops
+bspc desktop $(bspc query -D -m "$primary" | sed 1q) --remove
+bspc desktop $(bspc query -D -m "$previous_primary" | sed 1q) --remove
+
 # Reorder desktops
-bspc monitor $(xrandr | grep primary | sed 's/ .*//') -o 1 2 3 4 5 6 7 8 9 10 Desktop
+bspc monitor "$primary" -d 1 2 3 4 5 6 7 8 9 10 Desktop
+bspc monitor "$previous_primary" -d 1 2 3 4 5 6 7 8 9 10 Desktop
 
 # Restart polybar
-sleep 5 # wait in case monitor was connect but status hasn't changed yet
 ~/.config/polybar/launch.sh
 
 # Set wallpaper
