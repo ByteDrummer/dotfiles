@@ -14,7 +14,7 @@ get_class_wids() {
 set_state() {
     for wid in $(get_class_wids "$*"); do
 	# if wid is not in our dtop, hide it (attempt to force unfocus)
-	if bspc query -N -d .focused -n $wid >/dev/null; then
+	if bspc query -N -d .active -n $wid >/dev/null; then
 	    echo "$*: showing!"
 	    bspc node $wid -g hidden=false
 	else
