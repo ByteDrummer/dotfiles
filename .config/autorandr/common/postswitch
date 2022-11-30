@@ -1,10 +1,15 @@
 #!/bin/bash
 
+primary_monitor=$(xrandr | grep primary | sed 's/ .*//')
+
 # Rerender lockscreen image
 betterlockscreen -u ~/Pictures/Wallpapers/main.jpg --fx dimblur &
 
 # Set desktops for primary monitor
-bspc monitor $(xrandr | grep primary | sed 's/ .*//') -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor $primary_monitor -d 1 2 3 4 5 6 7 8 9 10
+
+# Set primary monitor as the first one
+bspc wm -O $primary_monitor
 
 # Set wallpaper
 feh --bg-scale /home/eric/Pictures/Wallpapers/main.jpg &
