@@ -98,7 +98,8 @@ super + alt + {_,shift + } + {1-9,0} ; {1-9,0}
 
 # focus or send to the given desktop
 super + {_,shift + } {1-9,0}
-	bspc {desktop -f, node -d} "^$(bspc query -M | grep -Fn $(bspc query -M -m .focused) | sed 's/:.*//'):^{1-9,10}"
+  focused_monitor=$(bspc query -M | grep -Fn $(bspc query -M -m .focused) | sed 's/:.*//'); \
+	bspc {desktop -f, node -d} "^$focused_monitor:^{1-9,10}"
 
 #
 # preselect

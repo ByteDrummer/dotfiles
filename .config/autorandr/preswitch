@@ -1,3 +1,0 @@
-#!/bin/bash
-
-xrandr | grep primary | sed 's/ .*//' > ~/.config/autorandr/previous_primary

@@ -1,11 +1,8 @@
 #! /bin/sh
 
-pgrep -x sxhkd > /dev/null || sxhkd &
+# See autorandr postscripts for monitor setup specific configuration
 
-# Set desktops for all monitor outputs
-for monitor in $(xrandr --listmonitors | sed 1d | awk '{print $NF}'); do
-  bspc monitor "$monitor" -d 1 2 3 4 5 6 7 8 9 10
-done
+pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -35,16 +32,10 @@ bspc config presel_feedback_color       "#aab2bf"
 #
 # Autostart
 #
-# Set display from arandr saved script
-sh ~/.screenlayout/monitor.sh &
-# Bar
-~/.config/polybar/launch.sh &
 # Notifications
 /usr/bin/dunst &
 # Polkit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-# Wallpaper
-feh --bg-scale /home/eric/Pictures/Wallpapers/main.jpg &
 # Dex
 dex -a -s /etc/xdg/autostart/:~/.config/autostart/  &
 # Picom
@@ -63,7 +54,6 @@ xsetroot -cursor_name left_ptr &
 ~/.config/bspwm/scripts/electron_fix.sh &
 # Lock and suspend on idle. IdleActionSec in logind.conf doesn't work correctly
 # without a display manager so it is handled here
-betterlockscreen -u ~/Pictures/Wallpapers/main.jpg --fx dimblur &
 xidlehook \
   --detect-sleep \
   --timer 120 'light -O;light -S 5' 'light -I' \
