@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Wait for monitors to be fully connected
+sleep 6
+
 primary_monitor=$(xrandr | grep primary | sed 's/ .*//')
 
 # Rerender lockscreen image
@@ -13,9 +16,6 @@ bspc wm -O $primary_monitor
 
 # Set wallpaper
 feh --bg-scale /home/eric/Pictures/Wallpapers/main.jpg &
-
-# Wait for monitors to be fully connected
-sleep 6
 
 # Restart polybar
 ~/.config/polybar/launch_one.sh
