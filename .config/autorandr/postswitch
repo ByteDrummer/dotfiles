@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Wait for monitors to be fully connected
-sleep 6
-
 # Rerender lockscreen image
 betterlockscreen -u ~/Pictures/Wallpapers/main.jpg --fx dimblur &
 
@@ -25,4 +22,5 @@ bspc config right_padding 0
 bspc config bottom_padding 0
 
 # Restart polybar
+sleep 3
 ~/.config/polybar/launch.sh
