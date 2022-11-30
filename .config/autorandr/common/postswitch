@@ -13,4 +13,4 @@ feh --bg-scale /home/eric/Pictures/Wallpapers/main.jpg &
 sleep 6
 
 # Restart polybar
-~/.config/polybar/launch.sh
+~/.config/polybar/launch_one.sh
