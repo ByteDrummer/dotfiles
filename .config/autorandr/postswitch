@@ -1,9 +1,12 @@
 #!/bin/bash
 
-# Rerender lockscreen image
-betterlockscreen -u ~/Pictures/Wallpapers/main.jpg --fx dimblur &
+sleep 3
 
 monitors=""
+monitor_order_file=~/.config/autorandr/$(autorandr | grep 'current' | awk '{print $1;}')_order
+
+# Rerender lockscreen image
+betterlockscreen -u ~/Pictures/Wallpapers/main.jpg --fx dimblur &
 
 # Set desktops for all monitor outputs
 for monitor in $(xrandr --listmonitors | sed 1d | awk '{print $NF}'); do
@@ -12,7 +15,11 @@ for monitor in $(xrandr --listmonitors | sed 1d | awk '{print $NF}'); do
 done
 
 # Order the monitors
-bspc wm -O $monitors
+if test -s $monitor_order_file; then
+  bspc wm -O $(cat $monitor_order_file)
+else
+  bspc wm -O $monitors
+fi
 
 # Set wallpaper
 feh --bg-scale /home/eric/Pictures/Wallpapers/main.jpg &
@@ -22,5 +29,4 @@ bspc config right_padding 0
 bspc config bottom_padding 0
 
 # Restart polybar
-sleep 3
 ~/.config/polybar/launch.sh
