@@ -92,14 +92,14 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
+# focus or send to the given desktop across monitors
 super + alt + {_,shift + } + {1-9,0} ; {1-9,0}
   bspc {desktop -f, node -d} "^{1-9,10}:^{1-9,10}"
 
-# focus or send to the given desktop
+# focus or send to the given desktop for the focused monitor
 super + {_,shift + } {1-9,0}
-  focused_monitor=$(bspc query -M | grep -Fn $(bspc query -M -m .focused) | sed 's/:.*//'); \
-	bspc {desktop -f, node -d} "^$focused_monitor:^{1-9,10}"
+  focused_monitor=$(bspc query -M -m .focused --names); \
+	bspc {desktop -f, node -d} "$focused_monitor:^{1-9,10}"
 
 #
 # preselect
