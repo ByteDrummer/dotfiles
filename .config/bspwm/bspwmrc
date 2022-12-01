@@ -15,12 +15,6 @@ bspc config gapless_monocle      true
 bspc config pointer_follows_focus true
 bspc config focus_follows_pointer true
 
-bspc rule -a thunderbird desktop='^1:^1'
-bspc rule -a "*:crx_kjbdgfilnfhdoflbpgamdcdgpehopbep" desktop='^1:^1'
-bspc rule -a "*:crx_mgamiaabcidhdjkgbmmalofnegcnbbpi" desktop='^1:^2'
-bspc rule -a discord desktop='^1:^2'
-bspc rule -a Lutris desktop='^1:^5'
-bspc rule -a Steam desktop='^1:^5'
 bspc rule -a zoom state=floating
 
 # Border

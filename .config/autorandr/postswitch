@@ -1,9 +1,10 @@
 #!/bin/bash
 
-sleep 3
-
 monitors=""
 monitor_order_file=~/.config/autorandr/$(autorandr | grep 'current' | awk '{print $1;}')_order
+
+# Update rules for where apps should launch
+~/.config/bspwm/scripts/set_desktop_rules.sh
 
 # Rerender lockscreen image
 betterlockscreen -u ~/Pictures/Wallpapers/main.jpg --fx dimblur &
@@ -13,6 +14,8 @@ for monitor in $(xrandr --listmonitors | sed 1d | awk '{print $NF}'); do
   monitors+="$monitor "
   bspc monitor "$monitor" -d 1 2 3 4 5 6 7 8 9 10
 done
+
+sleep 3
 
 # Order the monitors
 if test -s $monitor_order_file; then
