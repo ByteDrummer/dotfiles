@@ -50,11 +50,15 @@ yay -S blueman gthumb arandr playerctl betterlockscreen caffeine-ng xidlehook li
 # Needed for light
 sudo usermod -aG video $USER
 
+# Enable locking on suspend
 sudo cp ~/.config/systemd_unit_files/lock-on-suspend@.service /etc/systemd/system/
 sudo systemctl enable lock-on-suspend@$(whoami).service
 
 # Disable the display manager
 sudo rm /etc/systemd/system/display-manager.service
+
+# Add login message
+sudo cp ~/.config/wired /etc/issue
 
 # Disable minimize, maximize, and close buttons
 gsettings set org.gnome.desktop.wm.preferences button-layout :
