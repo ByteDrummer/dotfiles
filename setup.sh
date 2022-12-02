@@ -65,3 +65,5 @@ gsettings set org.gnome.desktop.wm.preferences button-layout :
 
 # Disable loud system beep
 sudo sh -c 'rmmod pcspkr ; echo "blacklist pcspkr" >>/etc/modprobe.d/blacklist.conf'
+
+mkdir ~/Pictures/Screenshots
