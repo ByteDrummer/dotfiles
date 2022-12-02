@@ -1,43 +1,36 @@
 #!/bin/env bash
 
 # Options for powermenu
-lock=" Lock"
-logout=" Logout"
-shutdown=" Shutdown"
-reboot=" Reboot"
-sleep=" Sleep"
+lock="Lock\0icon\x1fxfsm-lock"
+logout="Logout\0icon\x1fxfsm-logout"
+shutdown="Shutdown\0icon\x1fxfsm-shutdown"
+reboot="Reboot\0icon\x1fxfsm-reboot"
+suspend="Suspend\0icon\x1fxfsm-suspend"
 
 # Get answer from user via rofi
-selected_option=$(echo "$lock
+selected=$(echo -en "$lock
 $logout
-$sleep
+$suspend
 $reboot
 $shutdown" | rofi -dmenu\
                   -i\
                   -p "Power"\
                   -lines 5\
-                  -theme-str 'configuration{show-icons: false;}
-                              window {width: 160px;
+                  -theme-str 'window {width: 160px;
                                       location: northwest;
                                       x-offset: 5%;}')
 
 # Do something based on selected option
-if [ "$selected_option" == "$lock" ]
-then
-    betterlockscreen -l dimblur
-elif [ "$selected_option" == "$logout" ]
-then
-    bspc quit
-elif [ "$selected_option" == "$shutdown" ]
-then
-    systemctl poweroff
-elif [ "$selected_option" == "$reboot" ]
-then
-    systemctl reboot
-elif [ "$selected_option" == "$sleep" ]
-then
-    amixer set Master mute
-    systemctl suspend
-else
-    echo "No match"
+if [ $selected != "\n" ]; then
+  if [[ $lock =~ $selected ]]; then
+      betterlockscreen -l dimblur
+  elif [[ $logout =~ $selected ]]; then
+      bspc quit
+  elif [[ $shutdown =~ $selected ]]; then
+      systemctl poweroff
+  elif [[ $reboot =~ $selected ]]; then
+      systemctl reboot
+  elif [[ $suspend =~ $selected ]]; then
+      systemctl suspend
+  fi
 fi
