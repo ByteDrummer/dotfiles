@@ -58,7 +58,7 @@ element {
 }
 element-text {
     background-color: inherit;
-    text-color:       inherit;
+    text-color:       #abb2bf;
 }
 element.normal.normal {
     background-color: @normal-background;
@@ -123,8 +123,10 @@ inputbar {
 case-indicator {
     spacing:    0;
     text-color: @normal-foreground;
+
 }
 entry {
+    placeholder: "";
     spacing:    0;
     text-color: @normal-foreground;
 }

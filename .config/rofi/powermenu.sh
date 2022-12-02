@@ -1,11 +1,11 @@
 #!/bin/env bash
 
 # Options for powermenu
-lock="  Lock"
-logout="  Logout"
-shutdown="  Shutdown"
-reboot="  Reboot"
-sleep="  Sleep"
+lock=" Lock"
+logout=" Logout"
+shutdown=" Shutdown"
+reboot=" Reboot"
+sleep=" Sleep"
 
 # Get answer from user via rofi
 selected_option=$(echo "$lock
@@ -17,7 +17,7 @@ $shutdown" | rofi -dmenu\
                   -p "Power"\
                   -lines 5\
                   -theme-str 'configuration{show-icons: false;}
-                              window {width: 180px;
+                              window {width: 160px;
                                       location: northwest;
                                       x-offset: 5%;}')
 
