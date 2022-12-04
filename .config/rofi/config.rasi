@@ -129,10 +129,14 @@ entry {
     placeholder: "";
     spacing:    0;
     text-color: @normal-foreground;
+    background-color: #5F677B;
+    padding: 6px ;
+    border-radius: 15px;
 }
 prompt {
     spacing:    0;
     text-color: @normal-foreground;
+    enabled: false;
 }
 inputbar {
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
@@ -142,4 +146,5 @@ textbox-prompt-colon {
     str:        ":";
     margin:     0px 0.3em 0em 0em ;
     text-color: @normal-foreground;
+    enabled: false;
 }
