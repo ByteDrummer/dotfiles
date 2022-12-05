@@ -243,9 +243,9 @@ tree_toggle = function()
   end
   vim.cmd("NvimTreeToggle")
   if require'nvim-tree.view'.is_visible() then
-    require'bufferline.state'.set_offset(35, '')
+    require'bufferline.api'.set_offset(35, '')
   else
-    require'bufferline.state'.set_offset(0)
+    require'bufferline.api'.set_offset(0)
   end
 end
 EOF
@@ -273,7 +273,8 @@ require'nvim-treesitter.configs'.setup {
     'python',
     'bash',
     'java',
-    'json'
+    'json',
+    'vim'
   },
 }
 EOF
@@ -373,16 +374,16 @@ debug_mode_toggle = function()
   debug_open = not debug_open
 
   if debug_open then
-    require'bufferline.state'.set_offset(41, '')
+    require'bufferline.api'.set_offset(41, '')
   else
-    require'bufferline.state'.set_offset(0)
+    require'bufferline.api'.set_offset(0)
   end
 end
 
 debug_mode_close = function()
   require'dapui'.close()
   debug_open = false
-  require'bufferline.state'.set_offset(0)
+  require'bufferline.api'.set_offset(0)
 end
 EOF
 
