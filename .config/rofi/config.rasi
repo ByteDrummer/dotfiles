@@ -129,7 +129,7 @@ entry {
     placeholder: "";
     spacing:    0;
     text-color: @normal-foreground;
-    background-color: #5F677B;
+    background-color: #434857;
     padding: 6px ;
     border-radius: 15px;
 }
