@@ -2,6 +2,7 @@
 
 monitors=""
 monitor_order_file=~/.config/autorandr/$(autorandr | grep 'current' | awk '{print $1;}')_order
+primary_monitor=$(xrandr | grep primary | sed 's/ .*//')
 
 # Update rules for where apps should launch
 ~/.config/bspwm/scripts/set_desktop_rules.sh
@@ -21,6 +22,19 @@ feh --bg-scale /home/eric/Pictures/Wallpapers/main.jpg &
 # Workaround for bspwm desktop bounds shrinking
 bspc config right_padding 0
 bspc config bottom_padding 0
+
+# Move nodes from monitors that are off to the primary monitor
+bspc desktop -f "$primary_monitor:^1"
+for monitor in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+  if ! xrandr --listactivemonitors | grep "$monitor"; then
+    for desktop in $(bspc query -D -m "$monitor"); do
+      for node in $(bspc query -N -d "$desktop"); do
+        desk_num="$(bspc query -D -d "$desktop" --names)"
+        bspc node "$node" -d "$primary_monitor:^$desk_num"
+      done
+    done
+  fi
+done
 
 sleep 3
 
