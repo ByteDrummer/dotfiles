@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 # Workaround for electron and chrome window focusing bug
-# See link for more info
-# https://github.com/baskerville/bspwm/issues/811
+# See link for more info: https://github.com/baskerville/bspwm/issues/811
+# Make sure to turn off hardware acceleration in chrome for proper refocusing
+
 get_class_wids() {
     for wid in ${!wid_to_class[@]}; do
 	if grep -qi "$*" <<< "${wid_to_class[$wid]}" ; then
