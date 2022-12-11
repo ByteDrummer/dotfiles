@@ -24,6 +24,9 @@
     offset = 12x53
 
     scale = 1
+    
+    # hide notifications on fullscreen
+    fullscreen = pushback
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
