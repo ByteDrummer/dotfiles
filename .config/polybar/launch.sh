@@ -9,7 +9,6 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Launch Polybar
 if type "xrandr"; then
   monitors="$(xrandr --query | grep " connected")"
-  firstBar=true
 
   # Reorder list so icon tray attaches to the bar for the primary monitor
   if echo "$monitors" | grep "primary"; then
@@ -21,12 +20,6 @@ if type "xrandr"; then
 
   for m in $(echo "$monitors" | cut -d" " -f1); do
     MONITOR=$m polybar --reload top &
-
-    # Allow time for tray to attach to first bar
-    if $firstBar; then
-      sleep 0.5
-      firstBar=false
-    fi
   done
 else
   polybar --reload top &
