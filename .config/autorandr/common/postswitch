@@ -16,7 +16,7 @@ feh --bg-scale /home/eric/Pictures/Wallpapers/main.jpg &
 
 # Move nodes from monitors that aren't primary to the primary monitor
 bspc desktop -f "$primary_monitor:^1"
-for monitor in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+for monitor in $(xrandr | grep "con" | cut -d" " -f1); do
   if ! xrandr | grep "primary" | grep "$monitor"; then
     for desktop in $(bspc query -D -m "$monitor"); do
       for node in $(bspc query -N -d "$desktop"); do
