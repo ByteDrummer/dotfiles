@@ -24,7 +24,7 @@ bspc config right_padding 0
 bspc config bottom_padding 0
 
 # Move nodes from inactive monitors to the primary monitor
-bspc desktop -f "$primary_monitor:^1"
+bspc monitor -f "$primary_monitor"
 for monitor in $(xrandr | grep "con" | cut -d" " -f1); do
   if ! xrandr --listactivemonitors | grep "$monitor"; then
     for desktop in $(bspc query -D -m "$monitor"); do
@@ -35,6 +35,7 @@ for monitor in $(xrandr | grep "con" | cut -d" " -f1); do
     done
   fi
 done
+
 
 sleep 3
 
