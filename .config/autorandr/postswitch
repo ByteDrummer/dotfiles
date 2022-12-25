@@ -18,6 +18,8 @@ done
 # Set wallpaper
 feh --bg-scale /home/eric/Pictures/Wallpapers/main.jpg &
 
+sleep 3
+
 # Order the monitors
 if test -s $monitor_order_file; then
   bspc wm -O $(cat $monitor_order_file)
