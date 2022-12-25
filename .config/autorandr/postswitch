@@ -36,7 +36,6 @@ for monitor in $(xrandr | grep "con" | cut -d" " -f1); do
   fi
 done
 
-
 sleep 3
 
 # Order the monitors
