@@ -23,12 +23,12 @@ window {
     background-color: #31353F;
     border:           0;
     padding:          20;
-    width: 40%;
+    width: 25%;
     y-offset: 53;
 }
 listview {
     lines:                          10;
-    columns:                        3;
+    columns:                        2;
 }
 mainbox {
     border:  0;
