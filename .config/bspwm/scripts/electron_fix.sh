@@ -18,6 +18,7 @@ set_state() {
 	if bspc query -N -d .active -n $wid >/dev/null; then
 	    echo "$*: showing!"
 	    bspc node $wid -g hidden=false
+      bspc node -f $wid
 	else
 	    echo "$*: hiding!"
 	    bspc node $wid -g hidden=true
