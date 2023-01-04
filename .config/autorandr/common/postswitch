@@ -24,6 +24,8 @@ for monitor in $(xrandr | grep "con" | cut -d" " -f1); do
         bspc node "$node" -d "$primary_monitor:^$desk_num"
       done
     done
+
+    bspc monitor "$monitor" --remove
   fi
 done
 
