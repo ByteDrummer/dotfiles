@@ -48,5 +48,6 @@ fi
 # Restart polybar
 ~/.config/polybar/launch.sh
 
-# Fix overlapping off monitor
+# Fix overlapping inactive monitors
 bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
