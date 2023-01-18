@@ -20,6 +20,7 @@ if type "xrandr"; then
 
   for m in $(echo "$monitors" | cut -d" " -f1); do
     MONITOR=$m polybar --reload top &
+    sleep 0.3
   done
 else
   polybar --reload top &
