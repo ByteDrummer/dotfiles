@@ -39,19 +39,19 @@ colors:
 
 font:
   normal:
-    family: Hack Nerd Font Mono
+    family: MesloLGS NF
     style: Regular
 
   bold:
-    family: Hack Nerd Font Mono
+    family: MesloLGS NF
     style: Bold
 
   italic:
-    family: Hack Nerd Font Mono
+    family: MesloLGS NF
     style: Italic
 
   bold_italic:
-    family: Hack Nerd Font Mono
+    family: MesloLGS NF
     style: Bold Italic
 
   size: 10.5
