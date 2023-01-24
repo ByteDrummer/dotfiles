@@ -31,7 +31,7 @@ bspc config presel_feedback_color       "#aab2bf"
 # Polkit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 # Dex
-dex -a -s /etc/xdg/autostart/:~/.config/autostart/  &
+dex -a -s /etc/xdg/autostart/:~/.config/autostart/ -e BSPWM &
 # Picom
 picom -b &
 # Network Applet
