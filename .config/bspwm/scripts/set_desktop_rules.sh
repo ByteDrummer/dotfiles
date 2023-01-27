@@ -4,7 +4,7 @@ primary_monitor=$(xrandr | grep primary | sed 's/ .*//')
 
 bspc rule -a thunderbird desktop="$primary_monitor:^1"
 bspc rule -a "*:crx_kjbdgfilnfhdoflbpgamdcdgpehopbep" desktop="$primary_monitor:^1"
-bspc rule -a "*:crx_mgamiaabcidhdjkgbmmalofnegcnbbpi" desktop="$primary_monitor:^2"
+bspc rule -a "*:crx_hpfldicfbfomlpcikngkocigghgafkph" desktop="$primary_monitor:^2"
 bspc rule -a discord desktop="$primary_monitor:^2"
 bspc rule -a Lutris desktop="$primary_monitor:^5"
 bspc rule -a Steam desktop="$primary_monitor:^5"
