@@ -7,6 +7,6 @@ bspc subscribe desktop_layout desktop_focus node_add node_remove node_stack node
   if [ $count == 1 ]; then
     bspc config focused_border_color "#282c34"
   else
-    bspc config focused_border_color "#61afef"
+    bspc config focused_border_color "#abb2bf"
   fi
 done
