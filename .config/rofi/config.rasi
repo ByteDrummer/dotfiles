@@ -52,7 +52,7 @@ listview {
 }
 element {
     border:  0;
-    padding: 6px ;
+    padding: 5px ;
     border-radius: 15px;
     highlight: bold;
 }
@@ -130,7 +130,7 @@ entry {
     spacing:    0;
     text-color: #abb2bf;
     background-color: #4d5363;
-    padding: 6px ;
+    padding: 5px ;
     border-radius: 15px;
 }
 prompt {
