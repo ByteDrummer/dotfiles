@@ -23,6 +23,9 @@ bspc config normal_border_color         "#282c34"
 bspc config active_border_color         "#282c34"
 bspc config presel_feedback_color       "#aab2bf"
 
+# Spotify rule workaround
+bspc config external_rules_command "$HOME/.config/bspwm/scripts/spotify_fix.sh"
+
 #
 # Autostart
 #
