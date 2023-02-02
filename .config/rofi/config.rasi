@@ -6,7 +6,7 @@
 configuration {
     font:				"Cantarell 11";
     show-icons:				true;
-    icon-theme:				"Papirus";
+    icon-theme:				"Papirus-Dark";
     display-drun:			"Apps";
     drun-display-format:		"{name}";
     scroll-method:			0;

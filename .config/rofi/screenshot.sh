@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # options to be displayed
-option0="Screen\0icon\x1fdisplay"
-option1="Area\0icon\x1fkdenlive-select-rects"
+option0="Screen\0icon\x1f/usr/share/icons/Papirus-Dark/16x16/devices/computer.svg"
+option1="Area\0icon\x1fimage-crop"
 option2="Window\0icon\x1fwindow"
 
 # options to be displyed
