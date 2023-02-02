@@ -45,7 +45,7 @@ sudo pacman -S tmux
 sudo pacman -S vivid
 
 # Install additional desktop software
-yay -S blueman gthumb arandr playerctl betterlockscreen caffeine-ng xidlehook light autorandr kvantum qt5ct qt6ct kvantum-theme-libadwaita-git
+yay -S blueman gthumb arandr playerctl betterlockscreen caffeine-ng xidlehook light autorandr kvantum qt5ct qt6ct
 
 # Needed for light
 sudo usermod -aG video $USER
