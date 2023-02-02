@@ -48,7 +48,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# set QT theme to be kvantum's
-export QT_STYLE_OVERRIDE=kvantum
+# set QT theme to be qt5ct's which is based on kvantum
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 exec bspwm
