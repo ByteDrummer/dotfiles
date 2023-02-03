@@ -60,6 +60,10 @@ sudo rm /etc/systemd/system/display-manager.service
 # Add login message
 sudo cp ~/.config/wired /etc/issue
 
+# Setup Wacom tablets
+sudo cp ~/.config/wacom/99-wacom.rules /etc/udev/rules.d/
+systemctl --user enable --now wacom.service
+
 # Disable minimize, maximize, and close buttons
 gsettings set org.gnome.desktop.wm.preferences button-layout :
 
