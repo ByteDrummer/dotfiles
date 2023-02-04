@@ -61,6 +61,7 @@ sudo rm /etc/systemd/system/display-manager.service
 sudo cp ~/.config/wired /etc/issue
 
 # Setup Wacom tablet
+yay -S xf86-input-wacom
 sudo cp ~/.config/wacom/99-wacom.rules /etc/udev/rules.d/
 systemctl --user enable --now wacom.service
 
