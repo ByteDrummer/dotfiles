@@ -99,17 +99,20 @@ lsp.setup_nvim_cmp {
 lsp.setup()
 
 require'mason-tool-installer'.setup {
-  ensure_installed = {'pyright', 'autopep8'}
+  ensure_installed = {
+  'pyright', 'autopep8',
+  'bash-language-server', beautysh, shellcheck}
 }
 
 require("null-ls").setup({
     sources = {
+        require("null-ls").builtins.formatting.beautysh,
         require("null-ls").builtins.formatting.autopep8
     }
 })
 EOF
 
-nnoremap <silent> <leader>f :lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent> <leader>f :lua vim.lsp.buf.format { async = true }<CR>
 
 " indent-blankline setting ------------------------------------
 lua << EOF
