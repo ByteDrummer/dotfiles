@@ -23,7 +23,7 @@ window {
     background-color: #31353F;
     border:           0;
     padding:          15;
-    width: 25%;
+    width: 550px;
     y-offset: 53;
 }
 listview {
