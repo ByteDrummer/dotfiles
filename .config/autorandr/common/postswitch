@@ -12,7 +12,7 @@ betterlockscreen -u ~/Pictures/Wallpapers/main.jpg --fx dimblur &
 bspc monitor $primary_monitor -d 1 2 3 4 5 6 7 8 9 10
 
 # Set wallpaper
-feh --bg-scale /home/eric/Pictures/Wallpapers/main.jpg &
+feh --bg-fill /home/eric/Pictures/Wallpapers/main.jpg &
 
 # Move nodes from monitors that aren't primary to the primary monitor
 bspc monitor -f "$primary_monitor"

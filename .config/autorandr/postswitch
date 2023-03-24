@@ -17,7 +17,7 @@ for monitor in $(xrandr --listmonitors | sed 1d | awk '{print $NF}'); do
 done
 
 # Set wallpaper
-feh --bg-scale /home/eric/Pictures/Wallpapers/main.jpg &
+feh --bg-fill /home/eric/Pictures/Wallpapers/main.jpg &
 
 # Workaround for bspwm desktop bounds shrinking
 bspc config right_padding 0
