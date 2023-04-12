@@ -23,7 +23,6 @@ Plug 'kyazdani42/nvim-web-devicons' " icon glyphs
 Plug 'kyazdani42/nvim-tree.lua' " file tree
 Plug 'lewis6991/gitsigns.nvim' " diff symbols
 Plug 'nvim-lua/plenary.nvim' " gitsigns dependancy
-Plug 'akinsho/toggleterm.nvim' " terminal
 Plug 'mfussenegger/nvim-dap' " debugger
 Plug 'rcarriga/nvim-dap-ui' "UI for debugger
 Plug 'scrooloose/nerdcommenter' " quickly comment blocks of code
@@ -171,42 +170,6 @@ on_attach = function(bufnr)
   end
 })
 EOF
-
-" toggleterm settings ------------------------------------
-lua << EOF
-term_open = false
-
-require("toggleterm").setup{
-  shade_terminals = false,
-  open_mapping = [[<c-\>]],
-  on_close = function()
-    term_open = false
-  end,
-  on_open = function()
-    term_open = true
-  end
-}
-
-function _G.set_terminal_keymaps()
-  local opts = {noremap = true}
-  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
-end
-
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-
-term_toggle = function()
-  if debug_open then
-    debug_mode_close()
-  end
-  vim.cmd('ToggleTerm')
-end
-EOF
-
-map <silent> <C-\> :lua term_toggle()<CR>
 
 " nvim-tree settings ------------------------------------
 lua << EOF
@@ -368,10 +331,6 @@ debug_open = false
 debug_mode_toggle = function()
   pcall(vim.cmd, 'SymbolsOutlineClose')
   vim.cmd('NvimTreeClose')
-
-  if term_open then
-    vim.cmd('ToggleTerm')
-  end
 
   require'dapui'.toggle{ reset = true }
   debug_open = not debug_open
