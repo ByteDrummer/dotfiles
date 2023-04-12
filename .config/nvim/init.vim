@@ -349,7 +349,7 @@ debug_mode_close = function()
 end
 EOF
 
-nnoremap <silent> <F3> :lua debug_mode_toggle()<CR>
+nnoremap <silent> <F5> :lua debug_mode_toggle()<CR>
 nnoremap <silent> <leader>c :lua require'dap'.continue()<CR>
 nnoremap <silent> <leader>s :lua require'dap'.step_over()<CR>
 nnoremap <silent> <leader>si :lua require'dap'.step_into()<CR>
@@ -373,7 +373,7 @@ outline_toggle = function()
 end
 EOF
 
-nnoremap <F5> :lua outline_toggle()<CR>
+nnoremap <F6> :lua outline_toggle()<CR>
 
 " lualine settings ------------------------------------
 lua << EOF
