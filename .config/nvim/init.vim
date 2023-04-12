@@ -31,25 +31,20 @@ Plug 'unblevable/quick-scope' " show unique word characters in a line
 Plug 'simrat39/symbols-outline.nvim' " code outline
 
 " LSP plgins ------------------------------------
+" LSP Support
+Plug 'neovim/nvim-lspconfig'                          
+Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'}
+Plug 'williamboman/mason-lspconfig.nvim'              
+" Autocompletion
+Plug 'hrsh7th/nvim-cmp'    
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'L3MON4D3/LuaSnip'    
+" Boiler plate
+Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
+" Extras
 Plug 'onsails/lspkind.nvim' " kind symbols
 Plug 'WhoIsSethDaniel/mason-tool-installer.nvim' " auto install packages
 Plug 'jose-elias-alvarez/null-ls.nvim' " integrate formatters and linters
-" LSP Support
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
-" Autocompletion
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-nvim-lua'
-" Snippets
-Plug 'L3MON4D3/LuaSnip'
-Plug 'rafamadriz/friendly-snippets'
-" Quickstart boilerplate
-Plug 'VonHeikemen/lsp-zero.nvim'
 
 call plug#end()
 
@@ -59,43 +54,40 @@ lua require('neoscroll').setup()
 
 " LSP settings ------------------------------------
 lua << EOF
-local lsp = require('lsp-zero')
-local lspkind = require('lspkind')
+local lsp = require('lsp-zero').preset({})
 
-lsp.set_preferences({
-  suggest_lsp_servers = true,
-  setup_servers_on_start = true,
-  set_lsp_keymaps = true,
-  configure_diagnostics = true,
-  cmp_capabilities = true,
-  manage_nvim_cmp = true,
-  call_servers = 'local',
-  sign_icons = {
-    error = '',
-    warn = '',
-    hint = '',
-    info = ''
-  }
+lsp.on_attach(function(client, bufnr)
+  lsp.default_keymaps({buffer = bufnr})
+
+  vim.keymap.set({'n', 'x'}, '<F3>', function()
+    vim.lsp.buf.format({async = false, timeout_ms = 10000})
+  end)
+end)
+
+lsp.set_sign_icons({
+  error = '',
+  warn = '',
+  hint = '',
+  info = ''
 })
 
-lsp.nvim_workspace()
-
-lsp.setup_nvim_cmp {
-  formatting = {
-    format = lspkind.cmp_format({
-      mode = 'symbol_text', -- show only symbol annotations
-      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-
-      -- The function below will be called before any actual modifications from lspkind
-      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-      before = function (entry, vim_item)
-        return vim_item
-      end
-    })
-  }
-}
+-- (Optional) Configure lua language server for neovim
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.setup()
+
+local cmp = require('cmp')
+
+cmp.setup({
+  formatting = {
+    fields = {'abbr', 'kind', 'menu'},
+    format = require('lspkind').cmp_format({
+      mode = 'symbol', -- show only symbol annotations
+      maxwidth = 50, -- prevent the popup from showing more than provided characters
+      ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
+    })
+  }
+})
 
 require'mason-tool-installer'.setup {
   ensure_installed = {
@@ -110,8 +102,6 @@ require("null-ls").setup({
     }
 })
 EOF
-
-nnoremap <silent> <leader>f :lua vim.lsp.buf.format { async = true }<CR>
 
 " indent-blankline setting ------------------------------------
 lua << EOF
