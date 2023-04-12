@@ -103,6 +103,15 @@ require("null-ls").setup({
 })
 EOF
 
+" onedark settings ------------------------------------
+lua << EOF
+require('onedark').setup {
+  highlights = {
+    VertSplit = {fg = "#282C34"}
+  }
+}
+EOF
+
 " indent-blankline setting ------------------------------------
 lua << EOF
 require("indent_blankline").setup {
@@ -199,7 +208,7 @@ tree_toggle = function()
   end
   vim.cmd("NvimTreeToggle")
   if require'nvim-tree.view'.is_visible() then
-    require'bufferline.api'.set_offset(35, '')
+    require'bufferline.api'.set_offset(34, '')
   else
     require'bufferline.api'.set_offset(0)
   end
@@ -336,7 +345,7 @@ debug_mode_toggle = function()
   debug_open = not debug_open
 
   if debug_open then
-    require'bufferline.api'.set_offset(41, '')
+    require'bufferline.api'.set_offset(40, '')
   else
     require'bufferline.api'.set_offset(0)
   end
