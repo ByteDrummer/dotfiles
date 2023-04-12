@@ -236,17 +236,27 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 " barbar settings ------------------------------------
-let bufferline = get(g:, 'bufferline', {})
-let bufferline.tabpages = v:false
-let bufferline.icon_close_tab_modified = ''
-nnoremap <silent>    <A-,> :BufferPrevious<CR>
-nnoremap <silent>    <A-.> :BufferNext<CR>
-nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
-nnoremap <silent>    <A->> :BufferMoveNext<CR>
-nnoremap <silent>    <A-c> :BufferClose<CR>
-nnoremap <silent>    <A-p> :BufferPick<CR>
-let bufferline.exclude_ft = ['dap-repl', 'qf']
-let bufferline.exclude_name = ['python']
+lua << EOF
+vim.g.barbar_auto_setup = false -- disable auto-setup
+
+require("barbar").setup({
+  exclude_ft = {'dap-repl', 'qf'},
+  exclude_name = {'python'},
+  icons = {
+    modified = {button = ''}
+  }
+})
+
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
+map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
+map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
+map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
+map('n', '<A-p>', '<Cmd>BufferPick<CR>', opts)
+EOF
 
 " DAP settings ------------------------------------
 autocmd ColorScheme *
