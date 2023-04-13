@@ -91,8 +91,9 @@ cmp.setup({
 
 require'mason-tool-installer'.setup {
   ensure_installed = {
-  'pyright', 'autopep8',
-  'bash-language-server', beautysh, shellcheck}
+    'pyright', 'autopep8',
+    'bash-language-server', 'beautysh', 'shellcheck'
+  }
 }
 
 require("null-ls").setup({
