@@ -37,14 +37,18 @@ Plug 'williamboman/mason.nvim', {'do': ':MasonUpdate'}
 Plug 'williamboman/mason-lspconfig.nvim'              
 " Autocompletion
 Plug 'hrsh7th/nvim-cmp'    
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'L3MON4D3/LuaSnip'    
-" Boiler plate
-Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
-" Extras
+Plug 'hrsh7th/cmp-path' " cmp source for filesystem paths
+Plug 'hrsh7th/cmp-nvim-lsp' " cmp source for LSP servers
+Plug 'hrsh7th/cmp-buffer' " cmp source for buffer words
+Plug 'saadparwaiz1/cmp_luasnip' " cmp source for LuaSnip
+Plug 'L3MON4D3/LuaSnip' " snippet engine
+Plug 'rafamadriz/friendly-snippets' " snippets collection
 Plug 'onsails/lspkind.nvim' " kind symbols
+" Extras
 Plug 'WhoIsSethDaniel/mason-tool-installer.nvim' " auto install packages
 Plug 'jose-elias-alvarez/null-ls.nvim' " integrate formatters and linters
+" Boiler plate
+Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
 
 call plug#end()
 
@@ -77,8 +81,22 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 lsp.setup()
 
 local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+
+require('luasnip.loaders.from_vscode').lazy_load()
+require('luasnip').filetype_extend("javascript", { "javascriptreact" })
 
 cmp.setup({
+  sources = {
+    {name = 'path'},
+    {name = 'nvim_lsp'},
+    {name = 'buffer', keyword_length = 3},
+    {name = 'luasnip', keyword_length = 2},
+  },
+  mapping = {
+    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+  },
   formatting = {
     fields = {'abbr', 'kind', 'menu'},
     format = require('lspkind').cmp_format({
