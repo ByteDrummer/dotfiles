@@ -40,9 +40,9 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path' " cmp source for filesystem paths
 Plug 'hrsh7th/cmp-nvim-lsp' " cmp source for LSP servers
 Plug 'hrsh7th/cmp-buffer' " cmp source for buffer words
-Plug 'saadparwaiz1/cmp_luasnip' " cmp source for LuaSnip
-Plug 'L3MON4D3/LuaSnip' " snippet engine
-Plug 'rafamadriz/friendly-snippets' " snippets collection
+Plug 'L3MON4D3/LuaSnip' " cmp source for snippet engine
+Plug 'saadparwaiz1/cmp_luasnip' " allow custom snippets for LuaSnip
+Plug 'rafamadriz/friendly-snippets' " custom snippets collection
 Plug 'onsails/lspkind.nvim' " kind symbols
 " Extras
 Plug 'WhoIsSethDaniel/mason-tool-installer.nvim' " auto install packages
