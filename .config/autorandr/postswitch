@@ -11,7 +11,7 @@ primary_monitor=$(xrandr | grep primary | sed 's/ .*//')
 betterlockscreen -u ~/Pictures/Wallpapers/main.jpg --fx dimblur &
 
 # Set desktops for all monitor outputs
-for monitor in $(xrandr --listmonitors | sed 1d | awk '{print $NF}'); do
+for monitor in $(xrandr --listactivemonitors | sed 1d | awk '{print $NF}'); do
   monitors+="$monitor "
   bspc monitor "$monitor" -d 1 2 3 4 5 6 7 8 9 10
 done
