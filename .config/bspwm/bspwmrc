@@ -56,7 +56,7 @@ xsetroot -cursor_name left_ptr &
 # Lock and suspend on idle. IdleActionSec in logind.conf doesn't work correctly
 # without a display manager so it is handled here
 xidlehook \
-  --detect-sleep \
+  --detect-sleep --not-when-audio --not-when-fullscreen \
   --timer 120 'light -O;light -S 5' 'light -I' \
   --timer 420 'betterlockscreen -l dimblur' 'light -I' \
   --timer 660 'light -I;systemctl suspend' '' &
