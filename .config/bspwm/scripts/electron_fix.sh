@@ -35,7 +35,7 @@ act() {
   done
 
   # NB: add cases here:
-  set_state google-chrome
+  set_state chromium
   set_state discord
   set_state slack
 }
