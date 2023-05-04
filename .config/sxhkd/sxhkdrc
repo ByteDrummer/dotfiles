@@ -182,7 +182,7 @@ super + Print
 
 # Shortcuts
 super + w 
-  google-chrome-stable
+  firefox
 
 super + n 
   nautilus --new-window
