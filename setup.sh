@@ -68,6 +68,18 @@ systemctl --user enable --now wacom.service
 # Disable minimize, maximize, and close buttons
 gsettings set org.gnome.desktop.wm.preferences button-layout :
 
+# Setup gtk theme
+yay -S adw-gtk3
+wget https://github.com/lonr/adwaita-one-dark/releases/download/v0.44.0/Adwaita-One-Dark.tar.xz -P ~/Downloads/
+mkdir ~/.local/share/themes/Adwaita-One-Dark
+tar -xf ~/Downloads/Adwaita-One-Dark.tar.xz -C ~/.local/share/themes/Adwaita-One-Dark/
+ln -s ~/.local/share/themes/Adwaita-One-Dark/colors/gtk-dark.css ~/.config/gtk-4.0/gtk.css
+ln -s ~/.local/share/themes/Adwaita-One-Dark/colors/gtk-dark.css ~/.config/gtk-3.0/gtk.css
+mkdir -p ~/.themes/adw-gtk3-dark
+ln -s ~/.local/share/themes/Adwaita-One-Dark/gtk-2.0 ~/.themes/adw-gtk3-dark/gtk-2.0
+sudo ln -s ~/.config/gtk-3.0 /root/.config/gtk-3.0
+
+
 # Disable loud system beep
 sudo sh -c 'rmmod pcspkr ; echo "blacklist pcspkr" >>/etc/modprobe.d/blacklist.conf'
 
