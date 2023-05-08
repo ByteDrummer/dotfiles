@@ -45,7 +45,7 @@ sudo pacman -S tmux
 sudo pacman -S vivid
 
 # Install additional desktop software
-yay -S blueman gthumb arandr playerctl betterlockscreen caffeine-ng xidlehook light autorandr kvantum qt5ct qt6ct
+yay -S blueman gthumb arandr playerctl betterlockscreen caffeine-ng xidlehook light autorandr
 
 # Needed for light
 sudo usermod -aG video $USER
@@ -67,6 +67,9 @@ systemctl --user enable --now wacom.service
 
 # Disable minimize, maximize, and close buttons
 gsettings set org.gnome.desktop.wm.preferences button-layout :
+
+# Setup qt theme
+yay -S kvantum qt5ct qt6ct
 
 # Setup gtk theme
 yay -S adw-gtk3
