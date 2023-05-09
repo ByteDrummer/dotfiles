@@ -45,7 +45,7 @@ sudo pacman -S tmux
 sudo pacman -S vivid
 
 # Install additional desktop software
-yay -S blueman gthumb arandr playerctl betterlockscreen caffeine-ng xidlehook light autorandr
+yay -S blueman gthumb arandr playerctl betterlockscreen caffeine-ng xidlehook light autorandr timeshift
 
 # Needed for light
 sudo usermod -aG video $USER
@@ -78,7 +78,6 @@ sudo ln -s ~/.config/gtk-4.0 /root/.config/gtk-4.0
 sudo mkdir -p /root/.themes/adw-gtk3-dark
 sudo ln -s ~/.themes/adw-gtk3-dark/gtk-2.0 /root/.themes/adw-gtk3-dark/gtk-2.0
 sudo ln -s ~/.icons/oreo_white_cursors/ /usr/share/icons/oreo_white_cursors
-
 
 # Disable loud system beep
 sudo sh -c 'rmmod pcspkr ; echo "blacklist pcspkr" >>/etc/modprobe.d/blacklist.conf'
