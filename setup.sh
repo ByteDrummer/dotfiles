@@ -74,6 +74,10 @@ yay -S kvantum qt5ct qt6ct
 # Setup gtk theme
 yay -S adw-gtk3
 sudo ln -s ~/.config/gtk-3.0 /root/.config/gtk-3.0
+sudo ln -s ~/.config/gtk-4.0 /root/.config/gtk-4.0
+sudo mkdir -p /root/.themes/adw-gtk3-dark
+sudo ln -s ~/.themes/adw-gtk3-dark/gtk-2.0 /root/.themes/adw-gtk3-dark/gtk-2.0
+sudo ln -s ~/.icons/oreo_white_cursors/ /usr/share/icons/oreo_white_cursors
 
 
 # Disable loud system beep
