@@ -47,6 +47,9 @@ sudo pacman -S vivid
 # Install additional desktop software
 yay -S blueman gthumb arandr playerctl betterlockscreen caffeine-ng xidlehook light autorandr timeshift
 
+# Enable cronie service for timeshift
+sudo systemctl enable cronie.service
+
 # Needed for light
 sudo usermod -aG video $USER
 
