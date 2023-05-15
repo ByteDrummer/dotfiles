@@ -59,7 +59,7 @@ xidlehook \
   --detect-sleep --not-when-audio --not-when-fullscreen \
   --timer 120 'light -O;light -S 5' 'light -I' \
   --timer 420 'betterlockscreen -l dimblur' 'light -I' \
-  --timer 660 'light -I;systemctl suspend' '' &
+  --timer 660 'light -I;xset dpms force on;systemctl suspend' '' &
 
 # Configure Wacom tablet
 ~/.config/wacom/wacom-config.sh &
