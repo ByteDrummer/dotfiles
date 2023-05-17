@@ -1,5 +1,8 @@
 #!/bin/env bash
 
+# Dim powermenu button
+polybar-msg action "#powermenu.hook.1"
+
 # Options for powermenu
 lock="Lock\0icon\x1fxfsm-lock"
 logout="Logout\0icon\x1fxfsm-logout"
@@ -34,3 +37,6 @@ if [ $selected != "\n" ]; then
       systemctl suspend
   fi
 fi
+
+# Undim powermenu button
+polybar-msg action "#powermenu.hook.0"
