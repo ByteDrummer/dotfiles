@@ -13,8 +13,8 @@ for i in $(seq 10); do
     sleep 1
 done
 
-sudo modprobe -r wacom; sudo modprobe wacom; sleep 0.5 # reset tablet settings
-
+# there's no need to reset the tablet area to get the max tablet dimensions
+# since the bottom right coordinate never changes
 primary_monitor=$(xrandr | grep primary | sed 's/ .*//')
 list=$(xsetwacom list devices)
 stylus=$(echo "${list}" | grep stylus | sed 's/\s*id.*//')
