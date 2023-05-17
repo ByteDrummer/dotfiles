@@ -13,7 +13,12 @@ betterlockscreen -u ~/Pictures/Wallpapers/main.jpg --fx dimblur &
 # Set desktops for all monitor outputs
 for monitor in $(xrandr --listactivemonitors | sed 1d | awk '{print $NF}'); do
   monitors+="$monitor "
-  bspc monitor "$monitor" -d 1 2 3 4 5 6 7 8 9 10
+
+  if [ "$monitor" == "$primary_monitor" ]; then
+    bspc monitor "$monitor" -d 1 2 3 4 5 6 7 8 9 10
+  else
+    bspc monitor "$monitor" -d 11 12 13 14 15 16 17 18 19 20
+  fi
 done
 
 # Set wallpaper
@@ -29,7 +34,8 @@ for monitor in $(xrandr | grep "con" | cut -d" " -f1); do
   if ! xrandr --listactivemonitors | grep "$monitor"; then
     for desktop in $(bspc query -D -m "$monitor"); do
       for node in $(bspc query -N -d "$desktop"); do
-        desk_num="$(bspc query -D -d "$desktop" --names)"
+        desk_name="$(bspc query -D -d "$desktop" --names)"
+        desk_num=$(( (desk_name - 1) % 10 + 1 ))
         bspc node "$node" -d "$primary_monitor:^$desk_num"
       done
     done
@@ -41,8 +47,8 @@ done
 sleep 3
 
 # Order the monitors
-if test -s $monitor_order_file; then
-  bspc wm -O $(cat $monitor_order_file)
+if test -s "$monitor_order_file"; then
+  bspc wm -O $(cat "$monitor_order_file")
 else
   bspc wm -O $monitors
 fi
