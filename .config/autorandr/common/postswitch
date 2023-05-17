@@ -9,7 +9,7 @@ primary_monitor=$(xrandr | grep primary | sed 's/ .*//')
 betterlockscreen -u ~/Pictures/Wallpapers/main.jpg --fx dimblur &
 
 # Set desktops for primary monitor
-bspc monitor "$primary_monitor" -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor "$primary_monitor" -d 0 1 2 3 4 5 6 7 8 9
 
 # Set wallpaper
 feh --bg-fill /home/eric/Pictures/Wallpapers/main.jpg &
@@ -21,7 +21,7 @@ for monitor in $(xrandr | grep "con" | cut -d" " -f1); do
     for desktop in $(bspc query -D -m "$monitor"); do
       for node in $(bspc query -N -d "$desktop"); do
         desk_name="$(bspc query -D -d "$desktop" --names)"
-        desk_num=$(( (desk_name - 1) % 10 + 1 ))
+        desk_num=$(( desk_name % 10 ))
         bspc node "$node" -d "$primary_monitor:^$desk_num"
       done
     done
