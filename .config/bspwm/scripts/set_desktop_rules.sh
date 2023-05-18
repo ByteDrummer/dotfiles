@@ -7,4 +7,4 @@ bspc rule -a "*:crx_kjbdgfilnfhdoflbpgamdcdgpehopbep" desktop="$primary_monitor:
 bspc rule -a "*:crx_hpfldicfbfomlpcikngkocigghgafkph" desktop="$primary_monitor:^2"
 bspc rule -a discord desktop="$primary_monitor:^2"
 bspc rule -a Lutris desktop="$primary_monitor:^5"
-bspc rule -a steam desktop="$primary_monitor:^5"
+bspc rule -a Steam desktop="$primary_monitor:^5"
