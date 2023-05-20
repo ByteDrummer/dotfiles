@@ -15,9 +15,9 @@ for monitor in $(xrandr --listactivemonitors | sed 1d | awk '{print $NF}'); do
   monitors+="$monitor "
 
   if [ "$monitor" == "$primary_monitor" ]; then
-    bspc monitor "$monitor" -d 0 1 2 3 4 5 6 7 8 9
+    bspc monitor "$monitor" -d 1 2 3 4 5 6 7 8 9 10
   else
-    bspc monitor "$monitor" -d 10 11 12 13 14 15 16 17 18 19
+    bspc monitor "$monitor" -d 11 12 13 14 15 16 17 18 19 20
   fi
 done
 
@@ -35,7 +35,7 @@ for monitor in $(xrandr | grep "con" | cut -d" " -f1); do
     for desktop in $(bspc query -D -m "$monitor"); do
       for node in $(bspc query -N -d "$desktop"); do
         desk_name="$(bspc query -D -d "$desktop" --names)"
-        desk_num=$(( desk_name % 10 ))
+        desk_num=$(( (desk_name - 1) % 10 + 1 ))
         bspc node "$node" -d "$primary_monitor:^$desk_num"
       done
     done
