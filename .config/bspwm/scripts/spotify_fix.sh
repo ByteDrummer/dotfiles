@@ -4,11 +4,12 @@ wid=$1
 class=$2
 instance=$3
 consequences=$4
+primary_monitor=$(xrandr | grep primary | sed 's/ .*//')
 
 main() {
 	case "$class" in
 		Spotify)
-			echo "desktop=10"
+			echo "desktop=$primary_monitor:^10"
 			;;
 		"")
       sleep 0.5
