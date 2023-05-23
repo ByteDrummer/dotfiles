@@ -20,8 +20,13 @@ export HISTFILE=~/.zsh_history
 export PATH="$PATH:$HOME/.local/bin"
 # Java path for vim plugins
 export JAVA_HOME=/usr/lib/jvm/default
-# set neovim as sudoeditor
-export SUDO_EDITOR=/usr/bin/nvim
+# use neovim everywhere
+export SUDO_EDITOR=nvim
+export EDITOR=nvim
+export GIT_EDITOR=nvim
+export VISUAL=nvim
+export DIFFPROG="nvim -d"
+export MANPAGER='nvim +Man!'
 # set ls command output colors using vivid
 export LS_COLORS="$(vivid generate one-dark)"
 
