@@ -23,7 +23,7 @@ super + shift + e
      ~/.config/rofi/powermenu.sh
 
 # make sxhkd reload its configuration files:
-super + Escape
+super + alt + Escape
 	pkill -USR1 -x sxhkd
 
 #
