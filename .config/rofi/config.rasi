@@ -23,7 +23,7 @@ configuration {
 window {
     background-color: #31353F;
     border:           0;
-    padding:          15;
+    padding:          10;
     width: 550px;
     y-offset: 53;
 }
