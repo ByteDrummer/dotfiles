@@ -5,6 +5,7 @@ antigen
 arandr
 arandr
 autorandr
+baobab
 betterlockscreen
 blueman
 bspwm
@@ -15,6 +16,7 @@ dex
 dunst
 feh
 file-roller
+gnome-disk-utility
 gthumb
 gtk-engine-murrine
 gvfs
@@ -34,6 +36,10 @@ nautilus-open-any-terminal
 neovim
 network-manager-applet
 nodejs
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra
 npm
 picom
 playerctl
@@ -52,6 +58,7 @@ ttf-hack-nerd
 ttf-meslo-nerd-font-powerlevel10k
 tumbler
 vivid
+xarchiver
 xbindkeys
 xclip
 xdg-user-dirs-gtk
