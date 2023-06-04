@@ -4,7 +4,7 @@
 set -x
 
 # Install all required packages
-yay -S $(awk '{print}' ORS=' ' < packages.txt)
+yay -Syu --needed - < packages.txt
 
 # Switch shell
 chsh -s $(which zsh)
