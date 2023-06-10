@@ -68,4 +68,5 @@ xidlehook
 xorg-xbacklight
 xorg-xdpyinfo
 xorg-xsetroot
+xpadneo-dkms
 zsh
