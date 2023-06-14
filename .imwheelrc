@@ -11,6 +11,6 @@
 "Ozone X11" #spotify
     None, Up, Button4, 4
     None, Down, Button5, 4
-"^Steam$"
-    None, Up, Button4, 2
-    None, Down, Button5, 2
+"^steam$"
+    None, Up, Button4, 3
+    None, Down, Button5, 3
