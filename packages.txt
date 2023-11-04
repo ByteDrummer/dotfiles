@@ -27,7 +27,6 @@ gvfs-nfs
 gvfs-smb
 jdk-openjdk
 jq
-jre-openjdk
 kvantum
 light
 lxappearance-gtk3
