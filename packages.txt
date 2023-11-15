@@ -43,7 +43,7 @@ npm
 picom
 playerctl
 polkit-gnome
-polybar-git
+polybar
 python-pip
 qt5ct
 qt6ct
