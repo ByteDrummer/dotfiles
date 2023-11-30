@@ -1,0 +1,3 @@
+[Unit]
+Description=Start graphical-session needed for OpenTabletDriver
+BindsTo=graphical-session.target

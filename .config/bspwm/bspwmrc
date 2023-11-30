@@ -60,6 +60,5 @@ xidlehook \
   --timer 120 'light -O;light -S 5' 'light -I' \
   --timer 420 'betterlockscreen -l dimblur' 'light -I' \
   --timer 660 'light -I;systemctl suspend' '' &
-
-# Configure Wacom tablet
-~/.config/wacom/wacom-config.sh &
+# Start graphical-session needed for OpenTabletDriver
+systemctl --user start --wait x-session.target
