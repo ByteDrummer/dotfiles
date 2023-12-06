@@ -28,10 +28,6 @@ sudo rm /etc/systemd/system/display-manager.service
 # Add login message
 sudo cp ~/.config/wired /etc/issue
 
-# Setup Wacom tablet
-sudo cp ~/.config/wacom/99-wacom.rules /etc/udev/rules.d/
-systemctl --user enable --now wacom.service
-
 # Setup gtk theme
 sudo ln -s ~/.config/gtk-3.0 /root/.config/gtk-3.0
 sudo ln -s ~/.config/gtk-4.0 /root/.config/gtk-4.0
