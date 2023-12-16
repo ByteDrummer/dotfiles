@@ -3,7 +3,6 @@ adw-gtk3
 alacritty
 antigen
 arandr
-arandr
 autorandr
 baobab
 betterlockscreen
