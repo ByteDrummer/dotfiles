@@ -39,6 +39,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 npm
+opentabletdriver
 picom
 playerctl
 polkit-gnome
