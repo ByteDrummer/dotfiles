@@ -56,12 +56,10 @@ ttf-hack-nerd
 ttf-meslo-nerd-font-powerlevel10k
 tumbler
 vivid
-xarchiver
 xbindkeys
 xclip
 xdg-user-dirs-gtk
 xed
-xf86-input-wacom
 xidlehook
 xorg-xbacklight
 xorg-xdpyinfo
