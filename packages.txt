@@ -40,6 +40,7 @@ noto-fonts-emoji
 noto-fonts-extra
 npm
 opentabletdriver
+papirus-icon-theme
 picom
 playerctl
 polkit-gnome
