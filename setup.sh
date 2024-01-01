@@ -29,6 +29,8 @@ sudo rm /etc/systemd/system/display-manager.service
 sudo cp ~/.config/wired /etc/issue
 
 # Setup gtk theme
+sudo mkdir /root/.config
+sudo mkdir /root/.themes
 sudo ln -s ~/.config/gtk-3.0 /root/.config/gtk-3.0
 sudo ln -s ~/.config/gtk-4.0 /root/.config/gtk-4.0
 sudo ln -s ~/.themes/adw-gtk3-dark /root/.themes/adw-gtk3-dark
