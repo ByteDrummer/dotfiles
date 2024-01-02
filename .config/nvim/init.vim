@@ -127,7 +127,7 @@ EOF
 lua << EOF
 require('onedark').setup {
   highlights = {
-    VertSplit = {fg = "#282C34"}
+    WinSeparator = {fg = "#282C34"}
   }
 }
 EOF
