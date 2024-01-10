@@ -13,6 +13,7 @@ caffeine-ng
 default-cursors
 dex
 dunst
+evince
 feh
 file-roller
 gnome-disk-utility
