@@ -109,6 +109,7 @@ cmp.setup({
 
 require'mason-tool-installer'.setup {
   ensure_installed = {
+    'clangd',
     'pyright', 'autopep8',
     'typescript-language-server',
     'bash-language-server', 'beautysh', 'shellcheck'
@@ -253,6 +254,7 @@ require'nvim-treesitter.configs'.setup {
     disable = {},
   },
   ensure_installed = {
+    'cpp',
     'javascript',
     'html',
     'python',
@@ -350,6 +352,24 @@ dap.configurations.python = {
     end;
     args = promptArgs;
     console = "integratedTerminal";
+  },
+}
+
+dap.adapters.gdb = {
+  type = "executable",
+  command = "gdb",
+  args = { "-i", "dap" }
+}
+
+dap.configurations.cpp = {
+  {
+    name = "Launch",
+    type = "gdb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = "${workspaceFolder}",
   },
 }
 
