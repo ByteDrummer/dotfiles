@@ -39,10 +39,4 @@ sudo ln -s ~/.icons/oreo_white_cursors /usr/share/icons/oreo_white_cursors
 # Disable loud system beep
 sudo sh -c 'rmmod pcspkr ; echo "blacklist pcspkr" >>/etc/modprobe.d/blacklist.conf'
 
-# Nicesness control for Proton-GE
-sudo usermod -a -G games "$USER"
-
-# Nicesness and CPU governor control for gamemode
-sudo usermod -a -G gamemode "$USER"
-
 mkdir ~/Pictures/Screenshots
