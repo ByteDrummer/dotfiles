@@ -6,7 +6,7 @@
 # include problematic window class names here (case insensitive)
 classes=("chromium" "discord" "slack")
 
-bspc subscribe desktop_focus node_transfer | while read -r _; do
+bspc subscribe desktop_focus node_transfer node_add | while read -r _; do
   #echo "Desktop changed -------"
 
   # iterate over all window IDs
