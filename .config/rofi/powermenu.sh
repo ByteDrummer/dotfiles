@@ -9,11 +9,13 @@ logout="Logout\0icon\x1fxfsm-logout"
 shutdown="Shutdown\0icon\x1fxfsm-shutdown"
 reboot="Reboot\0icon\x1fxfsm-reboot"
 suspend="Suspend\0icon\x1fxfsm-suspend"
+hibernate="Hibernate\0icon\x1fxfsm-hibernate"
 
 # Get answer from user via rofi
 selected=$(echo -en "$lock
 $logout
 $suspend
+$hibernate
 $reboot
 $shutdown" | rofi -dmenu\
                   -i\
@@ -24,17 +26,19 @@ $shutdown" | rofi -dmenu\
                                       x-offset: 5%;}')
 
 # Do something based on selected option
-if [ $selected != "\n" ]; then
+if [ "$selected" != "" ]; then
   if [[ $lock =~ $selected ]]; then
-      betterlockscreen -l dimblur
+    betterlockscreen -l dimblur
   elif [[ $logout =~ $selected ]]; then
-      bspc quit
+    bspc quit
   elif [[ $shutdown =~ $selected ]]; then
-      systemctl poweroff
+    systemctl poweroff
   elif [[ $reboot =~ $selected ]]; then
-      systemctl reboot
+    systemctl reboot
   elif [[ $suspend =~ $selected ]]; then
-      systemctl suspend
+    systemctl suspend
+  elif [[ $hibernate =~ $selected ]]; then
+    systemctl hibernate
   fi
 fi
 
