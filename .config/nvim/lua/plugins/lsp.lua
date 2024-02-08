@@ -124,10 +124,11 @@ return {
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    depenencies = {
-      { "nvim-lua/plenary.nvim" }
-    },
+    "nvim-lua/plenary.nvim",
+  },
+
+  {
+    "nvimtools/none-ls.nvim",
     opts = function()
       local null_ls = require("null-ls")
       local formatting = null_ls.builtins.formatting
