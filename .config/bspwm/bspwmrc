@@ -61,4 +61,4 @@ xidlehook \
   --timer 420 'betterlockscreen -l dimblur' 'light -I' \
   --timer 660 'light -I;systemctl suspend' '' &
 # Start graphical-session needed for OpenTabletDriver
-systemctl --user start --wait x-session.target
+systemctl --user start x-session.target &
