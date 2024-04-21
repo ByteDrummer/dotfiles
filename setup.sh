@@ -7,7 +7,7 @@ set -x
 yay -Syu --needed - < packages.txt
 
 # Switch shell
-chsh -s $(which zsh)
+chsh -s "$(which zsh)"
 
 # Add Alacritty to Nautilus menu
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacritty
@@ -16,11 +16,11 @@ gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacri
 sudo systemctl enable cronie.service
 
 # Needed for light
-sudo usermod -aG video $USER
+sudo usermod -aG video "$USER"
 
 # Enable locking on suspend
 sudo cp ~/.config/systemd_unit_files/lock-on-suspend@.service /etc/systemd/system/
-sudo systemctl enable lock-on-suspend@$(whoami).service
+sudo systemctl enable lock-on-suspend@"$USER".service
 
 # Disable the display manager
 sudo rm /etc/systemd/system/display-manager.service
@@ -38,5 +38,8 @@ sudo ln -s ~/.icons/oreo_white_cursors /usr/share/icons/oreo_white_cursors
 
 # Disable loud system beep
 sudo sh -c 'rmmod pcspkr ; echo "blacklist pcspkr" >>/etc/modprobe.d/blacklist.conf'
+
+# Setup gamemode
+sudo usermod -aG gamemode "$USER"
 
 mkdir ~/Pictures/Screenshots

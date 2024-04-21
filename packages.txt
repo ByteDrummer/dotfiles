@@ -16,6 +16,7 @@ dunst
 evince
 feh
 file-roller
+gamemode
 gnome-disk-utility
 gthumb
 gtk-engine-murrine
@@ -29,8 +30,11 @@ imwheel
 jdk-openjdk
 jq
 kvantum
+lib32-gamemode
+lib32-mangohud
 light
 lxappearance-gtk3
+mangohud
 mpv
 nautilus-open-any-terminal
 neovim
