@@ -9,9 +9,7 @@ return {
   {
     "navarasu/onedark.nvim",
     opts = {
-      highlights = {
-        WinSeparator = { fg = "#282C34" }
-      }
+      transparent = true,
     },
     config = function(_, opts)
       require('onedark').setup(opts)
