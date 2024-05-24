@@ -26,7 +26,7 @@ sudo systemctl enable lock-on-suspend@"$USER".service
 sudo rm /etc/systemd/system/display-manager.service
 
 # Add login message
-sudo cp ~/.config/wired /etc/issue
+sudo cp ~/.config/login_logo /etc/issue
 
 # Setup gtk theme
 sudo mkdir /root/.config
