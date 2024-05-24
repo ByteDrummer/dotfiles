@@ -44,7 +44,9 @@ picom -b &
 # Network Applet
 nm-applet --indicator &
 # IMWHeel for scrolling
-imwheel -b "45" &
+if [ "$NO_IMWHEEL" != "1" ]; then
+  imwheel -b "45" &
+fi
 # Cursor
 xsetroot -cursor_name left_ptr &
 # Low battery notifier
