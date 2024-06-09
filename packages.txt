@@ -60,7 +60,6 @@ scrot
 sxhkd
 sysstat
 timeshift
-timeshift-autosnap
 tmux
 ttf-hack-nerd
 ttf-meslo-nerd-font-powerlevel10k
