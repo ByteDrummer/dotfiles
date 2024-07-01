@@ -118,7 +118,8 @@ return {
         'clangd',
         'pyright', 'autopep8',
         'typescript-language-server',
-        'bash-language-server', 'beautysh', 'shellcheck'
+        'bash-language-server', 'beautysh', 'shellcheck',
+        'dockerfile-language-server', 'docker-compose-language-service'
       }
     }
   },
