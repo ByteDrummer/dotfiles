@@ -91,6 +91,7 @@ return {
 
   {
     "rcarriga/nvim-dap-ui",
+    dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
     keys = {
       { '<F5>', function() require("ui_modes"):debug_toggle() end, silent = true }
     },
