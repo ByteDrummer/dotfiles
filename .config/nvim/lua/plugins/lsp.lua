@@ -130,6 +130,9 @@ return {
 
   {
     "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+    },
     opts = function()
       local null_ls = require("null-ls")
       local formatting = null_ls.builtins.formatting
@@ -137,8 +140,8 @@ return {
       {
         sources =
         {
-          formatting.beautysh,
-          formatting.autopep8
+          formatting.shfmt,
+          require("none-ls.formatting.ruff"),
         }
       }
     end
