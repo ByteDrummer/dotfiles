@@ -8,4 +8,10 @@ return {
     event = "InsertEnter",
     opts = {}     -- this is equalent to setup({}) function}
   },
+
+  {
+    "LunarVim/bigfile.nvim",
+    event = 'BufReadPre',
+    opts = {}
+  }
 }
