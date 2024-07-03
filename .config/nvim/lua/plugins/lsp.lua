@@ -116,9 +116,9 @@ return {
       ensure_installed = {
         'lua-language-server',
         'clangd',
-        'pyright', 'autopep8',
+        'pyright', 'ruff',
         'typescript-language-server',
-        'bash-language-server', 'beautysh', 'shellcheck',
+        'bash-language-server', 'shfmt', 'shellcheck',
         'dockerfile-language-server', 'docker-compose-language-service'
       }
     }
