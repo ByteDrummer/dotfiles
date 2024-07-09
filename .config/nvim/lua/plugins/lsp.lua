@@ -119,7 +119,8 @@ return {
         'pyright', 'ruff',
         'typescript-language-server',
         'bash-language-server', 'shfmt', 'shellcheck',
-        'dockerfile-language-server', 'docker-compose-language-service'
+        'dockerfile-language-server', 'docker-compose-language-service',
+        'html-lsp'
       }
     }
   },
