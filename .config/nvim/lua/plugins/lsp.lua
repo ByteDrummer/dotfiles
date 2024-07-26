@@ -105,6 +105,20 @@ return {
             local lua_opts = lsp_zero.nvim_lua_ls()
             require('lspconfig').lua_ls.setup(lua_opts)
           end,
+          tsserver = function ()
+            require('lspconfig').tsserver.setup({
+              settings = {
+                javascript = {
+                  format = {
+                    semicolons = 'insert'
+                  }
+                },
+                implicitProjectConfiguration = {
+                  checkJs = true
+                }
+              }
+            })
+          end
         }
       })
     end
