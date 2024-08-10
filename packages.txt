@@ -10,12 +10,15 @@ blueman
 bspwm
 btop
 caffeine-ng
+chromium
 default-cursors
 dex
+discord
 dunst
 evince
 feh
 file-roller
+firefox
 gamemode
 gnome-disk-utility
 gthumb
@@ -59,6 +62,7 @@ rofi
 scrot
 sxhkd
 sysstat
+thunderbird
 timeshift
 tmux
 ttf-hack-nerd
