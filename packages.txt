@@ -1,5 +1,5 @@
 acpi
-adw-gtk3
+adw-gtk-theme
 alacritty
 antigen
 arandr
