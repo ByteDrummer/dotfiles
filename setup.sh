@@ -25,6 +25,9 @@ sudo systemctl enable lock-on-suspend@"$USER".service
 # Disable the display manager
 sudo rm /etc/systemd/system/display-manager.service
 
+# Enable OpenTabletDriver daemon
+systemctl --user enable opentabletdriver.service --now
+
 # Add login message
 sudo cp ~/.config/login_logo /etc/issue
 
