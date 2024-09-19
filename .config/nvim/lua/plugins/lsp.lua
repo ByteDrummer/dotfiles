@@ -28,7 +28,6 @@ return {
       { 'saadparwaiz1/cmp_luasnip' },
       { 'rafamadriz/friendly-snippets' },
       { 'onsails/lspkind.nvim' },
-      { 'roobert/tailwindcss-colorizer-cmp.nvim', config = true }
     },
     config = function()
       -- Here is where you configure the autocompletion settings.
@@ -62,17 +61,13 @@ return {
         },
         formatting = {
           fields = { 'kind', 'abbr', 'menu' },
-          format = function(entry, item)
-            -- Use lspkind to add icons
-            item = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, item)
-            local strings = vim.split(item.kind, "%s", { trimempty = true })
-            item.kind = " " .. (strings[1] or "") .. " "
-            item.menu = "    (" .. (strings[2] or "") .. ")"
+          format = function(entry, vim_item)
+            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = " " .. (strings[1] or "") .. " "
+            kind.menu = "    (" .. (strings[2] or "") .. ")"
 
-            -- Use tailwindcss-colorizer-cmp to add color highlighting
-            item = require("tailwindcss-colorizer-cmp").formatter(entry, item)
-
-            return item
+            return kind
           end
         }
       })
