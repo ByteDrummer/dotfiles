@@ -53,15 +53,21 @@ return {
           ['<C-f>'] = cmp_action.luasnip_jump_forward(),
           ['<C-b>'] = cmp_action.luasnip_jump_backward(),
         },
+        window = {
+          completion = {
+            winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+            col_offset = -3,
+            side_padding = 0,
+          },
+        },
         formatting = {
-          fields = { 'abbr', 'kind', 'menu' },
+          fields = { 'kind', 'abbr', 'menu' },
           format = function(entry, item)
             -- Use lspkind to add icons
-            item = require('lspkind').cmp_format({
-              mode = 'symbol',      -- show only symbol annotations
-              maxwidth = 50,        -- prevent the popup from showing more than provided characters
-              ellipsis_char = '...' -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
-            })(entry, item)
+            item = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, item)
+            local strings = vim.split(item.kind, "%s", { trimempty = true })
+            item.kind = " " .. (strings[1] or "") .. " "
+            item.menu = "    (" .. (strings[2] or "") .. ")"
 
             -- Use tailwindcss-colorizer-cmp to add color highlighting
             item = require("tailwindcss-colorizer-cmp").formatter(entry, item)

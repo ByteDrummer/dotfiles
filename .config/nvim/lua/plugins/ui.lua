@@ -22,11 +22,13 @@ return {
   {
     "navarasu/onedark.nvim",
     opts = {
+      cmp_itemkind_reverse = true,
       transparent = true,
     },
     config = function(_, opts)
       require('onedark').setup(opts)
       require('onedark').load()
+      vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#393f4a", fg = "NONE" })
     end
   },
 
