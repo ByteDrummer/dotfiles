@@ -1,4 +1,17 @@
 return {
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = {
+      filetypes = {
+        '*', -- Highlight all files, but customize some others.
+        cmp_docs = { always_update = true }
+      },
+      user_default_options = {
+        tailwind = true
+      }
+    }
+  },
+
   { "unblevable/quick-scope" },
 
   {

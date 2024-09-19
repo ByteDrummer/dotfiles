@@ -28,6 +28,7 @@ return {
       { 'saadparwaiz1/cmp_luasnip' },
       { 'rafamadriz/friendly-snippets' },
       { 'onsails/lspkind.nvim' },
+      { 'roobert/tailwindcss-colorizer-cmp.nvim', config = true }
     },
     config = function()
       -- Here is where you configure the autocompletion settings.
@@ -54,11 +55,19 @@ return {
         },
         formatting = {
           fields = { 'abbr', 'kind', 'menu' },
-          format = require('lspkind').cmp_format({
-            mode = 'symbol',       -- show only symbol annotations
-            maxwidth = 50,         -- prevent the popup from showing more than provided characters
-            ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
-          })
+          format = function(entry, item)
+            -- Use lspkind to add icons
+            item = require('lspkind').cmp_format({
+              mode = 'symbol',      -- show only symbol annotations
+              maxwidth = 50,        -- prevent the popup from showing more than provided characters
+              ellipsis_char = '...' -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
+            })(entry, item)
+
+            -- Use tailwindcss-colorizer-cmp to add color highlighting
+            item = require("tailwindcss-colorizer-cmp").formatter(entry, item)
+
+            return item
+          end
         }
       })
     end
@@ -105,7 +114,7 @@ return {
             local lua_opts = lsp_zero.nvim_lua_ls()
             require('lspconfig').lua_ls.setup(lua_opts)
           end,
-          tsserver = function ()
+          tsserver = function()
             require('lspconfig').tsserver.setup({
               settings = {
                 javascript = {
@@ -131,7 +140,7 @@ return {
         'lua-language-server',
         'clangd',
         'pyright', 'ruff',
-        'typescript-language-server',
+        'typescript-language-server', 'tailwindcss-language-server', 'prettier',
         'bash-language-server', 'shfmt', 'shellcheck',
         'dockerfile-language-server', 'docker-compose-language-service',
         'html-lsp'
@@ -155,6 +164,7 @@ return {
       {
         sources =
         {
+          formatting.prettier,
           formatting.shfmt,
           require("none-ls.formatting.ruff"),
         }
