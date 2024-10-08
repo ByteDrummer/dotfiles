@@ -5,9 +5,9 @@ bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
 bindkey '^[[3~' delete-char 
 
-setopt inc_append_history
-setopt share_history
-setopt histignoredups
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_SAVE_NO_DUPS
 
 export WORDCHARS='-'
 export SAVEHIST=1000  # Save most-recent 1000 lines
