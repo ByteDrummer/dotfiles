@@ -34,6 +34,11 @@ export LS_COLORS="$(vivid generate one-dark)"
 alias update-all='yay && printf "\nFlatpak: " && flatpak update'
 alias ls='ls --color=auto'
 
+# pyenv config -------------------------------------------------------
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # plugins -------------------------------------------------------
 source /usr/share/zsh/share/antigen.zsh
 
