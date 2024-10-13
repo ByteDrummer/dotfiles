@@ -112,15 +112,10 @@ return {
               async = false,
               timeout_ms = 10000,
               filter = function(client)
-                -- Only use null-ls for these specific filetypes
-                local filetype = vim.bo.filetype
-                local null_ls_filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" }
-
-                if vim.tbl_contains(null_ls_filetypes, filetype) then
-                  return client.name == "null-ls"
-                end
-
-                return true -- Fallback to any other formatter if it's not one of the specified filetypes
+                -- List of clients to exclude
+                local exclude = { "ts_ls" }
+                -- Check if the client is in the exclude list
+                return not vim.tbl_contains(exclude, client.name)
               end,
             })
           end)
