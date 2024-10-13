@@ -107,7 +107,23 @@ return {
           vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
           vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
           vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-          vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+          vim.keymap.set({ 'n', 'x' }, '<F3>', function()
+            vim.lsp.buf.format({
+              async = false,
+              timeout_ms = 10000,
+              filter = function(client)
+                -- Only use null-ls for these specific filetypes
+                local filetype = vim.bo.filetype
+                local null_ls_filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" }
+
+                if vim.tbl_contains(null_ls_filetypes, filetype) then
+                  return client.name == "null-ls"
+                end
+
+                return true -- Fallback to any other formatter if it's not one of the specified filetypes
+              end,
+            })
+          end)
           vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
         end,
       })
