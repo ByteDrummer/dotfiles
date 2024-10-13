@@ -1,20 +1,15 @@
 return {
   {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
+    branch = 'v4.x',
     lazy = true,
     config = false,
-    init = function()
-      -- Disable automatic setup, we are doing it manually
-      vim.g.lsp_zero_extend_cmp = 0
-      vim.g.lsp_zero_extend_lspconfig = 0
-    end,
   },
 
   {
     'williamboman/mason.nvim',
     lazy = false,
-    config = true,
+    opts = {},
   },
 
   {
@@ -81,42 +76,80 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       { 'hrsh7th/cmp-nvim-lsp' },
+      { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
     },
     config = function()
-      -- This is where all the LSP shenanigans will live
       local lsp_zero = require('lsp-zero')
-      lsp_zero.extend_lspconfig()
+      local lsp_defaults = require('lspconfig').util.default_config
 
-      --- if you want to know more about lsp-zero and mason.nvim
-      --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
-      lsp_zero.on_attach(function(_, bufnr)
-        -- see :help lsp-zero-keybindings
-        -- to learn the available actions
-        lsp_zero.default_keymaps({ buffer = bufnr })
-        vim.keymap.set({ 'n', 'x' }, '<F3>', function()
-          vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
-        end)
-      end)
+      -- Add cmp_nvim_lsp capabilities settings to lspconfig
+      -- This should be executed before you configure any language server
+      lsp_defaults.capabilities = vim.tbl_deep_extend(
+        'force',
+        lsp_defaults.capabilities,
+        require('cmp_nvim_lsp').default_capabilities()
+      )
 
-      lsp_zero.set_sign_icons({
-        error = '',
-        warn = '',
-        hint = '',
-        info = ''
+      -- LspAttach is where you enable features that only work
+      -- if there is a language server active in the file
+      vim.api.nvim_create_autocmd('LspAttach', {
+        desc = 'LSP actions',
+        callback = function(event)
+          local opts = { buffer = event.buf }
+
+          vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+          vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+          vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+          vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+          vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+          vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+          vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+          vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+          vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+          vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+          vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+        end,
+      })
+
+      vim.diagnostic.config({
+        severity_sort = true,
+        float = {
+          style = 'minimal',
+          border = 'rounded',
+          source = 'always',
+          header = '',
+          prefix = '',
+        },
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.HINT] = '',
+            [vim.diagnostic.severity.INFO] = '',
+          },
+        },
       })
 
       require('mason-lspconfig').setup({
         ensure_installed = {},
         handlers = {
-          lsp_zero.default_setup,
-          lua_ls = function()
-            -- (Optional) Configure lua language server for neovim
-            local lua_opts = lsp_zero.nvim_lua_ls()
-            require('lspconfig').lua_ls.setup(lua_opts)
+          -- this first function is the "default handler"
+          -- it applies to every language server without a "custom handler"
+          function(server_name)
+            require('lspconfig')[server_name].setup({})
           end,
-          tsserver = function()
-            require('lspconfig').tsserver.setup({
+
+          lua_ls = function()
+            require('lspconfig').lua_ls.setup({
+              on_init = function(client)
+                lsp_zero.nvim_lua_settings(client, {})
+              end,
+            })
+          end,
+
+          ts_ls = function()
+            require('lspconfig').ts_ls.setup({
               settings = {
                 javascript = {
                   format = {
