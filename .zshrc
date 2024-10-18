@@ -29,6 +29,8 @@ export DIFFPROG="nvim -d"
 export MANPAGER='nvim +Man!'
 # set ls command output colors using vivid
 export LS_COLORS="$(vivid generate one-dark)"
+# suggest command using history, otherwise tab completion item
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # aliases -------------------------------------------------------
 alias update-all='yay && printf "\nFlatpak: " && flatpak update'
