@@ -1,0 +1,14 @@
+#!/bin/bash
+
+primary_monitor=$(xrandr | grep "primary" | awk '{print $1}')
+
+# Make other connected monitor primary if current one is disconnected
+if xrandr | grep "$primary_monitor" | grep "disconnected"; then
+  new_primary=$(xrandr | grep " connected" | awk '{print $1}' | head -n 1)
+  xrandr --output "$new_primary" --primary
+fi
+
+# Turn off all disconnected monitors
+for monitor in $(xrandr | grep "disconnected" | awk '{print $1}'); do
+  xrandr --output "$monitor" --off
+done
