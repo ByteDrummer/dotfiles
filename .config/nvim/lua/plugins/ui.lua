@@ -1,5 +1,9 @@
 return {
   {
+    "HiPhish/rainbow-delimiters.nvim",
+  },
+
+  {
     "NvChad/nvim-colorizer.lua",
     opts = {
       filetypes = {
