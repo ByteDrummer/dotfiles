@@ -113,7 +113,7 @@ return {
               timeout_ms = 10000,
               filter = function(client)
                 -- List of clients to exclude
-                local exclude = { "ts_ls" }
+                local exclude = { "ts_ls", "html" }
                 -- Check if the client is in the exclude list
                 return not vim.tbl_contains(exclude, client.name)
               end,
