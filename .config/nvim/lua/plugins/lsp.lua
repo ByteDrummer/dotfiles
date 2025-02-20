@@ -188,7 +188,8 @@ return {
         'typescript-language-server', 'tailwindcss-language-server', 'prettier',
         'bash-language-server', 'shfmt', 'shellcheck',
         'dockerfile-language-server', 'docker-compose-language-service',
-        'html-lsp'
+        'html-lsp',
+        'json-lsp'
       }
     }
   },
