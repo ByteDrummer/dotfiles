@@ -73,7 +73,6 @@ vivid
 xbindkeys
 xclip
 xdg-user-dirs-gtk
-xed
 xidlehook
 xorg-xbacklight
 xorg-xdpyinfo
