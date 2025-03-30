@@ -16,7 +16,7 @@ if [ $selected != "\n" ]; then
   if [[ $option0 =~ $selected ]]; then
     cd $(xdg-user-dir PICTURES)/ && sleep 1 && scrot ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png
   elif [[ $option1 =~ $selected ]]; then
-    cd $(xdg-user-dir PICTURES)/ && scrot --select --line mode=edge ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png
+    cd $(xdg-user-dir PICTURES)/ && scrot -f -s ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png
   elif [[ $option2 =~ $selected ]]; then
     cd $(xdg-user-dir PICTURES)/ && sleep 1 && scrot -u ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png
   fi
