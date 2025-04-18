@@ -34,10 +34,12 @@ return {
       require('onedark').setup(opts)
       require('onedark').load()
       vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#393f4a", fg = "NONE" })
-      vim.api.nvim_set_hl(0, "BufferCurrent", { bg = "#282c34", fg = "#aab2bf", bold = true})
-      vim.api.nvim_set_hl(0, "BufferCurrentSign", { bg = "#282c34", fg = "#c678dd"})
-      vim.api.nvim_set_hl(0, "BufferCurrentMod", { bg = "#282c34", fg = "#d19a66", bold = true, italic = true})
-      vim.api.nvim_set_hl(0, "BufferInactive", { bg = "#31353f", fg = "#848b98"})
+      vim.api.nvim_set_hl(0, "BufferCurrent", { bg = "#282c34", fg = "#aab2bf", bold = true })
+      vim.api.nvim_set_hl(0, "BufferCurrentSign", { bg = "#282c34", fg = "#c678dd" })
+      vim.api.nvim_set_hl(0, "BufferCurrentMod", { bg = "#282c34", fg = "#d19a66", bold = true, italic = true })
+      vim.api.nvim_set_hl(0, "BufferCurrentTarget", { bg = "#282c34", fg = "#e5c07b", bold = true })
+      vim.api.nvim_set_hl(0, "BufferInactive", { bg = "#31353f", fg = "#848b98" })
+      vim.api.nvim_set_hl(0, "BufferVisibleTarget", { bg = "#282c34", fg = "#e5c07b", bold = true })
     end
   },
 
