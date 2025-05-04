@@ -1,5 +1,16 @@
 return {
   {
+    'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    keys = {
+      { 'ff', require('telescope.builtin').find_files, silent = true },
+      { 'fg', require('telescope.builtin').live_grep,  silent = true },
+      { 'fb', require('telescope.builtin').buffers,    silent = true },
+      { 'fh', require('telescope.builtin').help_tags,  silent = true },
+    },
+  },
+
+  {
     "HiPhish/rainbow-delimiters.nvim",
   },
 
@@ -40,6 +51,10 @@ return {
       vim.api.nvim_set_hl(0, "BufferCurrentTarget", { bg = "#282c34", fg = "#e5c07b", bold = true })
       vim.api.nvim_set_hl(0, "BufferInactive", { bg = "#31353f", fg = "#848b98" })
       vim.api.nvim_set_hl(0, "BufferVisibleTarget", { bg = "#282c34", fg = "#e5c07b", bold = true })
+      vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = "#848b98" })
+      vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = "#848b98" })
+      vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = "#848b98" })
+      vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#aab2bf" })
     end
   },
 
