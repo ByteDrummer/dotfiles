@@ -12,6 +12,9 @@ chsh -s "$(which zsh)"
 # Add Alacritty to Nautilus menu
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacritty
 
+# Make Alacritty the default terminal emulator
+sudo ln -s /usr/bin/alacritty /usr/bin/xterm
+
 # Enable cronie service for timeshift
 sudo systemctl enable cronie.service
 

@@ -32,8 +32,6 @@ fi
 
 # set QT theme to be qt5ct's which is based on kvantum
 export QT_QPA_PLATFORMTHEME=qt5ct
-# make Alacritty the default terminal emulator
-export TERMINAL=alacritty
 # fix Java applications such as JDownloader 2 not rendering
 export _JAVA_AWT_WM_NONREPARENTING=1
 
