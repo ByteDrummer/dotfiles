@@ -59,6 +59,7 @@ pyenv
 python-pip
 qt5ct
 qt6ct
+ripgrep
 rofi
 scrot
 sxhkd
