@@ -43,10 +43,6 @@ dex -a -s /etc/xdg/autostart/:~/.config/autostart/ -e BSPWM &
 picom -b &
 # Network Applet
 nm-applet --indicator &
-# IMWHeel for scrolling
-if [ "$NO_IMWHEEL" != "1" ]; then
-  imwheel -b "45" &
-fi
 # Cursor
 xsetroot -cursor_name left_ptr &
 # Low battery notifier

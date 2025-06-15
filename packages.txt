@@ -29,7 +29,6 @@ gvfs-gphoto2
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
-imwheel
 jdk-openjdk
 jq
 kvantum
