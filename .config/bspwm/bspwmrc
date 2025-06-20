@@ -50,7 +50,7 @@ xsetroot -cursor_name left_ptr &
 # Set single window in a workspace to have normal_border_color
 ~/.config/bspwm/scripts/single_window_color.sh &
 # Workaround for electron and chrome window focusing bug
-~/.config/bspwm/scripts/electron_fix.sh &
+#~/.config/bspwm/scripts/electron_fix.sh &
 # Lock and suspend on idle. IdleActionSec in logind.conf doesn't work correctly
 # without a display manager so it is handled here
 xidlehook \
