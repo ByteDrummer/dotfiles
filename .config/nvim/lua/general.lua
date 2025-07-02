@@ -30,7 +30,8 @@ vim.opt.showmode = false
 vim.opt.updatetime = 300
 -- Copy paste between vim and everything else
 vim.opt.clipboard = "unnamedplus"
-vim.g.clipboard = "osc52"
+-- Enable yanking to system clipboard over ssh
+--vim.g.clipboard = "osc52"
 -- Column indicating max text width
 vim.opt.colorcolumn = "81"
 -- Line numbers counted relative to cursor
