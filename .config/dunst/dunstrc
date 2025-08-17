@@ -414,3 +414,8 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
+
+[nm-applet]
+    appname = "NetworkManager Applet"
+    skip_display = yes
+    history_ignore = yes
