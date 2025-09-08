@@ -31,10 +31,6 @@ export MANPAGER='nvim +Man!'
 export LS_COLORS="$(vivid generate one-dark)"
 # suggest command using history, otherwise tab completion item
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-# API key for neovim AI assistant
-if [ -f ~/.gemini_api_key ]; then
-  export $(cat ~/.gemini_api_key)
-fi
 
 # aliases -------------------------------------------------------
 alias update-all='yay && printf "\nFlatpak: " && flatpak update'
