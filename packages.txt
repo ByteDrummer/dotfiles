@@ -21,6 +21,7 @@ file-roller
 firefox
 gamemode
 gnome-disk-utility
+gnome-keyring
 gthumb
 gtk-engine-murrine
 gvfs
