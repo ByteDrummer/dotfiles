@@ -34,6 +34,10 @@ systemctl --user enable opentabletdriver.service --now
 # Add login message
 sudo cp ~/.config/login_logo /etc/issue
 
+# Setup GNOME Keyring
+sudo cp /etc/pam.d/login /etc/pam.d/login.bak
+sudo cp ~/.config/pam_login /etc/pam.d/login
+
 # Setup gtk theme
 sudo mkdir /root/.config
 sudo mkdir /root/.themes
