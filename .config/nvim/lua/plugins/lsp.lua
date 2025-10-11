@@ -1,14 +1,7 @@
 return {
   {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v4.x',
-    lazy = true,
-    config = false,
-  },
-
-  {
-    'williamboman/mason.nvim',
-    lazy = false,
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
     opts = {},
   },
 
@@ -33,6 +26,7 @@ return {
 
       cmp.setup({
         sources = {
+          { name = 'lazydev' },
           { name = 'path' },
           { name = 'nvim_lsp' },
           { name = 'buffer',  keyword_length = 3 },
@@ -96,30 +90,15 @@ return {
     end
   },
 
-  -- LSP
   {
-    'neovim/nvim-lspconfig',
-    cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
-    event = { 'BufReadPre', 'BufNewFile' },
+    "mason-org/mason-lspconfig.nvim",
     dependencies = {
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'williamboman/mason.nvim' },
-      { 'williamboman/mason-lspconfig.nvim' },
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
     },
     config = function()
-      local lsp_zero = require('lsp-zero')
-      local lsp_defaults = require('lspconfig').util.default_config
-
-      -- Add cmp_nvim_lsp capabilities settings to lspconfig
-      -- This should be executed before you configure any language server
-      lsp_defaults.capabilities = vim.tbl_deep_extend(
-        'force',
-        lsp_defaults.capabilities,
-        require('cmp_nvim_lsp').default_capabilities()
-      )
-
-      -- LspAttach is where you enable features that only work
-      -- if there is a language server active in the file
+      -- LspAttach is where you enable features that only work if there is a
+      -- language server active in the file
       vim.api.nvim_create_autocmd('LspAttach', {
         desc = 'LSP actions',
         callback = function(event)
@@ -169,39 +148,24 @@ return {
         },
       })
 
-      require('mason-lspconfig').setup({
-        ensure_installed = {},
-        handlers = {
-          -- this first function is the "default handler"
-          -- it applies to every language server without a "custom handler"
-          function(server_name)
-            require('lspconfig')[server_name].setup({})
-          end,
+      -- Add cmp_nvim_lsp capabilities settings to lspconfig
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      for _, server in ipairs(require('mason-lspconfig').get_installed_servers()) do
+        vim.lsp.config(server, {
+          capabilities = capabilities,
+        })
+      end
 
-          lua_ls = function()
-            require('lspconfig').lua_ls.setup({
-              on_init = function(client)
-                lsp_zero.nvim_lua_settings(client, {})
-              end,
-            })
-          end,
-
-          ts_ls = function()
-            require('lspconfig').ts_ls.setup({
-              settings = {
-                javascript = {
-                  format = {
-                    semicolons = 'insert'
-                  }
-                },
-                implicitProjectConfiguration = {
-                  checkJs = true
-                }
-              }
-            })
-          end
+      vim.lsp.config("ts_ls", {
+        settings = {
+          implicitProjectConfiguration = {
+            checkJs = true
+          }
         }
       })
+
+      -- Automatically enable installed servers
+      require("mason-lspconfig").setup()
     end
   },
 
@@ -222,13 +186,10 @@ return {
   },
 
   {
-    "nvim-lua/plenary.nvim",
-  },
-
-  {
     "nvimtools/none-ls.nvim",
     dependencies = {
       "nvimtools/none-ls-extras.nvim",
+      "nvim-lua/plenary.nvim",
     },
     opts = function()
       local null_ls = require("null-ls")
