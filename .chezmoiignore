@@ -1,0 +1,25 @@
+packages.txt
+setup.sh
+{{ if ne .chezmoi.os "linux" }}
+.config/autorand
+.config/bspwm
+.config/dunst
+.config/fontconfig
+.config/gtk-3.0
+.config/gtk-4.0
+.config/Kvantum
+.config/MangoHud
+.config/mpv
+.config/polybar
+.config/qt5ct
+.config/qt6ct
+.config/rofi
+.config/sxhkd
+.config/systemd
+.config/systemd_unit_files
+.config/login_logo
+.config/pam_login
+.config/picom.conf
+{{ end }}
+{{ if ne .chezmoi.os "darwin" }}
+{{ end }}
