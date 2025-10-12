@@ -39,7 +39,11 @@ TERM = "xterm-256color"
 WINIT_X11_SCALE_FACTOR = "1.0"
 
 [font]
+{{- if eq .chezmoi.os "linux" }}
 size = 10.5
+{{- else if eq .chezmoi.os "darwin" }}
+size = 13
+{{- end }}
 
 [font.bold]
 family = "MesloLGS NF"
@@ -62,9 +66,25 @@ args = ["-l", "-c", "tmux"]
 program = "/bin/zsh"
 
 [window]
-decorations = "none"
 opacity = 0.9
+{{- if eq .chezmoi.os "linux" }}
+decorations = "none"
+{{- else if eq .chezmoi.os "darwin" }}
+decorations = "Buttonless"
+blur = true
+option_as_alt = "OnlyLeft"
+{{- end }}
 
 [window.padding]
 x = 12
 y = 12
+{{- if eq .chezmoi.os "darwin" }}
+
+[keyboard]
+bindings = [
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left",  mods = "Alt", chars = "\u001BB" },
+  { key = "Delete", mods = "Alt", chars = "\u001Bd" },
+  { key = "Backspace", mods = "Control", chars = "\u0017" }
+]
+{{- end }}

@@ -1,6 +1,8 @@
 packages.txt
-setup.sh
-{{ if ne .chezmoi.os "linux" }}
+setup_linux.sh
+setup_darwin.sh
+Brewfile
+{{- if ne .chezmoi.os "linux" }}
 .config/autorand
 .config/bspwm
 .config/dunst
@@ -20,6 +22,10 @@ setup.sh
 .config/login_logo
 .config/pam_login
 .config/picom.conf
-{{ end }}
-{{ if ne .chezmoi.os "darwin" }}
-{{ end }}
+{{- end }}
+{{- if ne .chezmoi.os "darwin" }}
+.skhdrc
+.yabairc
+.config/borders
+.config/sketchybar
+{{- end }}
