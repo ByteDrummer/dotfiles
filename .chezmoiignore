@@ -3,7 +3,7 @@ setup_linux.sh
 setup_darwin.sh
 Brewfile
 {{- if ne .chezmoi.os "linux" }}
-.config/autorand
+.config/autorandr
 .config/bspwm
 .config/dunst
 .config/fontconfig
@@ -22,6 +22,10 @@ Brewfile
 .config/login_logo
 .config/pam_login
 .config/picom.conf
+.icons
+.themes
+.Xresources
+.xinitrc
 {{- end }}
 {{- if ne .chezmoi.os "darwin" }}
 .skhdrc
