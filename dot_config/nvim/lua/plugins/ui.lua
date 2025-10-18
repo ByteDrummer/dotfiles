@@ -1,9 +1,7 @@
 return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
-     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
     opts = {},
   },
 
@@ -18,6 +16,14 @@ return {
       vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep)
       vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers)
       vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags)
+
+      require('telescope').setup {
+        pickers = {
+          find_files = {
+            hidden = true
+          }
+        }
+      }
     end
   },
 
