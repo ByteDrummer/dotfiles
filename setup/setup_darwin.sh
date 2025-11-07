@@ -3,7 +3,7 @@
 # Show commands
 set -x
 
-brew bundle install --file ~/Brewfile
+brew bundle install --file Brewfile
 
 yabai --start-service
 skhd --start-service

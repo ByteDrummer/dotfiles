@@ -1,7 +1,4 @@
-packages.txt
-setup_linux.sh
-setup_darwin.sh
-Brewfile
+setup/
 {{- if ne .chezmoi.os "linux" }}
 .config/autorandr
 .config/bspwm

@@ -22,7 +22,7 @@ sudo systemctl enable cronie.service
 sudo usermod -aG video "$USER"
 
 # Enable locking on suspend
-sudo cp ~/.config/systemd_unit_files/lock-on-suspend@.service /etc/systemd/system/
+sudo cp lock-on-suspend@.service /etc/systemd/system/
 sudo systemctl enable lock-on-suspend@"$USER".service
 
 # Disable the display manager
@@ -32,11 +32,11 @@ sudo rm /etc/systemd/system/display-manager.service
 systemctl --user enable opentabletdriver.service --now
 
 # Add login message
-sudo cp ~/.config/login_logo /etc/issue
+sudo cp login_logo /etc/issue
 
 # Setup GNOME Keyring
 sudo cp /etc/pam.d/login /etc/pam.d/login.bak
-sudo cp ~/.config/pam_login /etc/pam.d/login
+sudo cp pam_login /etc/pam.d/login
 
 # Setup gtk theme
 sudo mkdir /root/.config
