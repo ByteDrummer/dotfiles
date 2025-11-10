@@ -181,7 +181,7 @@ super + Print
 
 # Shortcuts
 super + w 
-  firefox
+  brave
 
 super + n 
   nautilus --new-window
