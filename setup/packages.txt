@@ -20,8 +20,10 @@ feh
 file-roller
 firefox
 gamemode
+geary
 gnome-disk-utility
 gnome-keyring
+gnome-online-accounts-gtk
 gthumb
 gtk-engine-murrine
 gvfs
@@ -64,7 +66,6 @@ rofi
 scrot
 sxhkd
 sysstat
-thunderbird
 timeshift
 tmux
 ttf-hack-nerd
