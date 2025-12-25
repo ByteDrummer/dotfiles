@@ -419,3 +419,7 @@
     appname = "NetworkManager Applet"
     skip_display = yes
     history_ignore = yes
+
+[geary]
+    appname = "Geary"
+    new_icon = "email"
