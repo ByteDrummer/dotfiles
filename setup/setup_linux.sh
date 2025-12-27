@@ -38,6 +38,9 @@ sudo cp login_logo /etc/issue
 sudo cp /etc/pam.d/login /etc/pam.d/login.bak
 sudo cp pam_login /etc/pam.d/login
 
+# Allow autorandr to run "systemctl suspend"
+sudo cp 85-system-actions.rules /etc/polkit-1/rules.d/
+
 # Setup gtk theme
 sudo mkdir /root/.config
 sudo mkdir /root/.themes
