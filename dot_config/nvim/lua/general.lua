@@ -1,5 +1,3 @@
--- disable line wrapping since it interferes with colorcolumn
-vim.opt.wrap = false
 -- The encoding written to file
 vim.opt.fileencoding = "utf-8"
 -- Make completion menu smaller
@@ -42,10 +40,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.ignorecase = true
 -- case sensitive search if capital letter is used
 vim.opt.smartcase = true
--- folding by expression defined using treesitter
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
--- Disable folding at startup.
-vim.opt.foldlevel = 99
+-- Disable folding at startup
+vim.opt.foldlevelstart = 99
 -- Stop newline continution of comments
 vim.api.nvim_create_autocmd("BufEnter", { callback = function() vim.opt.formatoptions:remove { "c", "r", "o" } end })
