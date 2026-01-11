@@ -133,31 +133,47 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    lazy = false,
+    build = ':TSUpdate',
     config = function()
-      local configs = require("nvim-treesitter.configs")
-      configs.setup({
-        highlight = {
-          enable = true,
-          disable = {},
-        },
-        indent = {
-          enable = false,
-          disable = {},
-        },
-        ensure_installed = {
-          'cpp',
-          'javascript',
-          'html',
-          'python',
-          'bash',
-          'java',
-          'json',
-          'vim'
-        },
+      local ts = require("nvim-treesitter")
 
+      -- Automatic parser installation
+      ts.install({
+        'cpp',
+        'javascript',
+        'html',
+        'python',
+        'bash',
+        'java',
+        'json',
+        'vim',
+        'lua'
       })
-    end
+
+      -- Feature activation
+      vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("TreesitterFeatures", { clear = true }),
+        callback = function(args)
+          local bufnr = args.buf
+          local ft = vim.bo[bufnr].filetype
+
+          -- Only enable if a parser is actually installed for this filetype
+          local has_parser, _ = pcall(vim.treesitter.get_parser, bufnr, ft)
+          if has_parser then
+            -- Highlighting
+            vim.treesitter.start(bufnr)
+
+            -- Folding
+            vim.wo[0].foldmethod = "expr"
+            vim.wo[0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+            -- Indentation
+            vim.bo[bufnr].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
+      })
+    end,
   },
 
   {

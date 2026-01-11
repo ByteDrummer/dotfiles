@@ -68,6 +68,7 @@ sxhkd
 sysstat
 timeshift
 tmux
+tree-sitter-cli
 ttf-hack-nerd
 ttf-meslo-nerd-font-powerlevel10k
 tumbler
