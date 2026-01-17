@@ -98,8 +98,9 @@ return {
           vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts)
           vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
           vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+
           vim.keymap.set({ 'n', 'x' }, '<F3>', function()
-            vim.lsp.buf.format({
+            local opts = {
               async = false,
               timeout_ms = 10000,
               filter = function(client)
@@ -108,8 +109,23 @@ return {
                 -- Check if the client is in the exclude list
                 return not vim.tbl_contains(exclude, client.name)
               end,
-            })
+            }
+
+            -- Check if we are in a visual mode
+            local mode = vim.api.nvim_get_mode().mode
+            if mode:match("^[vV\22]") then
+              -- Exit visual mode
+              vim.api.nvim_input("<Esc>")
+              -- Set formatting range
+              opts.range = {
+                ["start"] = vim.api.nvim_buf_get_mark(0, '<'),
+                ["end"] = vim.api.nvim_buf_get_mark(0, '>'),
+              }
+            end
+
+            vim.lsp.buf.format(opts)
           end)
+
           vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
         end,
       })
