@@ -40,6 +40,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.ignorecase = true
 -- case sensitive search if capital letter is used
 vim.opt.smartcase = true
+-- Default foldmethod in case treesitter parser isn't installed
+vim.opt.foldmethod = "indent"
 -- Disable folding at startup
 vim.opt.foldlevelstart = 99
 -- Stop newline continution of comments

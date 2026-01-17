@@ -159,17 +159,17 @@ return {
           local ft = vim.bo[bufnr].filetype
 
           -- Only enable if a parser is actually installed for this filetype
-          local has_parser, _ = pcall(vim.treesitter.get_parser, bufnr, ft)
-          if has_parser then
+          local parser = vim.treesitter.get_parser(bufnr, ft, { error = false })
+          if parser then
             -- Highlighting
             vim.treesitter.start(bufnr)
 
             -- Folding
-            vim.wo[0].foldmethod = "expr"
-            vim.wo[0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+            vim.wo[0][0].foldmethod = 'expr'
 
             -- Indentation
-            vim.bo[bufnr].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
           end
         end,
       })
