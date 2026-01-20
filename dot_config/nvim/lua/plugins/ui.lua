@@ -156,10 +156,9 @@ return {
         group = vim.api.nvim_create_augroup("TreesitterFeatures", { clear = true }),
         callback = function(args)
           local bufnr = args.buf
-          local ft = vim.bo[bufnr].filetype
 
           -- Only enable if a parser is actually installed for this filetype
-          local parser = vim.treesitter.get_parser(bufnr, ft, { error = false })
+          local parser = vim.treesitter.get_parser(bufnr, nil, { error = false })
           if parser then
             -- Highlighting
             vim.treesitter.start(bufnr)
