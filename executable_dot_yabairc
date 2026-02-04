@@ -12,8 +12,11 @@ yabai -m config mouse_modifier alt
 yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize
 
-yabai -m config focus_follows_mouse autofocus
+yabai -m config focus_follows_mouse autoraise
 
 yabai -m config insert_feedback_color 0xffabb2bf
 
 yabai -m config external_bar all:33:0
+
+# workaround for focus_follows_mouse randomly stopping
+yabai -m signal --add event=window_focused action="yabai -m config focus_follows_mouse autoraise"
