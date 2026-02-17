@@ -74,6 +74,8 @@ vivid
 xclip
 xdg-user-dirs-gtk
 xidlehook
+xorg-server
 xorg-xdpyinfo
+xorg-xinit
 xorg-xsetroot
 zsh
