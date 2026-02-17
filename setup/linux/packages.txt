@@ -37,7 +37,7 @@ kvantum-qt5
 lib32-gamemode
 lib32-mangohud
 light
-lxappearance-gtk3
+lxappearance
 mangohud
 mpv
 nautilus-open-any-terminal
