@@ -41,6 +41,12 @@ sudo cp pam_login /etc/pam.d/login
 # Allow autorandr to run "systemctl suspend"
 sudo cp 85-system-actions.rules /etc/polkit-1/rules.d/
 
+# Set wireless regulatory domain
+sudo cp wireless-regdom /etc/conf.d/wireless-regdom
+
+# Disable network power saving
+sudo cp powersave.conf /etc/NetworkManager/conf.d/powersave.conf
+
 # Setup gtk theme
 sudo mkdir /root/.config
 sudo mkdir /root/.themes
