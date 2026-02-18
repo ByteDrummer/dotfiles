@@ -29,7 +29,7 @@ sudo systemctl enable lock-on-suspend@"$USER".service
 systemctl --user enable opentabletdriver.service --now
 
 # Add login message
-sudo cp login_logo /etc/issue
+sudo cp issue /etc/issue
 
 # Setup GNOME Keyring
 sudo cp /etc/pam.d/login /etc/pam.d/login.bak
