@@ -3,8 +3,11 @@
 # Show commands
 set -x
 
+# Copy dotfiles
+chezmoi apply
+
 # Install all required packages
-yay -Syu --needed - < packages.txt
+xargs -a packages.txt paru -Syu --needed
 
 # Switch shell
 chsh -s "$(which zsh)"
@@ -15,18 +18,12 @@ gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacri
 # Make Alacritty the default terminal emulator
 sudo ln -s /usr/bin/alacritty /usr/bin/xterm
 
-# Enable cronie service for timeshift
-sudo systemctl enable cronie.service
-
 # Needed for light
 sudo usermod -aG video "$USER"
 
 # Enable locking on suspend
 sudo cp lock-on-suspend@.service /etc/systemd/system/
 sudo systemctl enable lock-on-suspend@"$USER".service
-
-# Disable the display manager
-sudo rm /etc/systemd/system/display-manager.service
 
 # Enable OpenTabletDriver daemon
 systemctl --user enable opentabletdriver.service --now
@@ -47,7 +44,7 @@ sudo cp wireless-regdom /etc/conf.d/wireless-regdom
 # Disable network power saving
 sudo cp powersave.conf /etc/NetworkManager/conf.d/powersave.conf
 
-# Setup gtk theme
+# Setup root gtk theme
 sudo mkdir /root/.config
 sudo mkdir /root/.themes
 sudo ln -s ~/.config/gtk-3.0 /root/.config/gtk-3.0
@@ -55,10 +52,11 @@ sudo ln -s ~/.config/gtk-4.0 /root/.config/gtk-4.0
 sudo ln -s ~/.themes/adw-gtk3-dark /root/.themes/adw-gtk3-dark
 sudo ln -s ~/.icons/oreo_white_cursors /usr/share/icons/oreo_white_cursors
 
-# Disable loud system beep
-sudo sh -c 'rmmod pcspkr ; echo "blacklist pcspkr" >>/etc/modprobe.d/blacklist.conf'
+# Disable loud beep
+echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
+sudo rmmod pcspkr
 
 # Setup gamemode
 sudo usermod -aG gamemode "$USER"
 
-mkdir ~/Pictures/Screenshots
+mkdir -p ~/Pictures/Screenshots
