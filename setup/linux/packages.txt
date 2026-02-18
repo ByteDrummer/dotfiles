@@ -62,7 +62,6 @@ qt6ct
 ripgrep
 rofi
 scrot
-spotify
 sxhkd
 sysstat
 tmux
