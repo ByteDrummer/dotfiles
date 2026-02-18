@@ -59,4 +59,7 @@ sudo rmmod pcspkr
 # Setup gamemode
 sudo usermod -aG gamemode "$USER"
 
+# Use libsecret as the git credential helper
+git config --global credential.helper libsecret
+
 mkdir -p ~/Pictures/Screenshots
