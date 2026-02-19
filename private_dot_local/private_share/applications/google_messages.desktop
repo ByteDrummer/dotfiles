@@ -1,0 +1,8 @@
+[Desktop Entry]
+Terminal=false
+Type=Application
+Name=Google Messages
+Exec=brave --app=https://messages.google.com/
+Icon=android-messages-desktop
+StartupWMClass=messages.google.com
+Categories=Network;Chat;InstantMessaging;
