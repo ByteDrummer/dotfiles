@@ -17,7 +17,6 @@ dunst
 evince
 feh
 file-roller
-gamemode
 geary
 gnome-disk-utility
 gnome-keyring
@@ -34,7 +33,6 @@ jdk-openjdk
 jq
 kvantum
 kvantum-qt5
-lib32-gamemode
 lib32-mangohud
 light
 lxappearance

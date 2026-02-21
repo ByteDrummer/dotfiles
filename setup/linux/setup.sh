@@ -62,9 +62,6 @@ sudo ln -sf ~/.icons/oreo_white_cursors /usr/share/icons/oreo_white_cursors
 echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 sudo modprobe -r pcspkr 2>/dev/null || true
 
-# Setup gamemode
-sudo usermod -aG gamemode "$USER"
-
 # Use libsecret as the git credential helper
 git config --global credential.helper libsecret
 
