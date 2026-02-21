@@ -19,7 +19,7 @@ chsh -s "$(which zsh)"
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacritty
 
 # Make Alacritty the default terminal emulator
-sudo ln -s /usr/bin/alacritty /usr/bin/xterm
+sudo ln -sf /usr/bin/alacritty /usr/bin/xterm
 
 # Needed for light
 sudo usermod -aG video "$USER"
@@ -48,16 +48,16 @@ sudo cp wireless-regdom /etc/conf.d/wireless-regdom
 sudo cp powersave.conf /etc/NetworkManager/conf.d/powersave.conf
 
 # Setup root gtk theme
-sudo mkdir /root/.config
-sudo mkdir /root/.themes
-sudo ln -s ~/.config/gtk-3.0 /root/.config/gtk-3.0
-sudo ln -s ~/.config/gtk-4.0 /root/.config/gtk-4.0
-sudo ln -s ~/.themes/adw-gtk3-dark /root/.themes/adw-gtk3-dark
-sudo ln -s ~/.icons/oreo_white_cursors /usr/share/icons/oreo_white_cursors
+sudo mkdir -p /root/.config
+sudo mkdir -p /root/.themes
+sudo ln -sf ~/.config/gtk-3.0 /root/.config/gtk-3.0
+sudo ln -sf ~/.config/gtk-4.0 /root/.config/gtk-4.0
+sudo ln -sf ~/.themes/adw-gtk3-dark /root/.themes/adw-gtk3-dark
+sudo ln -sf ~/.icons/oreo_white_cursors /usr/share/icons/oreo_white_cursors
 
 # Disable loud beep
 echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
-sudo rmmod pcspkr
+sudo modprobe -r pcspkr 2>/dev/null || true
 
 # Setup gamemode
 sudo usermod -aG gamemode "$USER"
