@@ -58,6 +58,11 @@ sudo ln -sf ~/.config/gtk-4.0 /root/.config/gtk-4.0
 sudo ln -sf ~/.themes/adw-gtk3-dark /root/.themes/adw-gtk3-dark
 sudo ln -sf ~/.icons/oreo_white_cursors /usr/share/icons/oreo_white_cursors
 
+# Setup root qt theme
+sudo ln -sf ~/.config/qt5ct /root/.config/qt5ct
+sudo ln -sf ~/.config/qt6ct /root/.config/qt6ct
+sudo ln -sf ~/.config/Kvantum /root/.config/Kvantum
+
 # Disable loud beep
 echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 sudo modprobe -r pcspkr 2>/dev/null || true
