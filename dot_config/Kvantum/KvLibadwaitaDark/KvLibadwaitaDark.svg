@@ -5,7 +5,7 @@
    version="1"
    id="svg1810"
    sodipodi:docname="KvLibadwaitaDark.svg"
-   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -20,12 +20,12 @@
      inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
      showgrid="true"
-     inkscape:zoom="2.56"
-     inkscape:cx="283.59375"
-     inkscape:cy="838.28125"
-     inkscape:window-width="1766"
+     inkscape:zoom="10.24"
+     inkscape:cx="114.64844"
+     inkscape:cy="697.16797"
+     inkscape:window-width="1278"
      inkscape:window-height="1371"
-     inkscape:window-x="12"
+     inkscape:window-x="2146"
      inkscape:window-y="53"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg1810"
@@ -1164,48 +1164,48 @@
      y="930"
      width="8"
      height="4"
-     style="opacity:1;fill:#616161;fill-opacity:1" />
+     style="opacity:1;fill:#474b51;fill-opacity:1" />
   <rect
      id="itemview-pressed-bottom"
      x="52"
      y="942"
      width="8"
      height="4"
-     style="opacity:1;fill:#616161;fill-opacity:1" />
+     style="opacity:1;fill:#474b51;fill-opacity:1" />
   <path
      id="itemview-pressed"
      d="m 52,934 h 8 v 8 h -8 z"
-     style="opacity:1;fill:#616161;fill-opacity:1;stroke-width:0.999999" />
+     style="opacity:1;fill:#474b51;fill-opacity:1;stroke-width:0.999999" />
   <path
      id="itemview-pressed-topright"
      d="m 60,930 c 4,0 4,4 4,4 h -4 z"
-     style="opacity:1;fill:#616161;fill-opacity:1" />
+     style="opacity:1;fill:#474b51;fill-opacity:1" />
   <path
      id="itemview-pressed-bottomright"
      d="m 60,942 h 4 c 0,0 0,4 -4,4 z"
-     style="opacity:1;fill:#616161;fill-opacity:1" />
+     style="opacity:1;fill:#474b51;fill-opacity:1" />
   <rect
      id="itemview-pressed-right"
      x="60"
      y="934"
      width="4"
      height="8"
-     style="opacity:1;fill:#616161;fill-opacity:1" />
+     style="opacity:1;fill:#474b51;fill-opacity:1" />
   <rect
      id="itemview-pressed-left"
      x="48"
      y="934"
      width="4"
      height="8"
-     style="opacity:1;fill:#616161;fill-opacity:1" />
+     style="opacity:1;fill:#474b51;fill-opacity:1" />
   <path
      id="itemview-pressed-topleft"
      d="m 52,930 v 4 h -4 c 0,0 0,-4 4,-4 z"
-     style="opacity:1;fill:#616161;fill-opacity:1" />
+     style="opacity:1;fill:#474b51;fill-opacity:1" />
   <path
      id="itemview-pressed-bottomleft"
      d="m 48,942 h 4 v 4 c -4,0 -4,-4 -4,-4 z"
-     style="opacity:1;fill:#616161;fill-opacity:1" />
+     style="opacity:1;fill:#474b51;fill-opacity:1" />
   <rect
      id="itemview-toggled-top"
      x="71"
@@ -1260,48 +1260,48 @@
      y="930"
      width="8"
      height="4"
-     style="opacity:1;fill:#3d3d3d;fill-opacity:1" />
+     style="opacity:1;fill:#323840;fill-opacity:1" />
   <rect
      id="itemview-focused-bottom"
      x="33"
      y="942"
      width="8"
      height="4"
-     style="opacity:1;fill:#3d3d3d;fill-opacity:1" />
+     style="opacity:1;fill:#323840;fill-opacity:1" />
   <path
      id="itemview-focused"
      d="m 33,934 h 8 v 8 h -8 z"
-     style="opacity:1;fill:#3d3d3d;fill-opacity:1" />
+     style="opacity:1;fill:#323840;fill-opacity:1" />
   <rect
      id="itemview-focused-right"
      x="41"
      y="934"
      width="4"
      height="8"
-     style="opacity:1;fill:#3d3d3d;fill-opacity:1" />
+     style="opacity:1;fill:#323840;fill-opacity:1" />
   <path
      id="itemview-focused-topright"
      d="m 41,930 c 4,0 4,4 4,4 h -4 z"
-     style="opacity:1;fill:#3d3d3d;fill-opacity:1" />
+     style="opacity:1;fill:#323840;fill-opacity:1" />
   <path
      id="itemview-focused-bottomright"
      d="m 41,942 h 4 c 0,0 0,4 -4,4 z"
-     style="opacity:1;fill:#3d3d3d;fill-opacity:1" />
+     style="opacity:1;fill:#323840;fill-opacity:1" />
   <rect
      id="itemview-focused-left"
      x="29"
      y="934"
      width="4"
      height="8"
-     style="opacity:1;fill:#3d3d3d;fill-opacity:1" />
+     style="opacity:1;fill:#323840;fill-opacity:1" />
   <path
      id="itemview-focused-topleft"
      d="m 33,930.00001 v 4 h -4 c 0,0 0,-4 4,-4 z"
-     style="opacity:1;fill:#3d3d3d;fill-opacity:1" />
+     style="opacity:1;fill:#323840;fill-opacity:1" />
   <path
      id="itemview-focused-bottomleft"
      d="m 29,942 h 4 v 4 c -4,0 -4,-4 -4,-4 z"
-     style="opacity:1;fill:#3d3d3d;fill-opacity:1" />
+     style="opacity:1;fill:#323840;fill-opacity:1" />
   <path
      id="toolbar-handle"
      d="m245 107a5 5 0 0 1-10 0 5 5 0 1 1 10 0z"
@@ -4482,14 +4482,15 @@
      xlink:href="#tabframe-normal-top-leftjunct" />
   <g
      id="tab-toggled"
-     transform="translate(0,-3)">
+     transform="translate(0,-3)"
+     style="fill:#3c4049;fill-opacity:1">
     <rect
        id="rect90454"
        width="12"
        height="6"
        x="88"
        y="683"
-       style="opacity:1;fill:#353942;fill-opacity:1" />
+       style="opacity:1;fill:#3c4049;fill-opacity:1" />
   </g>
   <g
      id="tab-toggled-topleft"
@@ -4504,7 +4505,7 @@
     <path
        id="rect90366"
        d="m 88,677 c -3.324,0 -6,2.676 -6,6 h 6 z"
-       style="opacity:1;fill:#353942;fill-opacity:1" />
+       style="opacity:1;fill:#3c4049;fill-opacity:1" />
   </g>
   <g
      id="tab-toggled-top"
@@ -4522,7 +4523,7 @@
        height="6"
        x="88"
        y="677"
-       style="opacity:1;fill:#353942;fill-opacity:1" />
+       style="opacity:1;fill:#3c4049;fill-opacity:1" />
   </g>
   <g
      id="tab-toggled-left"
@@ -4540,7 +4541,7 @@
        height="6"
        x="82"
        y="683"
-       style="opacity:1;fill:#353942;fill-opacity:1" />
+       style="opacity:1;fill:#3c4049;fill-opacity:1" />
   </g>
   <use
      x="0"
@@ -4566,7 +4567,7 @@
        height="6"
        x="88"
        y="677"
-       style="opacity:1;fill:#353942;fill-opacity:1" />
+       style="opacity:1;fill:#3c4049;fill-opacity:1" />
   </g>
   <g
      id="tab-toggled-bottomright"
@@ -4581,7 +4582,7 @@
     <path
        id="path90823"
        d="m 88,677 c -3.324,0 -6,2.676 -6,6 h 6 z"
-       style="opacity:1;fill:#353942;fill-opacity:1" />
+       style="opacity:1;fill:#3c4049;fill-opacity:1" />
   </g>
   <g
      id="tab-toggled-bottomleft"
@@ -4596,7 +4597,7 @@
     <path
        id="path90817"
        d="m 88,677 c -3.324,0 -6,2.676 -6,6 h 6 z"
-       style="opacity:1;fill:#353942;fill-opacity:1" />
+       style="opacity:1;fill:#3c4049;fill-opacity:1" />
   </g>
   <use
      id="tab-focused-topright"
@@ -4608,14 +4609,15 @@
      y="0" />
   <g
      id="tab-focused"
-     transform="translate(45,-3)">
+     transform="translate(45,-3)"
+     style="fill:#353942;fill-opacity:1">
     <rect
        id="rect90454-7"
        width="12"
        height="6"
        x="88"
        y="683"
-       style="opacity:1;fill:#3c4049;fill-opacity:1" />
+       style="opacity:1;fill:#353942;fill-opacity:1" />
   </g>
   <g
      id="tab-focused-topleft"
@@ -4630,7 +4632,7 @@
     <path
        id="rect90366-3"
        d="m 88,677 c -3.324,0 -6,2.676 -6,6 h 6 z"
-       style="opacity:1;fill:#3c4049;fill-opacity:1" />
+       style="opacity:1;fill:#353942;fill-opacity:1" />
   </g>
   <g
      id="tab-focused-top"
@@ -4648,7 +4650,7 @@
        height="6"
        x="88"
        y="677"
-       style="opacity:1;fill:#3c4049;fill-opacity:1" />
+       style="opacity:1;fill:#353942;fill-opacity:1" />
   </g>
   <g
      id="tab-focused-left"
@@ -4666,7 +4668,7 @@
        height="6"
        x="82"
        y="683"
-       style="opacity:1;fill:#3c4049;fill-opacity:1" />
+       style="opacity:1;fill:#353942;fill-opacity:1" />
   </g>
   <use
      x="0"
@@ -4692,7 +4694,7 @@
        height="6"
        x="88"
        y="677"
-       style="opacity:1;fill:#3c4049;fill-opacity:1" />
+       style="opacity:1;fill:#353942;fill-opacity:1" />
   </g>
   <g
      id="tab-focused-bottomright"
@@ -4707,7 +4709,7 @@
     <path
        id="path90823-0"
        d="m 88,677 c -3.324,0 -6,2.676 -6,6 h 6 z"
-       style="opacity:1;fill:#3c4049;fill-opacity:1" />
+       style="opacity:1;fill:#353942;fill-opacity:1" />
   </g>
   <g
      id="tab-focused-bottomleft"
@@ -4722,7 +4724,7 @@
     <path
        id="path90817-3"
        d="m 88,677 c -3.324,0 -6,2.676 -6,6 h 6 z"
-       style="opacity:1;fill:#3c4049;fill-opacity:1" />
+       style="opacity:1;fill:#353942;fill-opacity:1" />
   </g>
   <g
      id="tab-normal-topright"
