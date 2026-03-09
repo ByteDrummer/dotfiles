@@ -1,6 +1,7 @@
 setup/
 {{- if ne .chezmoi.os "linux" }}
 .config/autorandr
+.config/autostart
 .config/bspwm
 .config/dunst
 .config/fontconfig
@@ -15,18 +16,16 @@ setup/
 .config/rofi
 .config/sxhkd
 .config/systemd
-.config/systemd_unit_files
-.config/login_logo
-.config/pam_login
 .config/picom.conf
 .icons
+.local
 .themes
-.Xresources
 .xinitrc
+.Xresources
 {{- end }}
 {{- if ne .chezmoi.os "darwin" }}
-.skhdrc
-.yabairc
 .config/borders
 .config/sketchybar
+.skhdrc
+.yabairc
 {{- end }}
