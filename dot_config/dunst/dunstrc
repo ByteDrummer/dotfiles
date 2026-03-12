@@ -260,6 +260,7 @@
     # Context menu.
     context = ctrl+shift+period
 
+    background = "#31353FE6"
 # Experimental features that may or may not work correctly. Do not expect them
 # to have a consistent behaviour across releases.
 [experimental]
@@ -273,21 +274,18 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#31353F"
     foreground = "#abb2bf"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /usr/share/icons/Arc-X-D/status/16/dialog-information.png
 
 [urgency_normal]
-    background = "#31353F"
     foreground = "#abb2bf"
     timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /usr/share/icons/Arc-X-D/status/16/dialog-question.png
 
 [urgency_critical]
-    background = "#31353F"
     foreground = "#abb2bf"
     frame_color = "#ff7f7f"
     timeout = 120
