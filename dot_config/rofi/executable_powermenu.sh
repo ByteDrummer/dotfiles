@@ -23,7 +23,7 @@ $shutdown" | rofi -dmenu\
                   -lines 5\
                   -theme-str 'window {width: 160px;
                                       location: northwest;
-                                      x-offset: 5%;}')
+                                      x-offset: 25%;}')
 
 # Do something based on selected option
 if [ "$selected" != "" ]; then

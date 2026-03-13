@@ -10,7 +10,7 @@ options="$option0\n$option1\n$option2"
 
 selected=$(echo -en "$options" | rofi -i lines 3 -dmenu -p "Scrot" -theme-str 'window {width: 140px;
                                                                                         location: northeast;
-                                                                                        x-offset: -5%;}')
+                                                                                        x-offset: -25%;}')
 
 if [ $selected != "\n" ]; then
   if [[ $option0 =~ $selected ]]; then
