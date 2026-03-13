@@ -71,11 +71,11 @@
 @define-color light_3 #abb2bf;
 @define-color light_4 #9ba1ab;
 @define-color light_5 #777f8c;
-@define-color dark_1 #5c6370;
-@define-color dark_2 #2D333B;
-@define-color dark_3 #282c34;
-@define-color dark_4 #1e2229;
-@define-color dark_5 #000000;
+@define-color dark_1 rgba(92, 99, 112, 0.9);
+@define-color dark_2 rgba(45, 51, 59, 0.9);
+@define-color dark_3 rgba(40, 44, 52, 0.9);
+@define-color dark_4 rgba(30, 34, 41, 0.9);
+@define-color dark_5 rgba(0, 0, 0, 0.9);
 @define-color sidebar_bg_color @window_bg_color;
 @define-color sidebar_fg_color @window_fg_color;
 @define-color sidebar_border_color @window_bg_color;
