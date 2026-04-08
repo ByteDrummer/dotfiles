@@ -50,6 +50,9 @@ sudo cp powersave.conf /etc/NetworkManager/conf.d/powersave.conf
 # Disable mouse acceleration
 sudo cp 40-disable-accel.conf /etc/X11/xorg.conf.d/
 
+# Add mouse udev rules
+sudo cp 71-pulsar.rules /etc/udev/rules.d/
+
 # Setup root gtk theme
 sudo mkdir -p /root/.config
 sudo mkdir -p /root/.themes
