@@ -86,48 +86,43 @@ return {
 
   {
     "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
     keys = {
       { '<F1>',      function() require("ui_modes"):tree_toggle() end, silent = true },
-      { '<leader>r', ':NvimTreeRefresh<CR>',                           silent = true },
-      { '<leader>n', ':NvimTreeFindFile<CR>',                          silent = true },
+      { '<leader>n', ":NvimTreeFindFile<CR>",                          silent = true },
     },
-
-    config = function()
-      require 'nvim-tree'.setup {
-        disable_netrw = true,
-        hijack_netrw  = true,
-        diagnostics   = {
+    opts = {
+      disable_netrw = true,
+      hijack_netrw  = true,
+      hijack_cursor = true,
+      diagnostics   = {
+        enable = true,
+        icons = {
+          hint = "",
+          info = "",
+          warning = "",
+          error = "",
+        }
+      },
+      filters       = {
+        git_ignored = false,
+      },
+      view          = {
+        width = 34,
+      },
+      renderer      = {
+        indent_markers = {
           enable = true,
-          icons = {
-            hint = "",
-            info = "",
-            warning = "",
-            error = "",
+        },
+        icons = {
+          show = {
+            folder_arrow = false,
           }
         },
-        git           = {
-          ignore = false,
-        },
-        view          = {
-          width = 34,
-        },
-        renderer      = {
-          indent_markers = {
-            enable = true,
-          },
-          icons = {
-            show = {
-              folder_arrow = false,
-            }
-          },
-        },
-      }
-    end,
+      },
+    }
 
   },
 
