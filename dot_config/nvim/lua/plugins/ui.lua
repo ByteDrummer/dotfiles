@@ -230,7 +230,7 @@ return {
     init = function() vim.g.barbar_auto_setup = false end,
     opts = {
       exclude_ft = { 'dap-repl', 'qf' },
-      exclude_name = { 'python' },
+      exclude_name = { '', 'python' },
       icons = {
         modified = { button = '' }
       }
