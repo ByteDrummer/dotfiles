@@ -72,19 +72,25 @@ decorations = "none"
 {{- else if eq .chezmoi.os "darwin" }}
 decorations = "Buttonless"
 blur = true
+# To use Option as standard macOS word modifier/navigator
 option_as_alt = "OnlyLeft"
 {{- end }}
 
 [window.padding]
 x = 12
 y = 12
-{{- if eq .chezmoi.os "darwin" }}
 
 [keyboard]
 bindings = [
-  { key = "Right", mods = "Alt", chars = "\u001BF" },
-  { key = "Left",  mods = "Alt", chars = "\u001BB" },
+{{- if eq .chezmoi.os "darwin" }}
+  # To use Option as standard macOS word modifier/navigator
+  { key = "Right", mods = "Alt", chars = "\u001b[1;5C" },
+  { key = "Left",  mods = "Alt", chars = "\u001b[1;5D" },
   { key = "Delete", mods = "Alt", chars = "\u001Bd" },
-  { key = "Backspace", mods = "Control", chars = "\u0017" }
-]
+  { key = "Backspace", mods = "Alt", chars = "\u0017" },
 {{- end }}
+{{- if eq .chezmoi.os "linux" }}
+  # To support word deletion in Neovim command prompt
+  { key = "Backspace", mods = "Control", chars = "\u0017" }
+{{- end }}
+]
