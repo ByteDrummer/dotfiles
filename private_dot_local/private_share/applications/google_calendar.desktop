@@ -2,7 +2,7 @@
 Terminal=false
 Type=Application
 Name=Google Calendar
-Exec=brave --app=https://calendar.google.com/
+Exec=brave-origin-beta --app=https://calendar.google.com/
 Icon=google-agenda
 StartupWMClass=calendar.google.com
 Categories=Office;Calendar;Network;
