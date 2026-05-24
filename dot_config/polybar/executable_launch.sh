@@ -19,7 +19,7 @@ if type "xrandr" >/dev/null 2>&1; then
 
   for MONITOR in $(echo "$monitors" | cut -d" " -f1); do
     source "$(dirname "$0")/get_bar_geometry.sh"
-    MONITOR=$MONITOR BAR_WIDTH=$BAR_WIDTH BAR_OFFSET=$BAR_OFFSET polybar --reload top &
+    MONITOR=$MONITOR BAR_WIDTH=$BAR_WIDTH BAR_OFFSET=$BAR_OFFSET WM_NAME="polybar-${MONITOR}" polybar --reload top &
     sleep 0.3
   done
 else

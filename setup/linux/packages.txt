@@ -75,4 +75,5 @@ xorg-server
 xorg-xdpyinfo
 xorg-xinit
 xorg-xsetroot
+xorg-xwininfo
 zsh
