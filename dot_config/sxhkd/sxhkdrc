@@ -181,7 +181,7 @@ super + Print
 
 # Shortcuts
 super + w 
-  brave-origin-beta
+  brave-origin
 
 super + n 
   nautilus --new-window

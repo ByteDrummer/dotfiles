@@ -2,7 +2,7 @@
 Terminal=false
 Type=Application
 Name=Google Messages
-Exec=brave-origin-beta --app=https://messages.google.com/
+Exec=brave-origin --app=https://messages.google.com/
 Icon=android-messages-desktop
 StartupWMClass=messages.google.com
 Categories=Network;Chat;InstantMessaging;

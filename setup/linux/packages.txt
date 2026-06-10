@@ -7,7 +7,7 @@ autorandr
 baobab
 betterlockscreen
 blueman
-brave-origin-beta-bin
+brave-origin-bin
 bspwm
 btop
 caffeine-ng
