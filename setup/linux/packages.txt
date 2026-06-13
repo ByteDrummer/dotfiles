@@ -22,7 +22,6 @@ gnome-disk-utility
 gnome-keyring
 gnome-online-accounts-gtk
 gthumb
-gtk-engine-murrine
 gvfs
 gvfs-afc
 gvfs-gphoto2
