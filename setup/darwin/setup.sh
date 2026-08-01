@@ -3,6 +3,9 @@
 # Show commands
 set -x
 
+# Stop script on error
+set -e
+
 brew bundle install --file Brewfile
 
 yabai --start-service
