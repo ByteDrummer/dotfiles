@@ -166,11 +166,11 @@ XF86AudioNext
 
 # Brightness up
 XF86MonBrightnessUp
-  light -A 5
+  brightnessctl -c backlight set 5%+
 
 # And brightness down
 XF86MonBrightnessDown
-  light -U 5
+  brightnessctl -c backlight set 5%-
 
 # Screenshot
 Print

@@ -55,8 +55,8 @@ xsetroot -cursor_name left_ptr &
 # without a display manager so it is handled here
 xidlehook \
   --detect-sleep --not-when-audio --not-when-fullscreen \
-  --timer 120 'light -O;light -S 5' 'light -I' \
-  --timer 420 'betterlockscreen -l dimblur' 'light -I' \
-  --timer 660 'light -I;systemctl suspend' '' &
+  --timer 120 'brightnessctl -c backlight -s set 5%' 'brightnessctl -c backlight -r' \
+  --timer 420 'betterlockscreen -l dimblur' 'brightnessctl -c backlight -r' \
+  --timer 660 'brightnessctl -c backlight -r;systemctl suspend' '' &
 # Start graphical-session needed for OpenTabletDriver
 systemctl --user start x-session.target &

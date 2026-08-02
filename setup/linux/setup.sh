@@ -21,8 +21,8 @@ gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacri
 # Make Alacritty the default terminal emulator
 sudo ln -sf /usr/bin/alacritty /usr/bin/xterm
 
-# Needed for light
-sudo usermod -aG video "$USER"
+# Needed for brightnessctl
+sudo usermod -aG video,input "$USER"
 
 # Enable locking on suspend
 sudo cp lock-on-suspend@.service /etc/systemd/system/
