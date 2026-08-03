@@ -1,7 +1,6 @@
 acpi
 adw-gtk-theme
 alacritty
-antigen
 arandr
 autorandr
 baobab
@@ -58,6 +57,7 @@ qt6ct
 ripgrep
 rofi
 scrot
+sheldon
 sxhkd
 sysstat
 tmux
