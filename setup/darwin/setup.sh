@@ -14,6 +14,3 @@ yabai --start-service
 skhd --start-service
 brew services start sketchybar
 brew services start borders
-
-# Install zsh plugins
-sheldon lock

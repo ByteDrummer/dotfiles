@@ -73,7 +73,4 @@ sudo modprobe -r pcspkr 2>/dev/null || true
 # Use libsecret as the git credential helper
 git config --global credential.helper libsecret
 
-# Install zsh plugins
-sheldon lock
-
 mkdir -p ~/Pictures/Screenshots
