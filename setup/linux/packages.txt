@@ -51,7 +51,6 @@ playerctl
 polkit-gnome
 polybar
 pyenv
-python-pip
 qt5ct
 qt6ct
 ripgrep
