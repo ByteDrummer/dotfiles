@@ -4,6 +4,4 @@ if [[ "$(tty)" = "/dev/tty1" ]]; then
 fi
 {{- else if eq .chezmoi.os "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
-# Homebrew: Python
-export PATH="/opt/homebrew/opt/python/libexec/bin:$PATH"
 {{- end }}
