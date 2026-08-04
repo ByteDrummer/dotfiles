@@ -141,11 +141,11 @@ super + {Left,Down,Up,Right}
 
 # Multimedia keys
 XF86AudioRaiseVolume
-  amixer set Master 3%+ unmute
+  wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 3%+ && wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
 
 # Still multimedia
 XF86AudioLowerVolume
-  amixer set Master 3%- unmute
+  wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 3%- && wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
 
 # still
 XF86AudioMute
