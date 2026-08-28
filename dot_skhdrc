@@ -1,5 +1,5 @@
 # Open terminal
-alt - return : alacritty
+alt - return : open -na Alacritty
 
 # Open browser
 alt - w : open -na /Applications/Island.app
