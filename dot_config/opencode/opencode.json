@@ -1,4 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "lsp": false
+  "lsp": false,
+  "permission": {
+    "bash": {
+      "git *": "allow",
+      "git commit*": "deny",
+      "git push*": "deny"
+    }
+  }
 }
