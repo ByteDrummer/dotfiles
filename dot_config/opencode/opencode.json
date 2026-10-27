@@ -5,7 +5,8 @@
     "bash": {
       "git *": "allow",
       "git commit*": "deny",
-      "git push*": "deny"
+      "git push*": "deny",
+      "git add*": "deny"
     }
   }
 }
