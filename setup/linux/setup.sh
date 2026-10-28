@@ -66,6 +66,9 @@ sudo ln -sf ~/.config/qt5ct /root/.config/qt5ct
 sudo ln -sf ~/.config/qt6ct /root/.config/qt6ct
 sudo ln -sf ~/.config/Kvantum /root/.config/Kvantum
 
+# Prefer dark mode (read by xdg-desktop-portal for browsers, Electron, libadwaita)
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
 # Disable loud beep
 echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 sudo modprobe -r pcspkr 2>/dev/null || true
